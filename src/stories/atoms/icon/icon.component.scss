@@ -1,18 +1,10 @@
 .IconWp {
-    svg {
-      color: var(--grey-main);
-    }
-  
+  color: var(--grey-main) !important;
     &--success {
-      svg {
-        color: var(--blue-main);
-      }
+      color: var(--blue-main) !important;
     }
-  
     &--error {
-      svg {
-        color: var(--red-main);
-      }
+      color: var(--red-main) !important;
     }
   }
   

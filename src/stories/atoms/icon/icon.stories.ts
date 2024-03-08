@@ -18,8 +18,22 @@ const meta: Meta<IconComponent> = {
 export default meta;
 type Story = StoryObj<IconComponent>;
 
-export const Primary: Story = {
+export const Example: Story = {
   args: {
-    name: 'hola',
+    name: 'calendar',
+  },
+};
+
+export const Error: Story = {
+  args: {
+    name: 'email',
+    color: "error"
+  },
+};
+
+export const success: Story = {
+  args: {
+    name: 'user',
+    color: "success"
   },
 };
