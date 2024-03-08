@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.2.12",
+    "@angular-extensions/svg-icons-builder": "^11.0.0",
     "@angular/cli": "^16.2.0",
     "@angular/compiler-cli": "^16.2.0",
     "@storybook/addon-essentials": "^7.6.17",
@@ -45,6 +46,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.17",
+    "svg-to-ts": "^7.1.0",
     "typescript": "~5.1.3"
   }
 }
