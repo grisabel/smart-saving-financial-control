@@ -20,7 +20,6 @@ type Story = StoryObj<IconComponent>;
 
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    name: 'hola',
   },
 };
