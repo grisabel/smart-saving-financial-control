@@ -1,0 +1,10 @@
+<app-input-base
+  [id]="id"
+  [label]="label"
+  [placeholder]="placeholder"
+  [type]="type"
+  [value]="value"
+  (onChange)="onChange.emit($event)"
+>
+  <app-icon [name]="'calendar'" icon></app-icon>
+</app-input-base>
