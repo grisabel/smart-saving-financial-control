@@ -19,11 +19,25 @@ const meta: Meta<DropdownComponent> = {
 export default meta;
 type Story = StoryObj<DropdownComponent>;
 
-export const InputBase: Story = {
+export const Dropdown: Story = {
   args: {
     id: 'dropdown',
     label: 'label',
     placeholder: 'placeholder',
+    options: [
+      { value: 'a', label: 'Internet Explorer' },
+      { value: 'b', label: 'Explorer' },
+      { value: 'c', label: 'Internet' },
+    ],
+  },
+};
+
+export const DropdownDefaultValie: Story = {
+  args: {
+    id: 'dropdown',
+    label: 'label',
+    placeholder: 'placeholder',
+    value: 'b',
     options: [
       { value: 'a', label: 'Internet Explorer' },
       { value: 'b', label: 'Explorer' },

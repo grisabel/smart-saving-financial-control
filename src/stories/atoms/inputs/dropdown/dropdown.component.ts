@@ -1,5 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { IconComponent } from '@stories/atoms/icon/icon.component';
 
 interface InputOption {
   value: string;
@@ -9,7 +18,7 @@ interface InputOption {
 @Component({
   selector: 'app-dropdown',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, IconComponent],
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
 })
@@ -21,6 +30,8 @@ export class DropdownComponent {
   @Input() value?: string | null;
   @Output() onChange: EventEmitter<InputEvent> = new EventEmitter<InputEvent>();
 
+  @ViewChild('dropdownRef') dropdownRef!: ElementRef<HTMLDivElement>;
+
   openDropdown: boolean = false;
   inputText: string = '';
   optionFocus: number = -1;
@@ -28,11 +39,11 @@ export class DropdownComponent {
   constructor() {}
 
   ngOnInit() {
-    this.inputText = this.defaultOptionLabel(this.options, this.value);
-    this.optionFocus = this.defaultOptionFocus(this.options, this.value);
+    this.inputText = this._defaultOptionLabel(this.options, this.value);
+    this.optionFocus = this._defaultOptionFocus(this.options, this.value);
   }
 
-  defaultOptionFocus(
+  _defaultOptionFocus(
     options: InputOption[],
     defaultValue?: string | null
   ): number {
@@ -51,7 +62,7 @@ export class DropdownComponent {
     return resul;
   }
 
-  defaultOptionLabel(
+  _defaultOptionLabel(
     options: InputOption[],
     defaultValue?: string | null
   ): string {
@@ -98,14 +109,14 @@ export class DropdownComponent {
     } else if (event.code === 'Enter') {
       if (this.options && this.optionFocus !== -1) {
         this.onClickDropdownItem(this.options[this.optionFocus]);
-        // dropdownRef.current?.blur();
+        this.dropdownRef?.nativeElement?.blur();
       }
     }
   }
 
   onClickDropdownItem(option: InputOption) {
     this.inputText = option.label;
-    // dropdownRef.current?.blur();
+    this.dropdownRef?.nativeElement?.blur();
 
     this.onChange.emit({
       target: { value: option.value },
@@ -117,7 +128,7 @@ export class DropdownComponent {
 
     this.inputText = '';
     this.optionFocus = -1;
-    // dropdownRef.current?.blur();
+    this.dropdownRef?.nativeElement?.blur();
 
     this.onChange.emit({
       target: { value: '' },
