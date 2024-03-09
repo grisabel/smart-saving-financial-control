@@ -1,6 +1,10 @@
-<span #spanElRef
-      [ngClass]="{'IconWp': true, 'IconWp--success': color === 'success','IconWp--error': color === 'error'}"
+<span
+  #spanElRef
+  [ngClass]="{
+    IconWp: true,
+    'IconWp--success': color === 'success',
+    'IconWp--error': color === 'error'
+  }"
+  (click)="handleClick($event)"
 >
 </span>
-
-<!-- ['IconWp--' + color]: color -->

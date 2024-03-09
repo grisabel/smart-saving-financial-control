@@ -24,7 +24,7 @@
       <div class="icons">
         <app-icon
           [name]="inputText && openDropdown ? 'close-square' : ''"
-          (click)="onResetDropdown()"
+          (click)="onResetDropdown($event)"
         >
         </app-icon>
         <app-icon name="chevron-down"></app-icon>
