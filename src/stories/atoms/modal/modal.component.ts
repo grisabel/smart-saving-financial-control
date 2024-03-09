@@ -11,4 +11,7 @@ import { CommonModule } from '@angular/common';
 export class ModalComponent {
   @Input({ required: true }) open!: Signal<boolean>;
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @Input({ required: true }) title!: string;
+  @Input() description?: string;
 }

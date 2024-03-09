@@ -1,4 +1,7 @@
 <div class="modalWp" *ngIf="open()">
-  <div class="modal">modal works!</div>
+  <div class="modal">
+    <p class="title">{{ title }}</p>
+    <p *ngIf="description" class="description">{{ description }}</p>
+  </div>
   <div class="backdrop" (click)="onClose.emit()"></div>
 </div>

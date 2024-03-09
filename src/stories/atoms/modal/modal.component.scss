@@ -1,3 +1,4 @@
+@import "@styles/variables/fonts.scss";
 @import "@styles/variables/zIndex.scss";
 
 .modalWp {
@@ -21,7 +22,24 @@
     background-color: white;
     box-shadow: 0px 20px 25px -5px rgba(15, 23, 42, 0.1),
       0px 10px 10px 0px rgba(15, 23, 42, 0.05);
+
     z-index: z-index(modal);
+
+    .title {
+      color: black;
+      @include f--b1-bold;
+      text-align: center;
+
+      margin-top: 16px;
+    }
+
+    .description {
+      color: black;
+      @include f--b2-light;
+      text-align: center;
+
+      margin-top: 4px;
+    }
   }
 
   .backdrop {
