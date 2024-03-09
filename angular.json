@@ -130,7 +130,7 @@
             "fileName": "smartsavings-icon.model",
             "iconsFolderName": "build",
 
-            "typeName": "build",
+            "typeName": "SmartSavingsIconName",
             "prefix": "smartsaving",
             "modelFileName": "build",
             "barrelFileName": "index",

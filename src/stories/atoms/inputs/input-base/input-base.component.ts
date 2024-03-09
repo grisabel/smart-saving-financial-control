@@ -14,14 +14,12 @@ export class InputBaseComponent {
 
   @Input() label?: string;
   @Input() placeholder?: string;
-  // @Input() icon?: any;
 
   @Input() value?: string = '';
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   handleChange(event: InputEvent): void {
     const input = event.target as HTMLInputElement;
-    console.log(input.value);
     this.onChange.emit(input.value);
   }
 }
