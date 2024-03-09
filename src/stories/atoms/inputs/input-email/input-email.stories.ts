@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { InputTextComponent } from './input-text.component';
+import { InputEmailComponent } from './input-email.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<InputTextComponent> = {
-  title: 'Atoms/Inputs/InputText',
-  component: InputTextComponent,
+const meta: Meta<InputEmailComponent> = {
+  title: 'Atoms/Inputs/InputEmail',
+  component: InputEmailComponent,
   tags: ['autodocs'],
-  render: (args: InputTextComponent) => ({
+  render: (args: InputEmailComponent) => ({
     props: {
       backgroundColor: null,
       ...args,
@@ -17,9 +17,9 @@ const meta: Meta<InputTextComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<InputTextComponent>;
+type Story = StoryObj<InputEmailComponent>;
 
-export const InputText: Story = {
+export const InputEmail: Story = {
   args: {
     id: 'inputBaseId',
     label: 'label',
