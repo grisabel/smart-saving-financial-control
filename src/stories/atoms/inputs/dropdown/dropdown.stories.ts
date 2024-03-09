@@ -21,9 +21,13 @@ type Story = StoryObj<DropdownComponent>;
 
 export const InputBase: Story = {
   args: {
-    id: 'inputBaseId',
+    id: 'dropdown',
     label: 'label',
     placeholder: 'placeholder',
-    type: 'text',
+    options: [
+      { value: 'a', label: 'Internet Explorer' },
+      { value: 'b', label: 'Explorer' },
+      { value: 'c', label: 'Internet' },
+    ],
   },
 };

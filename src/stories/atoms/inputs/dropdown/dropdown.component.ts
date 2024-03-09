@@ -19,7 +19,7 @@ export class DropdownComponent {
   @Input() placeholder?: string;
   @Input() options: InputOption[] = [];
   @Input() value?: string | null;
-  @Output() omChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() onChange: EventEmitter<InputEvent> = new EventEmitter<InputEvent>();
 
   openDropdown: boolean = false;
   inputText: string = '';
@@ -70,7 +70,7 @@ export class DropdownComponent {
     return resul;
   }
 
-  handleKeyUpDropdownItem() {
+  _handleKeyUpDropdownItem() {
     if (this.optionFocus <= 1) {
       this.optionFocus = 0;
       return;
@@ -79,7 +79,7 @@ export class DropdownComponent {
     return;
   }
 
-  handleKeyDownDropdownItem(optionsLength: number) {
+  _handleKeyDownDropdownItem(optionsLength: number) {
     if (this.optionFocus === optionsLength - 1) {
       this.optionFocus = optionsLength - 1;
       return;
@@ -89,19 +89,38 @@ export class DropdownComponent {
   }
 
   handleKeyDropdown(event: KeyboardEvent) {
-    // Angular version of the keyboard event handling
+    event.preventDefault();
+
+    if (event.code === 'ArrowDown') {
+      this._handleKeyDownDropdownItem(this.options.length);
+    } else if (event.code === 'ArrowUp') {
+      this._handleKeyUpDropdownItem();
+    } else if (event.code === 'Enter') {
+      if (this.options && this.optionFocus !== -1) {
+        this.onClickDropdownItem(this.options[this.optionFocus]);
+        // dropdownRef.current?.blur();
+      }
+    }
   }
 
   onClickDropdownItem(option: InputOption) {
-    // Angular version of the click handling
+    this.inputText = option.label;
+    // dropdownRef.current?.blur();
+
+    this.onChange.emit({
+      target: { value: option.value },
+    } as unknown as InputEvent);
   }
 
-  onResetDropdown() {
-    // Angular version of the reset handling
-  }
+  onResetDropdown(event: MouseEvent) {
+    event.stopPropagation();
 
-  @HostListener('document:click', ['$event'])
-  handleClickOutside(event) {
-    // Close dropdown when clicking outside, similar to onBlur in React
+    this.inputText = '';
+    this.optionFocus = -1;
+    // dropdownRef.current?.blur();
+
+    this.onChange.emit({
+      target: { value: '' },
+    } as unknown as InputEvent);
   }
 }
