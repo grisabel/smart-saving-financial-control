@@ -1,4 +1,4 @@
-<div class="modalWp">
+<div class="modalWp" *ngIf="open()">
   <div class="modal">modal works!</div>
-  <div class="backdrop"></div>
+  <div class="backdrop" (click)="onClose.emit()"></div>
 </div>

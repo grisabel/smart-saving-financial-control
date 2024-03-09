@@ -1,26 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { type Meta, type StoryObj } from '@storybook/angular';
 
 import { ModalComponent } from './modal.component';
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<ModalComponent> = {
+@Component({
+  selector: 'app-modal-story',
+  standalone: true,
+  imports: [CommonModule, ModalComponent],
+  template: `<app-modal [open]="open" (onClose)="open.set(false)" />`,
+  styleUrls: [],
+})
+export class ModalComponentStory {
+  open = signal(true);
+}
+
+const meta: Meta<ModalComponentStory> = {
   title: 'Atoms/Modal',
-  component: ModalComponent,
+  component: ModalComponentStory,
   tags: ['autodocs'],
-  render: (args: ModalComponent) => ({
-    props: {
-      backgroundColor: null,
-      ...args,
-    },
-  }),
-  argTypes: { onClick: { action: 'buttonClick' } },
 };
 
 export default meta;
-type Story = StoryObj<ModalComponent>;
+type Story = StoryObj<ModalComponentStory>;
 
 export const Modal: Story = {
-  args: {
-    label: 'Button',
-  },
+  args: {},
 };
