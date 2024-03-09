@@ -1,5 +1,6 @@
 @import "@styles/variables/fonts.scss";
 @import "@styles/variables/zIndex.scss";
+@import "@styles/variables/breakpoints.scss";
 
 .modalWp {
   position: fixed;
@@ -13,6 +14,10 @@
   align-items: center;
 
   .modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     max-width: 600px;
     width: 95%;
 
@@ -55,6 +60,35 @@
           svg {
             cursor: pointer;
           }
+        }
+      }
+    }
+
+    .content {
+      @media (min-width: $bpSmMin) {
+        padding: 0 24px;
+      }
+    }
+
+    .footer {
+      padding: 0 24px 16px 24px;
+      @media (min-width: $bpSmMin) {
+        padding: 0 48px 16px 48px;
+      }
+
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      justify-content: center;
+
+      * {
+        flex-grow: 1;
+        max-width: 360px;
+      }
+
+      ::ng-deep {
+        button {
+          @include f--b2-light;
         }
       }
     }

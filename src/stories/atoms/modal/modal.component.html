@@ -7,6 +7,13 @@
         <app-icon name="cross-big" (onClick)="onClose.emit()" />
       </span>
     </div>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+    <div class="footer">
+      <app-button label="hola" />
+      <app-button label="hola" color="secondary" />
+    </div>
   </div>
   <div class="backdrop" (click)="onClose.emit()"></div>
 </div>
