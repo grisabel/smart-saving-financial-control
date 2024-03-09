@@ -10,6 +10,8 @@
       (input)="handleChange($event)"
       autoComplete="off"
     />
-    <ng-content select="[icon]"></ng-content>
+    <span class="icon">
+      <ng-content select="[icon]"></ng-content>
+    </span>
   </div>
 </div>
