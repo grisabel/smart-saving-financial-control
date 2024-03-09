@@ -1,10 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaskitoDirective } from '@maskito/angular';
+import { MaskitoOptions } from '@maskito/core';
 
 @Component({
   selector: 'app-input-base',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MaskitoDirective],
   templateUrl: './input-base.component.html',
   styleUrls: ['./input-base.component.scss'],
 })
@@ -18,8 +20,14 @@ export class InputBaseComponent {
   @Input() value?: string = '';
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
+  @Input() optionsMask?: MaskitoOptions;
+
   handleChange(event: InputEvent): void {
     const input = event.target as HTMLInputElement;
     this.onChange.emit(input.value);
+  }
+
+  ngOnChanges(changes: any) {
+    console.log({ changes });
   }
 }
