@@ -12,35 +12,22 @@ const meta: Meta<ButtonComponent> = {
       backgroundColor: null,
       ...args,
     },
-  })
+  }),
+  argTypes: { onClick: { action: 'buttonClick' } },
 };
 
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-export const Primary: Story = {
+export const BtnPrimary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    label: "Button",
   },
 };
 
-export const Secondary: Story = {
+export const BtnSecondary: Story = {
   args: {
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
+    label: "Button",
+    color: "secondary"
   },
 };

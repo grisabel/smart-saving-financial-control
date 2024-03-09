@@ -1,0 +1,7 @@
+<button
+  [type]="type"
+  [ngClass]="{'button': true, 'button--primary': color === 'primary','button--secondary': color === 'secondary'}"
+  [disabled]="disabled"
+  (click)="handleClick()">
+  {{ label }}
+</button>
