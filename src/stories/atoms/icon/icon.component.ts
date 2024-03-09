@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
 export class IconComponent {
   @Input() name: string = '';
   @Input() color?: 'success' | 'error';
-  @Output() onChange: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
   //todo classnamae
 
@@ -35,7 +35,7 @@ export class IconComponent {
   }
 
   handleClick(event: MouseEvent) {
-    this.onChange.emit(event);
+    this.onClick.emit(event);
   }
 
   private loadIcon(): void {

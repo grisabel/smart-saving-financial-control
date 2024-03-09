@@ -25,20 +25,38 @@
 
     z-index: z-index(modal);
 
-    .title {
-      color: black;
-      @include f--b1-bold;
-      text-align: center;
+    .header {
+      width: 100%;
+      padding: 0 24px;
+      position: relative;
 
-      margin-top: 16px;
-    }
+      .title {
+        color: black;
+        @include f--b1-bold;
+        text-align: center;
 
-    .description {
-      color: black;
-      @include f--b2-light;
-      text-align: center;
+        padding-top: 16px;
+      }
 
-      margin-top: 4px;
+      .description {
+        color: black;
+        @include f--b2-light;
+        text-align: center;
+
+        padding-top: 4px;
+      }
+
+      &__icon {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+
+        ::ng-deep {
+          svg {
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 
