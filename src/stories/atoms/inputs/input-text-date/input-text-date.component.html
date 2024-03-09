@@ -1,0 +1,11 @@
+<app-input-base
+  [id]="id"
+  [label]="label"
+  [placeholder]="'dd/mm/yyyy'"
+  [type]="text"
+  [value]="value"
+  (onChange)="onChange.emit($event)"
+  [optionsMask]="optionsMask"
+>
+  <app-icon [name]="'calendar'" icon></app-icon>
+</app-input-base>
