@@ -12,14 +12,22 @@ const meta: Meta<ButtonComponent> = {
       backgroundColor: null,
       ...args,
     },
-  })
+  }),
+  argTypes: { onClick: { action: 'buttonClick' } },
 };
 
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-export const Primary: Story = {
+export const BtnPrimary: Story = {
   args: {
-    name: 'calendar',
+    label: "Button",
+  },
+};
+
+export const BtnSecondary: Story = {
+  args: {
+    label: "Button",
+    color: "secondary"
   },
 };
