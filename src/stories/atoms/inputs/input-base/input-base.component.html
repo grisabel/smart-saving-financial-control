@@ -1,1 +1,17 @@
-<p>input-base works!</p>
+<div class="inputWp">
+  <label for="{{ id }}" class="label">{{ label }}</label>
+  <div class="inputContainer">
+    <input
+      [id]="id"
+      class="input"
+      [placeholder]="placeholder"
+      [type]="type"
+      [value]="value"
+      (input)="handleChange($event)"
+      autoComplete="off"
+    />
+    <!-- Icon component or directive goes here -->
+    <!-- <ng-container *ngIf="icon">
+    </ng-container> -->
+  </div>
+</div>

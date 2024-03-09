@@ -13,6 +13,7 @@ const meta: Meta<InputBaseComponent> = {
       ...args,
     },
   }),
+  argTypes: { onChange: { action: 'onChange' } },
 };
 
 export default meta;
@@ -20,6 +21,9 @@ type Story = StoryObj<InputBaseComponent>;
 
 export const InputBase: Story = {
   args: {
-    label: "Button",
+    id: 'inputBaseId',
+    label: 'label',
+    placeholder: 'placeholder',
+    type: 'text',
   },
 };
