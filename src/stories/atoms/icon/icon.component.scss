@@ -1,0 +1,10 @@
+.IconWp {
+  color: var(--grey-main) !important;
+    &--success {
+      color: var(--blue-main) !important;
+    }
+    &--error {
+      color: var(--red-main) !important;
+    }
+  }
+  

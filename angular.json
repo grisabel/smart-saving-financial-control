@@ -115,6 +115,31 @@
             "compodoc": false,
             "outputDir": "storybook-static"
           }
+        },
+        "generate-icons": {
+          "builder": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+          "options": {
+            "conversionType": "files",
+            "srcFiles": ["./src/assets/svg/**/*.svg"],
+            "outputDirectory": "./src/stories/atoms/icon/SmartSavingsIcon",
+            "interfaceName": "SmartSavingsIcon",
+            "generateType": false,
+            "generateTypeObject": false,
+            "generateCompleteIconSet": false,
+            "exportCompleteIconSet": false,
+            "fileName": "smartsavings-icon.model",
+            "iconsFolderName": "build",
+
+            "typeName": "build",
+            "prefix": "smartsaving",
+            "modelFileName": "build",
+            "barrelFileName": "index",
+            "compilationOutput": "ESM",
+
+            "delimiter": "KEBAB",
+            "additionalModelOutputPath": "./src/stories/atoms/icon/SmartSavingsIcon/lib",
+            "compileSources": true
+          }
         }
       }
     }
