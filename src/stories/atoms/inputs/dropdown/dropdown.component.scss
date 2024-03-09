@@ -1,0 +1,112 @@
+@import "@styles/variables/fonts.scss";
+@import "@styles/variables/breakpoints.scss";
+
+.DropdownWp {
+  position: relative;
+  outline: none !important;
+
+  .inputWp {
+    width: 100%;
+    border: 1px solid var(--color-grey-input);
+    border-radius: 4px;
+    padding: 8px 16px;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+
+    /* Change Autocomplete styles in Chrome*/
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-text-fill-color: var(--color-grey-input);
+      -webkit-box-shadow: 0 0 0px 10px transparent inset;
+      transition: background-color 600000s 0s, color 600000s 0s;
+    }
+    input::-ms-reveal {
+      display: none;
+    }
+
+    .label {
+      color: var(--color-blue-text);
+
+      @include f--b2-light;
+    }
+
+    .inputContainer {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+
+      .input {
+        width: 100%;
+        border: none;
+        color: var(--color-grey-input);
+        background-color: transparent;
+
+        @include f--b1-light;
+        text-wrap: wrap;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .icons {
+      display: flex;
+      min-width: 48px;
+      justify-content: flex-end;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  &--open {
+    .dropdown {
+      position: absolute;
+      display: block;
+      width: 100%;
+
+      background-color: white;
+      border: 1px solid var(--color-grey-input);
+      border-radius: 0 0 5px 5px;
+      border-top: none;
+
+      .option {
+        display: flex;
+        flex-direction: row;
+
+        color: var(--color-grey-input);
+        @include f--b1-light;
+        text-wrap: wrap;
+
+        cursor: pointer;
+        padding: 8px 16px;
+
+        &:hover {
+          background-color: #f2f2f2;
+        }
+
+        &:last-child {
+          border-radius: 0 0 5px 5px;
+        }
+
+        &--active {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<div
+  class="DropdownWp"
+  [ngClass]="{ 'DropdownWp--open': openDropdown() }"
+  (blur)="openDropdown.set(false)"
+  (focus)="openDropdown.set(true)"
+  (keydown)="handleKeyDropdown($event)"
+  tabindex="0"
+  #dropdownRef
+>
+  <div class="inputWp">
+    <label class="label">{{ label }}</label>
+    <div class="inputContainer">
+      <input
+        [id]="id"
+        [name]="'list-' + id"
+        list=""
+        [placeholder]="placeholder"
+        [value]="inputText()"
+        autoComplete="off"
+        disabled
+        role="combobox"
+        class="input"
+      />
+      <div class="icons">
+        <app-icon
+          *ngIf="inputText() && openDropdown()"
+          name="close-square"
+          (click)="onResetDropdown($event)"
+        >
+        </app-icon>
+        <app-icon name="chevron-down"></app-icon>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="options.length > 0">
+    <datalist [id]="'list-' + id" class="dropdown" role="listbox">
+      <option
+        *ngFor="let option of options; let i = index"
+        [value]="option.value"
+        (click)="onClickDropdownItem(option)"
+        [ngClass]="{ option: true, 'option--active': optionFocus() === i }"
+      >
+        {{ option.label }}
+      </option>
+    </datalist>
+  </ng-container>
+</div>

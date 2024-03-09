@@ -1,4 +1,13 @@
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,14 +15,14 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './icon.component.html',
-  styleUrls: ['./icon.component.scss']
+  styleUrls: ['./icon.component.scss'],
 })
 export class IconComponent {
-
   @Input() name: string = '';
   @Input() color?: 'success' | 'error';
+  @Output() onChange: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+
   //todo classnamae
-  // todo onclik
 
   @ViewChild('spanElRef') spanElRef!: ElementRef<HTMLSpanElement>;
 
@@ -25,17 +34,28 @@ export class IconComponent {
     }
   }
 
+  handleClick(event: MouseEvent) {
+    this.onChange.emit(event);
+  }
+
   private loadIcon(): void {
     if (!this.name) return;
 
-    import(`./SmartSavingsIcon/build/smartsaving-${this.name}.icon`).then(module => {
-      const { data } = Object.values(module)[0] as { name: string; data: string };
-      if (data) {
-        this.renderSvg(data);
-      }
-    }).catch(error => {
-      console.log(`Could not find the Icon with the name ${this.name}, did you add it to assets folder?`);
-    });
+    import(`./SmartSavingsIcon/build/smartsaving-${this.name}.icon`)
+      .then((module) => {
+        const { data } = Object.values(module)[0] as {
+          name: string;
+          data: string;
+        };
+        if (data) {
+          this.renderSvg(data);
+        }
+      })
+      .catch((error) => {
+        console.log(
+          `Could not find the Icon with the name ${this.name}, did you add it to assets folder?`
+        );
+      });
   }
 
   private renderSvg(svgContent: string): void {
@@ -51,6 +71,9 @@ export class IconComponent {
   private svgElementFromString(svgContent: string): SVGElement {
     const div = document.createElement('DIV');
     div.innerHTML = svgContent;
-    return div.querySelector('svg') || document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    return (
+      div.querySelector('svg') ||
+      document.createElementNS('http://www.w3.org/2000/svg', 'path')
+    );
   }
 }
