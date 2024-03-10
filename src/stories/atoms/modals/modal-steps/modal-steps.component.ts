@@ -3,7 +3,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  Signal,
+  TemplateRef,
   WritableSignal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -20,6 +20,8 @@ import { ModalBaseComponent } from '../modal-base/modal-base.component';
 export class ModalStepsComponent {
   @Input({ required: true }) open!: WritableSignal<boolean>;
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+  //new
+  @Input({ required: true }) currentStep!: WritableSignal<number>;
 
   @Input({ required: true }) title!: string;
   @Input() description?: string;
@@ -31,7 +33,8 @@ export class ModalStepsComponent {
   @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
 
   //new
-  @Input({ required: true }) currentStep!: WritableSignal<number>;
+  @Input()
+  steps!: TemplateRef<any>[];
 
   handleConfirm() {
     if (this.currentStep() === 2) {

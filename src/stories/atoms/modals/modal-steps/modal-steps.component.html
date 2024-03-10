@@ -8,5 +8,7 @@
   [cancelBtn]="cancelBtn"
   (onCancel)="handleCancel()"
 >
-  <ng-content />
+  <ng-container *ngFor="let step of steps">
+    <ng-container *ngTemplateOutlet="step" />
+  </ng-container>
 </app-modal-base>
