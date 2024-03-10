@@ -8,5 +8,7 @@
   [cancelBtn]="cancelBtn"
   (onCancel)="onCancel.emit()"
 >
-  <ng-content />
+  <ng-container slot="content">
+    <ng-content select="[slot=content]" />
+  </ng-container>
 </app-modal-base>

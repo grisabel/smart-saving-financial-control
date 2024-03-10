@@ -8,24 +8,27 @@
       </span>
     </div>
     <div class="content">
-      <ng-content></ng-content>
+      <ng-content select="[slot=content]" />
     </div>
     <div class="footer">
-      <app-button
-        *ngIf="cancelBtn"
-        [label]="cancelBtn.text"
-        color="secondary"
-        [disabled]="cancelBtn.isDisable"
-        [loading]="cancelBtn.isLoading"
-        (onClick)="onCancel.emit()"
-      />
-      <app-button
-        *ngIf="confirmBtn"
-        [label]="confirmBtn.text"
-        [disabled]="confirmBtn.isDisable"
-        [loading]="confirmBtn.isLoading"
-        (onClick)="onConfirm.emit()"
-      />
+      <div class="footer-btns">
+        <app-button
+          *ngIf="cancelBtn"
+          [label]="cancelBtn.text"
+          color="secondary"
+          [disabled]="cancelBtn.isDisable"
+          [loading]="cancelBtn.isLoading"
+          (onClick)="onCancel.emit()"
+        />
+        <app-button
+          *ngIf="confirmBtn"
+          [label]="confirmBtn.text"
+          [disabled]="confirmBtn.isDisable"
+          [loading]="confirmBtn.isLoading"
+          (onClick)="onConfirm.emit()"
+        />
+      </div>
+      <ng-content select="[slot=footerStep]" />
     </div>
   </div>
   <div class="backdrop" (click)="handleClose()"></div>

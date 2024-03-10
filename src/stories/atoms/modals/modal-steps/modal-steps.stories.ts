@@ -85,7 +85,7 @@ const meta: Meta<ModalStepsComponentStory> = {
 export default meta;
 type Story = StoryObj<ModalStepsComponentStory>;
 
-export const Modal: Story = {
+export const ModalSteps: Story = {
   args: {
     title: 'titulo',
     descriptions: ['description 1', 'description 2', 'description 3'],

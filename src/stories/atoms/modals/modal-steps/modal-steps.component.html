@@ -8,9 +8,15 @@
   [cancelBtn]="cancelBtns[currentStep()]"
   (onCancel)="handleCancel()"
 >
-  <ng-container *ngFor="let step of steps; index as i">
-    <ng-container *ngIf="currentStep() === i">
-      <ng-container *ngTemplateOutlet="step" />
+  <ng-container slot="content">
+    <ng-container *ngFor="let step of steps; index as i">
+      <ng-container *ngIf="currentStep() === i">
+        <ng-container *ngTemplateOutlet="step" />
+      </ng-container>
     </ng-container>
+  </ng-container>
+
+  <ng-container slot="footerStep">
+    <app-dot-step [steps]="footerStep" class="dotSteps" />
   </ng-container>
 </app-modal-base>

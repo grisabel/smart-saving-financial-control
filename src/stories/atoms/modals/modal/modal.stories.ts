@@ -26,9 +26,11 @@ import { CommonModule } from '@angular/common';
       [cancelBtn]="cancelBtn"
       (onCancel)="onCancelHandler()"
     >
-      <ng-container
-        *ngTemplateOutlet="contentTemplate ? contentTemplate : defaultContent"
-      >
+      <ng-container slot="content">
+        <ng-container
+          *ngTemplateOutlet="contentTemplate ? contentTemplate : defaultContent"
+        >
+        </ng-container>
       </ng-container>
     </app-modal>
 
