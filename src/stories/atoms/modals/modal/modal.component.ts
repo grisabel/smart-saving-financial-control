@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IconComponent } from '../icon/icon.component';
-import { ButtonComponent } from '../button/button.component';
+
+import { ModalBaseComponent } from '../modal-base/modal-base.component';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [CommonModule, IconComponent, ButtonComponent],
+  imports: [CommonModule, ModalBaseComponent],
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  styleUrls: [],
 })
 export class ModalComponent {
   @Input({ required: true }) open!: Signal<boolean>;
