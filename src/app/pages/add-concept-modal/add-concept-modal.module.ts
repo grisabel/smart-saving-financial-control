@@ -6,6 +6,7 @@ import { AccountStepComponent } from './components/add-concept-base-modal/compon
 import { CategoryStepComponent } from './components/add-concept-base-modal/components/category-step/category-step.component';
 import { ConceptStepComponent } from './components/add-concept-base-modal/components/concept-step/concept-step.component';
 import { SummaryStepComponent } from './components/add-concept-base-modal/components/summary-step/summary-step.component';
+import { DropdownComponent } from '@stories/atoms/inputs/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { SummaryStepComponent } from './components/add-concept-base-modal/compon
     ConceptStepComponent,
     SummaryStepComponent,
   ],
-  imports: [CommonModule, ModalStepsComponent],
+  imports: [CommonModule, ModalStepsComponent, DropdownComponent],
   exports: [AddConceptBaseModalComponent],
 })
 export class AddConceptModalModule {}
