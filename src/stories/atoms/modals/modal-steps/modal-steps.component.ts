@@ -42,7 +42,7 @@ export class ModalStepsComponent implements OnInit {
   @Input() cancelBtns?: ModalStepsInputs['cancelBtns'];
   @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
-  footerStep!: DotProps[];
+  footerStep: DotProps[] = [];
 
   ngOnInit(): void {
     this.footerStep = (this.steps || []).map((_, i) => {
