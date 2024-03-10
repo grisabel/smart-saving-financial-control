@@ -19,10 +19,10 @@ import { CommonModule } from '@angular/common';
   template: `
     <app-modal-steps
       [open]="open"
-      [currentStep]="step"
-      (onClose)="onCloseHandler()"
       [title]="title"
-      [description]="description"
+      (onClose)="onCloseHandler()"
+      [currentStep]="step"
+      [descriptions]="descriptions"
       [steps]="[step1, step2, step3]"
       [confirmBtn]="confirmBtn"
       (onConfirm)="onConfirmHandler()"
@@ -50,7 +50,7 @@ export class ModalStepsComponentStory {
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input({ required: true }) title!: string;
-  @Input() description?: string;
+  @Input() descriptions?: string[];
 
   @Input() confirmBtn?: { text: string; isLoading?: boolean };
   @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();
@@ -91,7 +91,7 @@ type Story = StoryObj<ModalStepsComponentStory>;
 export const Modal: Story = {
   args: {
     title: 'titulo',
-    description: 'description',
+    descriptions: ['description 1', 'description 2', 'description 3'],
     cancelBtn: {
       text: 'cancel',
     },
@@ -120,7 +120,7 @@ export const ModalLargeContent: Story = {
   },
   args: {
     title: 'title',
-    description: 'description',
+    descriptions: ['description 1', 'description 2', 'description 3'],
     cancelBtn: {
       text: 'cancel',
     },

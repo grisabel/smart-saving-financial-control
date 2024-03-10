@@ -20,11 +20,12 @@ import { ModalBaseComponent } from '../modal-base/modal-base.component';
 export class ModalStepsComponent {
   @Input({ required: true }) open!: WritableSignal<boolean>;
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input({ required: true }) title!: string;
+
   //new
   @Input({ required: true }) currentStep!: WritableSignal<number>;
 
-  @Input({ required: true }) title!: string;
-  @Input() description?: string;
+  @Input() descriptions?: string[];
 
   @Input() confirmBtn?: { text: string; isLoading?: boolean };
   @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();

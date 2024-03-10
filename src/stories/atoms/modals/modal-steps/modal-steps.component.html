@@ -2,7 +2,7 @@
   [open]="open"
   (onClose)="onClose.emit()"
   [title]="title"
-  [description]="description"
+  [description]="descriptions[currentStep()]"
   [confirmBtn]="confirmBtn"
   (onConfirm)="handleConfirm()"
   [cancelBtn]="cancelBtn"
