@@ -12,11 +12,11 @@ import {
 } from '@stories/atoms/modals/modal-base/modal-base.component.types';
 
 @Component({
-  selector: 'app-add-concept-modal',
-  templateUrl: './add-concept-modal.component.html',
-  styleUrls: ['./add-concept-modal.component.scss'],
+  selector: 'app-add-concept-base-modal',
+  templateUrl: './add-concept-base-modal.component.html',
+  styleUrls: ['./add-concept-base-modal.component.scss'],
 })
-export class AddConceptModalComponent {
+export class AddConceptBaseModalComponent {
   @Input() open!: WritableSignal<boolean>;
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onConfirm: ModalBaseOutputs['onConfirm'] = new EventEmitter<void>();
