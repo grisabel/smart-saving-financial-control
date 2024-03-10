@@ -63,8 +63,10 @@
       display: flex;
       min-width: 48px;
       justify-content: flex-end;
-      span {
-        cursor: pointer;
+      ::ng-deep {
+        svg {
+          cursor: pointer;
+        }
       }
     }
   }
