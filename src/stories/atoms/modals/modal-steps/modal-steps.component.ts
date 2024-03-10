@@ -36,7 +36,7 @@ export class ModalStepsComponent {
   @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
   handleConfirm() {
-    if (this.currentStep() === this.steps.length) {
+    if (this.currentStep() === this.steps.length - 1) {
       this.onConfirm.emit();
       return;
     }

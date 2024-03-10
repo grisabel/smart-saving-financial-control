@@ -3,6 +3,7 @@ import { EventEmitter, WritableSignal } from '@angular/core';
 export interface ModalBaseBtn {
   text: string;
   isLoading?: boolean;
+  isDisable?: boolean;
 }
 
 export interface ModalBaseInputs {

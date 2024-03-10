@@ -7,6 +7,6 @@ export interface ModalStepsInputs {
   title: string;
   descriptions: string[];
   steps: TemplateRef<any>[];
-  confirmBtns: ModalBaseBtn[];
-  cancelBtns: ModalBaseBtn[];
+  confirmBtns: (ModalBaseBtn | null)[];
+  cancelBtns: (ModalBaseBtn | null)[];
 }

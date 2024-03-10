@@ -8,10 +8,12 @@
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  color: #fff;
   border: none;
 
+  color: #fff;
   @include f--b1-regular;
+
+  cursor: pointer;
 
   .loading {
     margin-right: 16px;

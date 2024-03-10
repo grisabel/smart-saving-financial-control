@@ -65,12 +65,10 @@ export class ModalStepsComponentStory {
   }
 
   onConfirmHandler() {
-    this.open.set(false);
     this.onConfirm.emit();
   }
 
   onCancelHandler() {
-    this.open.set(false);
     this.onCancel.emit();
   }
 }
@@ -94,9 +92,7 @@ export const Modal: Story = {
     title: 'titulo',
     descriptions: ['description 1', 'description 2', 'description 3'],
     cancelBtns: [
-      {
-        text: 'cancel 1',
-      },
+      null,
       {
         text: 'cancel 2',
       },

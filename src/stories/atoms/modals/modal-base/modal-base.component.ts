@@ -36,7 +36,7 @@ export class ModalBaseComponent {
   @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
   handleClose() {
-    this.onClose.emit();
     this.open.set(false);
+    this.onClose.emit();
   }
 }

@@ -15,16 +15,18 @@
         *ngIf="cancelBtn"
         [label]="cancelBtn.text"
         color="secondary"
+        [disabled]="cancelBtn.isDisable"
         [loading]="cancelBtn.isLoading"
         (onClick)="onCancel.emit()"
       />
       <app-button
         *ngIf="confirmBtn"
         [label]="confirmBtn.text"
+        [disabled]="confirmBtn.isDisable"
         [loading]="confirmBtn.isLoading"
-        (onClick)="handleClose()"
+        (onClick)="onConfirm.emit()"
       />
     </div>
   </div>
-  <div class="backdrop" (click)="onClose.emit()"></div>
+  <div class="backdrop" (click)="handleClose()"></div>
 </div>
