@@ -1,1 +1,9 @@
-<p>menu-mobile works!</p>
+<div class="MenuMobile">
+  <ng-container *ngFor="let _ of [].constructor(4); index as i">
+    <app-menu-item-mobile
+      [active]="currentItem() === '' + i"
+      [id]="'' + i"
+      (onClick)="currentItem.set($event)"
+    />
+  </ng-container>
+</div>
