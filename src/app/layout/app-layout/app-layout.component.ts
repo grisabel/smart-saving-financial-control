@@ -15,6 +15,11 @@ export class AppLayoutComponent {
   isMobile = signal(true);
   @Input() content!: TemplateRef<any>;
 
+  //id
+  //icon
+  //title
+  //click
+
   ngOnInit() {
     this.checkMediaQuery();
   }

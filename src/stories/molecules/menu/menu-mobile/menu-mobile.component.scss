@@ -1,5 +1,7 @@
 .MenuMobile {
   display: flex;
+  height: 100%;
+  align-items: flex-end;
   app-menu-item-mobile {
     flex-grow: 1;
   }

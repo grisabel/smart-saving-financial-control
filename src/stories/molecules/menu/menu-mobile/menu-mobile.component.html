@@ -1,9 +1,9 @@
 <div class="MenuMobile">
   <ng-container *ngFor="let _ of [].constructor(4); index as i">
     <app-menu-item-mobile
-      [active]="currentItem() === '' + i"
+      [active]="currentId() === '' + i"
       [id]="'' + i"
-      (onClick)="currentItem.set($event)"
+      (onClick)="currentId.set($event)"
     />
   </ng-container>
 </div>

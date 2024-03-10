@@ -10,5 +10,10 @@ import { MenuItemMobileComponent } from './components/menu-item-mobile/menu-item
   styleUrls: ['./menu-mobile.component.scss'],
 })
 export class MenuMobileComponent {
-  currentItem = signal('0');
+  currentId = signal('0');
+
+  //id
+  //icon
+  //title
+  //click
 }

@@ -1,13 +1,13 @@
 <div class="layout">
   <app-desktop-layout class="layout-desktop" *ngIf="!isMobile()">
-    <p slot="menu">menu</p>
+    <p slot="menu">menu 2</p>
     <ng-container slot="content">
       <ng-container *ngTemplateOutlet="content" />
     </ng-container>
   </app-desktop-layout>
 
   <app-mobile-layout class="layout-mobile" *ngIf="isMobile()">
-    <p slot="menu">menu 2</p>
+    <ng-container slot="menu"><app-menu-mobile class="menu" /></ng-container>
     <ng-container slot="content">
       <ng-container *ngTemplateOutlet="content" />
     </ng-container>
