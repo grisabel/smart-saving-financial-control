@@ -96,6 +96,13 @@ export const Modal: Story = {
   },
 };
 
+export const ModalSimple: Story = {
+  args: {
+    title: 'titulo',
+    description: 'description',
+  },
+};
+
 export const ModalCancelBtn: Story = {
   args: {
     title: 'titulo',
