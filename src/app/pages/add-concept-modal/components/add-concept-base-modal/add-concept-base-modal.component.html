@@ -3,7 +3,7 @@
   [title]="title"
   (onClose)="onCloseHandler()"
   [descriptions]="descriptions"
-  [steps]="[step1, step2]"
+  [steps]="[step1, step2, step3]"
   [confirmBtns]="confirmBtns"
   (onConfirm)="onConfirmHandler()"
   [cancelBtns]="cancelBtns"
@@ -15,5 +15,9 @@
 
   <ng-template #step2>
     <app-category-step />
+  </ng-template>
+
+  <ng-template #step3>
+    <app-concept-step />
   </ng-template>
 </app-modal-steps>

@@ -4,9 +4,10 @@ import { ModalStepsComponent } from '@stories/atoms/modals/modal-steps/modal-ste
 import { AddConceptBaseModalComponent } from './components/add-concept-base-modal/add-concept-base-modal.component';
 import { AccountStepComponent } from './components/add-concept-base-modal/components/account-step/account-step.component';
 import { CategoryStepComponent } from './components/add-concept-base-modal/components/category-step/category-step.component';
+import { ConceptStepComponent } from './components/add-concept-base-modal/components/concept-step/concept-step.component';
 
 @NgModule({
-  declarations: [AddConceptBaseModalComponent, AccountStepComponent, CategoryStepComponent],
+  declarations: [AddConceptBaseModalComponent, AccountStepComponent, CategoryStepComponent, ConceptStepComponent],
   imports: [CommonModule, ModalStepsComponent],
   exports: [AddConceptBaseModalComponent],
 })
