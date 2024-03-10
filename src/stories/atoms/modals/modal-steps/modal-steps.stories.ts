@@ -1,5 +1,4 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { argsToTemplate } from '@storybook/angular';
 
 import { ModalStepsComponent } from './modal-steps.component';
 import {
@@ -23,7 +22,6 @@ import { ModalBaseOutputs } from '../modal-base/modal-base.component.types';
       [open]="open"
       [title]="title"
       (onClose)="onCloseHandler()"
-      [currentStep]="step"
       [descriptions]="descriptions"
       [steps]="[step1, step2, step3]"
       [confirmBtns]="confirmBtns"
@@ -33,22 +31,22 @@ import { ModalBaseOutputs } from '../modal-base/modal-base.component.types';
     />
 
     <ng-template #step1>
-      <div *ngIf="step() === 0">Hola0</div>
+      <div>Hola0</div>
     </ng-template>
 
     <ng-template #step2>
-      <div *ngIf="step() === 1">Hola1</div>
+      <div>Hola1</div>
     </ng-template>
 
     <ng-template #step3>
-      <div *ngIf="step() === 2">Hola2</div>
+      <div>Hola2</div>
     </ng-template>
   `,
   styleUrls: [],
 })
 export class ModalStepsComponentStory {
   open = signal(true);
-  step = signal(0);
+
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input({ required: true }) title!: ModalStepsInputs['title'];
@@ -93,51 +91,6 @@ export const Modal: Story = {
     descriptions: ['description 1', 'description 2', 'description 3'],
     cancelBtns: [
       null,
-      {
-        text: 'cancel 2',
-      },
-      {
-        text: 'cancel 3',
-      },
-    ],
-    confirmBtns: [
-      {
-        text: 'confirm 1',
-      },
-      {
-        text: 'confirm 2',
-      },
-      {
-        text: 'confirm 3',
-      },
-    ],
-  },
-};
-
-export const ModalLargeContent: Story = {
-  render: (args) => {
-    return {
-      props: args,
-      template: `
-        <app-modal-steps-story ${argsToTemplate(
-          args
-        )} [contentTemplate]="contentLarge"/>
-        <ng-template #contentLarge>
-          <p [ngStyle]="{height:'150px'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati.</p>
-        </ng-template>
-      `,
-    };
-  },
-  args: {
-    title: 'title',
-    descriptions: ['description 1', 'description 2', 'description 3'],
-    cancelBtns: [
-      {
-        text: 'cancel 1',
-      },
       {
         text: 'cancel 2',
       },

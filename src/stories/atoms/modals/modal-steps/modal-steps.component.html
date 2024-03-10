@@ -8,7 +8,9 @@
   [cancelBtn]="cancelBtns[currentStep()]"
   (onCancel)="handleCancel()"
 >
-  <ng-container *ngFor="let step of steps">
-    <ng-container *ngTemplateOutlet="step" />
+  <ng-container *ngFor="let step of steps; index as i">
+    <ng-container *ngIf="currentStep() === i">
+      <ng-container *ngTemplateOutlet="step" />
+    </ng-container>
   </ng-container>
 </app-modal-base>

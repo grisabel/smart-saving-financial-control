@@ -5,6 +5,7 @@ import {
   Output,
   TemplateRef,
   WritableSignal,
+  signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -26,7 +27,7 @@ export class ModalStepsComponent {
   @Input({ required: true }) title!: ModalStepsInputs['title'];
   @Input() descriptions?: ModalStepsInputs['descriptions'];
 
-  @Input({ required: true }) currentStep!: ModalStepsInputs['currentStep'];
+  currentStep: WritableSignal<number> = signal(0);
   @Input() steps!: ModalStepsInputs['steps'];
 
   @Input() confirmBtns?: ModalStepsInputs['confirmBtns'];
