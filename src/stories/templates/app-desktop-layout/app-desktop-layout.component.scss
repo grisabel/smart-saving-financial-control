@@ -1,0 +1,25 @@
+.desktopLayout {
+  display: flex;
+  height: 100dvh;
+  background-color: white;
+
+  .menu {
+    display: flex;
+    height: 100%;
+    width: 276px;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+    width: calc(100% - 276px);
+
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+
+    background-color: #faf9fd;
+
+    box-shadow: -4px 0px 5px 0px rgba(15, 23, 42, 0.1);
+    -webkit-box-shadow: -4px 0px 5px 0px rgba(15, 23, 42, 0.1);
+    -moz-box-shadow: -4px 0px 5px 0px rgba(15, 23, 42, 0.1);
+  }
+}
