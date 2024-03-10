@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalStepsComponent } from '@stories/atoms/modals/modal-steps/modal-steps.component';
 import { AddConceptBaseModalComponent } from './components/add-concept-base-modal/add-concept-base-modal.component';
+import { AccountStepComponent } from './components/add-concept-base-modal/components/account-step/account-step.component';
 
 @NgModule({
-  declarations: [AddConceptBaseModalComponent],
+  declarations: [AddConceptBaseModalComponent, AccountStepComponent],
   imports: [CommonModule, ModalStepsComponent],
   exports: [AddConceptBaseModalComponent],
 })
