@@ -1,0 +1,12 @@
+<app-modal-base
+  [open]="open"
+  (onClose)="onClose.emit()"
+  [title]="title"
+  [description]="description"
+  [confirmBtn]="confirmBtn"
+  (onConfirm)="onConfirm.emit()"
+  [cancelBtn]="cancelBtn"
+  (onCancel)="(onCancel.emit)"
+>
+  <ng-content />
+</app-modal-base>
