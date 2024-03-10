@@ -19,6 +19,7 @@ export class ButtonComponent {
   @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick(): void {
+    if (this.loading) return;
     this.onClick.emit();
   }
 }

@@ -12,14 +12,16 @@
     </div>
     <div class="footer">
       <app-button
+        *ngIf="cancelBtn"
         [label]="cancelBtn.text"
         color="secondary"
+        [loading]="cancelBtn.isLoading"
         (onClick)="onCancel.emit()"
-        *ngIf="cancelBtn"
       />
       <app-button
-        [label]="confirmBtn.text"
         *ngIf="confirmBtn"
+        [label]="confirmBtn.text"
+        [loading]="confirmBtn.isLoading"
         (onClick)="onConfirm.emit()"
       />
     </div>

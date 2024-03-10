@@ -5,7 +5,7 @@
     'button--primary': color === 'primary',
     'button--secondary': color === 'secondary'
   }"
-  [disabled]="disabled || loading"
+  [disabled]="disabled"
   (click)="handleClick()"
 >
   <app-icon name="loading" *ngIf="loading" class="loading" />

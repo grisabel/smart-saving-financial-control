@@ -106,12 +106,34 @@ export const ModalCancelBtn: Story = {
   },
 };
 
+export const ModalCancelLoadingBtn: Story = {
+  args: {
+    title: 'titulo',
+    description: 'description',
+    cancelBtn: {
+      text: 'cancel',
+      isLoading: true,
+    },
+  },
+};
+
 export const ModalConfirmBtn: Story = {
   args: {
     title: 'titulo',
     description: 'description',
     confirmBtn: {
       text: 'confirm',
+    },
+  },
+};
+
+export const ModalConfirmLoadingBtn: Story = {
+  args: {
+    title: 'titulo',
+    description: 'description',
+    confirmBtn: {
+      text: 'confirm',
+      isLoading: true,
     },
   },
 };

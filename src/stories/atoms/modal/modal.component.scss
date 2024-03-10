@@ -93,6 +93,10 @@
       ::ng-deep {
         button {
           @include f--b2-light;
+          height: 38px;
+          svg {
+            scale: 0.8;
+          }
         }
       }
     }
