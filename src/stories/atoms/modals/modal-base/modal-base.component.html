@@ -3,7 +3,7 @@
     <div class="header">
       <p class="title">{{ title }}</p>
       <p *ngIf="description" class="description">{{ description }}</p>
-      <span class="header__icon">
+      <span *ngIf="!disableClose" class="header__icon">
         <app-icon name="cross-big" (onClick)="handleClose()" />
       </span>
     </div>
@@ -31,5 +31,5 @@
       <ng-content select="[slot=footerStep]" />
     </div>
   </div>
-  <div class="backdrop" (click)="handleClose()"></div>
+  <div class="backdrop" (click)="handleBackdrop()"></div>
 </div>

@@ -90,7 +90,9 @@ export const ModalSteps: Story = {
     title: 'titulo',
     descriptions: ['description 1', 'description 2', 'description 3'],
     cancelBtns: [
-      null,
+      {
+        text: 'cancel 1',
+      },
       {
         text: 'cancel 2',
       },

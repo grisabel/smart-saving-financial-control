@@ -25,6 +25,8 @@ import {
 export class ModalBaseComponent {
   @Input({ required: true }) open!: ModalBaseInputs['open'];
   @Output() onClose: ModalBaseOutputs['onClose'] = new EventEmitter<boolean>();
+  @Input() disableBackdrop!: boolean;
+  @Input() disableClose!: boolean;
 
   @Input({ required: true }) title!: ModalBaseInputs['title'];
   @Input() description?: ModalBaseInputs['description'];
@@ -36,6 +38,12 @@ export class ModalBaseComponent {
   @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
   handleClose() {
+    this.open.set(false);
+    this.onClose.emit();
+  }
+
+  handleBackdrop() {
+    if (this.disableBackdrop) return;
     this.open.set(false);
     this.onClose.emit();
   }
