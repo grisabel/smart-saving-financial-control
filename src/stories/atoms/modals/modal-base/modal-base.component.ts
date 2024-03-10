@@ -1,8 +1,19 @@
-import { Component, EventEmitter, Input, Output, Signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  Signal,
+  WritableSignal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { IconComponent } from '@stories/atoms/icon/icon.component';
 import { ButtonComponent } from '@stories/atoms/button/button.component';
+import {
+  ModalBaseInputs,
+  ModalBaseOutputs,
+} from './modal-base.component.types';
 
 @Component({
   selector: 'app-modal-base',
@@ -12,15 +23,20 @@ import { ButtonComponent } from '@stories/atoms/button/button.component';
   styleUrls: ['./modal-base.component.scss'],
 })
 export class ModalBaseComponent {
-  @Input({ required: true }) open!: Signal<boolean>;
-  @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input({ required: true }) open!: ModalBaseInputs['open'];
+  @Output() onClose: ModalBaseOutputs['onClose'] = new EventEmitter<boolean>();
 
-  @Input({ required: true }) title!: string;
-  @Input() description?: string;
+  @Input({ required: true }) title!: ModalBaseInputs['title'];
+  @Input() description?: ModalBaseInputs['description'];
 
-  @Input() confirmBtn?: { text: string; isLoading?: boolean };
-  @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();
+  @Input() confirmBtn?: ModalBaseInputs['confirmBtn'];
+  @Output() onConfirm: ModalBaseOutputs['onConfirm'] = new EventEmitter<void>();
 
-  @Input() cancelBtn?: { text: string; isLoading?: boolean };
-  @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
+  @Input() cancelBtn?: ModalBaseInputs['cancelBtn'];
+  @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
+
+  handleClose() {
+    this.onClose.emit();
+    this.open.set(false);
+  }
 }

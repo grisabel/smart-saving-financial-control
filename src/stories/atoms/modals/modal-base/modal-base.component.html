@@ -4,7 +4,7 @@
       <p class="title">{{ title }}</p>
       <p *ngIf="description" class="description">{{ description }}</p>
       <span class="header__icon">
-        <app-icon name="cross-big" (onClick)="onClose.emit()" />
+        <app-icon name="cross-big" (onClick)="handleClose()" />
       </span>
     </div>
     <div class="content">
@@ -22,7 +22,7 @@
         *ngIf="confirmBtn"
         [label]="confirmBtn.text"
         [loading]="confirmBtn.isLoading"
-        (onClick)="onConfirm.emit()"
+        (onClick)="handleClose()"
       />
     </div>
   </div>

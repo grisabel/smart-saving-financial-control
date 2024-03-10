@@ -54,7 +54,6 @@ export class ModalComponentStory {
   @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
 
   onCloseHandler() {
-    this.open.set(false);
     this.onClose.emit();
   }
 

@@ -11,6 +11,8 @@ import {
   signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalStepsInputs } from './modal-base.component.types';
+import { ModalBaseOutputs } from '../modal-base/modal-base.component.types';
 
 @Component({
   selector: 'app-modal-steps-story',
@@ -24,9 +26,9 @@ import { CommonModule } from '@angular/common';
       [currentStep]="step"
       [descriptions]="descriptions"
       [steps]="[step1, step2, step3]"
-      [confirmBtn]="confirmBtn"
+      [confirmBtns]="confirmBtns"
       (onConfirm)="onConfirmHandler()"
-      [cancelBtn]="cancelBtn"
+      [cancelBtns]="cancelBtns"
       (onCancel)="onCancelHandler()"
     />
 
@@ -49,17 +51,16 @@ export class ModalStepsComponentStory {
   step = signal(0);
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @Input({ required: true }) title!: string;
-  @Input() descriptions?: string[];
+  @Input({ required: true }) title!: ModalStepsInputs['title'];
+  @Input() descriptions?: ModalStepsInputs['descriptions'];
 
-  @Input() confirmBtn?: { text: string; isLoading?: boolean };
-  @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();
+  @Input() confirmBtns?: ModalStepsInputs['confirmBtns'];
+  @Output() onConfirm: ModalBaseOutputs['onConfirm'] = new EventEmitter<void>();
 
-  @Input() cancelBtn?: { text: string; isLoading?: boolean };
-  @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
+  @Input() cancelBtns?: ModalStepsInputs['cancelBtns'];
+  @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
   onCloseHandler() {
-    this.open.set(false);
     this.onClose.emit();
   }
 
@@ -92,12 +93,28 @@ export const Modal: Story = {
   args: {
     title: 'titulo',
     descriptions: ['description 1', 'description 2', 'description 3'],
-    cancelBtn: {
-      text: 'cancel',
-    },
-    confirmBtn: {
-      text: 'confirm',
-    },
+    cancelBtns: [
+      {
+        text: 'cancel 1',
+      },
+      {
+        text: 'cancel 2',
+      },
+      {
+        text: 'cancel 3',
+      },
+    ],
+    confirmBtns: [
+      {
+        text: 'confirm 1',
+      },
+      {
+        text: 'confirm 2',
+      },
+      {
+        text: 'confirm 3',
+      },
+    ],
   },
 };
 
@@ -121,11 +138,27 @@ export const ModalLargeContent: Story = {
   args: {
     title: 'title',
     descriptions: ['description 1', 'description 2', 'description 3'],
-    cancelBtn: {
-      text: 'cancel',
-    },
-    confirmBtn: {
-      text: 'confirm',
-    },
+    cancelBtns: [
+      {
+        text: 'cancel 1',
+      },
+      {
+        text: 'cancel 2',
+      },
+      {
+        text: 'cancel 3',
+      },
+    ],
+    confirmBtns: [
+      {
+        text: 'confirm 1',
+      },
+      {
+        text: 'confirm 2',
+      },
+      {
+        text: 'confirm 3',
+      },
+    ],
   },
 };

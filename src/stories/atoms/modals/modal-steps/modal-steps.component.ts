@@ -9,6 +9,8 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { ModalBaseComponent } from '../modal-base/modal-base.component';
+import { ModalStepsInputs } from './modal-base.component.types';
+import { ModalBaseOutputs } from '../modal-base/modal-base.component.types';
 
 @Component({
   selector: 'app-modal-steps',
@@ -18,27 +20,23 @@ import { ModalBaseComponent } from '../modal-base/modal-base.component';
   styleUrls: [],
 })
 export class ModalStepsComponent {
-  @Input({ required: true }) open!: WritableSignal<boolean>;
-  @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Input({ required: true }) title!: string;
+  @Input({ required: true }) open!: ModalStepsInputs['open'];
+  @Output() onClose: ModalBaseOutputs['onClose'] = new EventEmitter<boolean>();
 
-  //new
-  @Input({ required: true }) currentStep!: WritableSignal<number>;
+  @Input({ required: true }) title!: ModalStepsInputs['title'];
+  @Input() descriptions?: ModalStepsInputs['descriptions'];
 
-  @Input() descriptions?: string[];
+  @Input({ required: true }) currentStep!: ModalStepsInputs['currentStep'];
+  @Input() steps!: ModalStepsInputs['steps'];
 
-  @Input() confirmBtn?: { text: string; isLoading?: boolean };
-  @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();
+  @Input() confirmBtns?: ModalStepsInputs['confirmBtns'];
+  @Output() onConfirm: ModalBaseOutputs['onConfirm'] = new EventEmitter<void>();
 
-  @Input() cancelBtn?: { text: string; isLoading?: boolean };
-  @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
-
-  //new
-  @Input()
-  steps!: TemplateRef<any>[];
+  @Input() cancelBtns?: ModalStepsInputs['cancelBtns'];
+  @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
   handleConfirm() {
-    if (this.currentStep() === 2) {
+    if (this.currentStep() === this.steps.length) {
       this.onConfirm.emit();
       return;
     }

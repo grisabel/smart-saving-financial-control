@@ -3,9 +3,9 @@
   (onClose)="onClose.emit()"
   [title]="title"
   [description]="descriptions[currentStep()]"
-  [confirmBtn]="confirmBtn"
+  [confirmBtn]="confirmBtns[currentStep()]"
   (onConfirm)="handleConfirm()"
-  [cancelBtn]="cancelBtn"
+  [cancelBtn]="cancelBtns[currentStep()]"
   (onCancel)="handleCancel()"
 >
   <ng-container *ngFor="let step of steps">
