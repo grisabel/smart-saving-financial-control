@@ -16,4 +16,10 @@ export class ModalComponent {
 
   @Input({ required: true }) title!: string;
   @Input() description?: string;
+
+  @Input() confirmBtn?: { text: string; isLoading?: boolean };
+  @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();
+
+  @Input() cancelBtn?: { text: string; isLoading?: boolean };
+  @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
 }

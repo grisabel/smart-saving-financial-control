@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
+import { argsToTemplate } from '@storybook/angular';
 
 import { ModalComponent } from './modal.component';
 import {
@@ -20,6 +21,10 @@ import { CommonModule } from '@angular/common';
       (onClose)="onCloseHandler()"
       [title]="title"
       [description]="description"
+      [confirmBtn]="confirmBtn"
+      (onConfirm)="onConfirmHandler()"
+      [cancelBtn]="cancelBtn"
+      (onCancel)="onCancelHandler()"
     >
       <ng-container
         *ngTemplateOutlet="contentTemplate ? contentTemplate : defaultContent"
@@ -42,9 +47,25 @@ export class ModalComponentStory {
   @Input()
   contentTemplate!: TemplateRef<any>;
 
+  @Input() confirmBtn?: { text: string; isLoading?: boolean };
+  @Output() onConfirm: EventEmitter<void> = new EventEmitter<void>();
+
+  @Input() cancelBtn?: { text: string; isLoading?: boolean };
+  @Output() onCancel: EventEmitter<void> = new EventEmitter<void>();
+
   onCloseHandler() {
     this.open.set(false);
     this.onClose.emit();
+  }
+
+  onConfirmHandler() {
+    this.open.set(false);
+    this.onConfirm.emit();
+  }
+
+  onCancelHandler() {
+    this.open.set(false);
+    this.onCancel.emit();
   }
 }
 
@@ -52,7 +73,11 @@ const meta: Meta<ModalComponentStory> = {
   title: 'Atoms/Modal',
   component: ModalComponentStory,
   tags: ['autodocs'],
-  argTypes: { onClose: { action: 'onClose' } },
+  argTypes: {
+    onClose: { action: 'onClose' },
+    onConfirm: { action: 'onConfirm' },
+    onCancel: { action: 'onCancel' },
+  },
 };
 
 export default meta;
@@ -62,16 +87,43 @@ export const Modal: Story = {
   args: {
     title: 'titulo',
     description: 'description',
+    cancelBtn: {
+      text: 'cancel',
+    },
+    confirmBtn: {
+      text: 'confirm',
+    },
+  },
+};
+
+export const ModalCancelBtn: Story = {
+  args: {
+    title: 'titulo',
+    description: 'description',
+    cancelBtn: {
+      text: 'cancel',
+    },
+  },
+};
+
+export const ModalConfirmBtn: Story = {
+  args: {
+    title: 'titulo',
+    description: 'description',
+    confirmBtn: {
+      text: 'confirm',
+    },
   },
 };
 
 export const ModalLargeContent: Story = {
   render: (args) => {
-    const { title, description, ...props } = args;
     return {
-      props,
+      props: args,
       template: `
-        <app-modal-story title="title" description="description" [contentTemplate]="contentLarge"/>
+        <app-modal-story ${argsToTemplate(
+          args
+        )} [contentTemplate]="contentLarge"/>
         <ng-template #contentLarge>
           <p [ngStyle]="{height:'150px'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati.
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus aliquam facilis praesentium aliquid repudiandae id necessitatibus sequi nesciunt, dignissimos ipsa voluptatum pariatur ex ratione. Distinctio officia placeat a et obcaecati.
@@ -80,5 +132,15 @@ export const ModalLargeContent: Story = {
         </ng-template>
       `,
     };
+  },
+  args: {
+    title: 'title',
+    description: 'description',
+    cancelBtn: {
+      text: 'cancel',
+    },
+    confirmBtn: {
+      text: 'confirm',
+    },
   },
 };

@@ -11,8 +11,17 @@
       <ng-content></ng-content>
     </div>
     <div class="footer">
-      <app-button label="hola" />
-      <app-button label="hola" color="secondary" />
+      <app-button
+        [label]="cancelBtn.text"
+        color="secondary"
+        (onClick)="onCancel.emit()"
+        *ngIf="cancelBtn"
+      />
+      <app-button
+        [label]="confirmBtn.text"
+        *ngIf="confirmBtn"
+        (onClick)="onConfirm.emit()"
+      />
     </div>
   </div>
   <div class="backdrop" (click)="onClose.emit()"></div>
