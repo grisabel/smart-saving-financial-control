@@ -1,7 +1,13 @@
 <button
   [type]="type"
-  [ngClass]="{'button': true, 'button--primary': color === 'primary','button--secondary': color === 'secondary'}"
-  [disabled]="disabled"
-  (click)="handleClick()">
+  [ngClass]="{
+    button: true,
+    'button--primary': color === 'primary',
+    'button--secondary': color === 'secondary'
+  }"
+  [disabled]="disabled || loading"
+  (click)="handleClick()"
+>
+  <app-icon name="loading" *ngIf="loading" class="loading" />
   {{ label }}
 </button>

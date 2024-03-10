@@ -21,13 +21,21 @@ type Story = StoryObj<ButtonComponent>;
 
 export const BtnPrimary: Story = {
   args: {
-    label: "Button",
+    label: 'Button',
   },
 };
 
 export const BtnSecondary: Story = {
   args: {
-    label: "Button",
-    color: "secondary"
+    label: 'Button',
+    color: 'secondary',
+  },
+};
+
+export const BtnLoading: Story = {
+  args: {
+    label: 'Button',
+    color: 'secondary',
+    loading: true,
   },
 };
