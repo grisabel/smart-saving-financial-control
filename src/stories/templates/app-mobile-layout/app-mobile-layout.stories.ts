@@ -32,10 +32,10 @@ export const AppMobileLayoutExample: Story = {
     props: {
       ...args,
     },
-    template: `<app-app-mobile-layout>
+    template: `<app-mobile-layout>
       <p slot="menu">menu</p>
       <p slot="content">content</p>
-    </app-app-mobile-layout>`,
+    </app-mobile-layout>`,
   }),
   args: {},
 };

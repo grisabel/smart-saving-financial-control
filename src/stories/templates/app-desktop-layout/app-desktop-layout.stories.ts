@@ -32,10 +32,10 @@ export const AppDesktopLayoutExample: Story = {
     props: {
       ...args,
     },
-    template: `<app-app-desktop-layout>
+    template: `<app-desktop-layout>
       <p slot="menu">menu</p>
       <p slot="content">content</p>
-    </app-app-desktop-layout>`,
+    </app-desktop-layout>`,
   }),
   args: {},
 };

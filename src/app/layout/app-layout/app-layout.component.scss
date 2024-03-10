@@ -1,0 +1,17 @@
+@import "variables/breakpoints.scss";
+
+.layout {
+  .layout-desktop {
+    display: none;
+    @media (min-width: $bpMdMin) {
+      display: block;
+    }
+  }
+
+  .layout-mobile {
+    display: block;
+    @media (min-width: $bpMdMin) {
+      display: none;
+    }
+  }
+}
