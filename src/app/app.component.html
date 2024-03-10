@@ -1,14 +1,1 @@
 <router-outlet></router-outlet>
-<div>
-  <app-button label="Categorias" (onClick)="handlerCategory()" />
-
-  <app-button label="Modal Ingresos" (onClick)="openIncome.set(true)" />
-  <app-button
-    label="Modal Gastos"
-    color="secondary"
-    (onClick)="openExpense.set(true)"
-  />
-
-  <app-add-concept-base-modal [open]="openIncome" />
-  <app-add-concept-base-modal [open]="openExpense" />
-</div>
