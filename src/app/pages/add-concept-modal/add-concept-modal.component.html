@@ -1,1 +1,15 @@
-<p>add-concept-modal works!</p>
+<app-modal-steps
+  [open]="open"
+  [title]="title"
+  (onClose)="onCloseHandler()"
+  [descriptions]="descriptions"
+  [steps]="[step1]"
+  [confirmBtns]="confirmBtns"
+  (onConfirm)="onConfirmHandler()"
+  [cancelBtns]="cancelBtns"
+  (onCancel)="onCancelHandler()"
+>
+  <ng-template #step1>
+    <div>Hola0</div>
+  </ng-template>
+</app-modal-steps>

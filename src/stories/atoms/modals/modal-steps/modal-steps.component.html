@@ -1,13 +1,13 @@
 <app-modal-base
   [open]="open"
   (onClose)="onClose.emit()"
-  [disableBackdrop]="'true'"
+  [disableBackdrop]="true"
   [disableClose]="currentStep() !== 0"
   [title]="title"
-  [description]="descriptions[currentStep()]"
-  [confirmBtn]="confirmBtns[currentStep()]"
+  [description]="descriptions?.[currentStep()]"
+  [confirmBtn]="confirmBtns?.[currentStep()]"
   (onConfirm)="handleConfirm()"
-  [cancelBtn]="cancelBtns[currentStep()]"
+  [cancelBtn]="cancelBtns?.[currentStep()]"
   (onCancel)="handleCancel()"
 >
   <ng-container slot="content">
@@ -19,6 +19,10 @@
   </ng-container>
 
   <ng-container slot="footerStep">
-    <app-dot-step [steps]="footerStep" class="dotSteps" />
+    <app-dot-step
+      *ngIf="footerStep.length >= 2"
+      [steps]="footerStep"
+      class="dotSteps"
+    />
   </ng-container>
 </app-modal-base>

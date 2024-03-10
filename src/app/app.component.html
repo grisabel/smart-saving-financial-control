@@ -1,4 +1,4 @@
 <div>
-  <app-button label="Modal Ingresos" />
-  <app-add-concept-modal />
+  <app-button label="Modal Ingresos" (onClick)="open.set(true)" />
+  <app-add-concept-modal [open]="open" />
 </div>

@@ -10,8 +10,8 @@ export interface ModalBaseInputs {
   open: WritableSignal<boolean>;
   title: string;
   description?: string;
-  confirmBtn?: ModalBaseBtn;
-  cancelBtn?: ModalBaseBtn;
+  confirmBtn?: ModalBaseBtn | null;
+  cancelBtn?: ModalBaseBtn | null;
 }
 
 export interface ModalBaseOutputs {
