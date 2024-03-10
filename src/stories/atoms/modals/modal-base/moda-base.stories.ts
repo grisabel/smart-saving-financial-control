@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { argsToTemplate } from '@storybook/angular';
 
-import { ModalComponent } from './modal.component';
+import { ModalBaseComponent } from './modal-base.component';
 import {
   Component,
   EventEmitter,
@@ -13,10 +13,10 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-modal-story',
+  selector: 'app-modal-base-story',
   standalone: true,
-  imports: [CommonModule, ModalComponent],
-  template: `<app-modal
+  imports: [CommonModule, ModalBaseComponent],
+  template: `<app-modal-base
       [open]="open"
       (onClose)="onCloseHandler()"
       [title]="title"
@@ -30,14 +30,14 @@ import { CommonModule } from '@angular/common';
         *ngTemplateOutlet="contentTemplate ? contentTemplate : defaultContent"
       >
       </ng-container>
-    </app-modal>
+    </app-modal-base>
 
     <ng-template #defaultContent>
       <p>Modal Example</p>
     </ng-template>`,
   styleUrls: [],
 })
-export class ModalComponentStory {
+export class ModalBaseComponentStory {
   open = signal(true);
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -69,9 +69,9 @@ export class ModalComponentStory {
   }
 }
 
-const meta: Meta<ModalComponentStory> = {
-  title: 'Atoms/Modals/Modal',
-  component: ModalComponentStory,
+const meta: Meta<ModalBaseComponentStory> = {
+  title: 'Atoms/Modals/ModalBase',
+  component: ModalBaseComponentStory,
   tags: ['autodocs'],
   argTypes: {
     onClose: { action: 'onClose' },
@@ -81,7 +81,7 @@ const meta: Meta<ModalComponentStory> = {
 };
 
 export default meta;
-type Story = StoryObj<ModalComponentStory>;
+type Story = StoryObj<ModalBaseComponentStory>;
 
 export const Modal: Story = {
   args: {
@@ -143,7 +143,7 @@ export const ModalLargeContent: Story = {
     return {
       props: args,
       template: `
-        <app-modal-story ${argsToTemplate(
+        <app-modal-base-story ${argsToTemplate(
           args
         )} [contentTemplate]="contentLarge"/>
         <ng-template #contentLarge>
