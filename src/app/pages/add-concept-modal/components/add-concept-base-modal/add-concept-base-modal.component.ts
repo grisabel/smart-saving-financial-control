@@ -35,7 +35,12 @@ export class AddConceptBaseModalComponent {
   }
 
   title: string = 'titulo';
-  descriptions: string[] = ['description 1', 'description 2', 'description 3'];
+  descriptions: string[] = [
+    'description 1',
+    'description 2',
+    'description 3',
+    'description 4',
+  ];
   cancelBtns: ModalBaseBtn[] = [
     {
       text: 'cancel 1',
@@ -45,6 +50,9 @@ export class AddConceptBaseModalComponent {
     },
     {
       text: 'cancel 3',
+    },
+    {
+      text: 'cancel 4',
     },
   ];
   confirmBtns: ModalBaseBtn[] = [
@@ -56,6 +64,9 @@ export class AddConceptBaseModalComponent {
     },
     {
       text: 'confirm 3',
+    },
+    {
+      text: 'confirm 4',
     },
   ];
 }

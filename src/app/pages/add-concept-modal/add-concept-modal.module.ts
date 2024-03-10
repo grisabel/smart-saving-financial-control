@@ -5,9 +5,10 @@ import { AddConceptBaseModalComponent } from './components/add-concept-base-moda
 import { AccountStepComponent } from './components/add-concept-base-modal/components/account-step/account-step.component';
 import { CategoryStepComponent } from './components/add-concept-base-modal/components/category-step/category-step.component';
 import { ConceptStepComponent } from './components/add-concept-base-modal/components/concept-step/concept-step.component';
+import { SummaryStepComponent } from './components/add-concept-base-modal/components/summary-step/summary-step.component';
 
 @NgModule({
-  declarations: [AddConceptBaseModalComponent, AccountStepComponent, CategoryStepComponent, ConceptStepComponent],
+  declarations: [AddConceptBaseModalComponent, AccountStepComponent, CategoryStepComponent, ConceptStepComponent, SummaryStepComponent],
   imports: [CommonModule, ModalStepsComponent],
   exports: [AddConceptBaseModalComponent],
 })
