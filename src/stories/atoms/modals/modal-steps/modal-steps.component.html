@@ -4,9 +4,9 @@
   [title]="title"
   [description]="description"
   [confirmBtn]="confirmBtn"
-  (onConfirm)="onConfirm.emit()"
+  (onConfirm)="handleConfirm()"
   [cancelBtn]="cancelBtn"
-  (onCancel)="(onCancel.emit)"
+  (onCancel)="handleCancel()"
 >
   <ng-content />
 </app-modal-base>

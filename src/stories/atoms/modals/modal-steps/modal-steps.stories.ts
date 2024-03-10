@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, ModalStepsComponent],
   template: `<app-modal-steps
       [open]="open"
+      [currentStep]="step"
       (onClose)="onCloseHandler()"
       [title]="title"
       [description]="description"
@@ -33,12 +34,15 @@ import { CommonModule } from '@angular/common';
     </app-modal-steps>
 
     <ng-template #defaultContent>
-      <p>Modal Example</p>
+      <div *ngIf="step() === 0">Hola0</div>
+      <div *ngIf="step() === 1">Hola1</div>
+      <div *ngIf="step() === 2">Hola2</div>
     </ng-template>`,
   styleUrls: [],
 })
 export class ModalStepsComponentStory {
   open = signal(true);
+  step = signal(0);
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input({ required: true }) title!: string;
