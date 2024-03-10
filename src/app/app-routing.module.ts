@@ -1,10 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { APP_ROUTES } from './app-routes';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: APP_ROUTES.globalPosition, pathMatch: 'full' },
+  {
+    path: APP_ROUTES.globalPosition,
+    loadChildren: () =>
+      import('./pages/global-postion-page/global-postion-page.module').then(
+        (m) => m.GlobalPostionPageModule
+      ),
+  },
+  {
+    path: APP_ROUTES.categories,
+    loadChildren: () =>
+      import('./pages/category-page/category-page.module').then(
+        (m) => m.CategoryPageModule
+      ),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

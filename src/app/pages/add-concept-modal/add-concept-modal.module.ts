@@ -8,7 +8,13 @@ import { ConceptStepComponent } from './components/add-concept-base-modal/compon
 import { SummaryStepComponent } from './components/add-concept-base-modal/components/summary-step/summary-step.component';
 
 @NgModule({
-  declarations: [AddConceptBaseModalComponent, AccountStepComponent, CategoryStepComponent, ConceptStepComponent, SummaryStepComponent],
+  declarations: [
+    AddConceptBaseModalComponent,
+    AccountStepComponent,
+    CategoryStepComponent,
+    ConceptStepComponent,
+    SummaryStepComponent,
+  ],
   imports: [CommonModule, ModalStepsComponent],
   exports: [AddConceptBaseModalComponent],
 })

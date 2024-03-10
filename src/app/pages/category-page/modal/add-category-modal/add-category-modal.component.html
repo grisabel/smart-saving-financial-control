@@ -1,0 +1,12 @@
+<app-modal
+  [open]="open"
+  (onClose)="onCloseHandler()"
+  [title]="title"
+  [description]="description"
+  [confirmBtn]="confirmBtn"
+  (onConfirm)="onConfirmHandler()"
+  [cancelBtn]="cancelBtn"
+  (onCancel)="onCancelHandler()"
+>
+  <ng-container slot="content"> modal categorias </ng-container>
+</app-modal>

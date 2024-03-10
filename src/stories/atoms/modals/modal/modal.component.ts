@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output, Signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  Signal,
+  WritableSignal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ModalBaseComponent } from '../modal-base/modal-base.component';
@@ -11,7 +18,7 @@ import { ModalBaseComponent } from '../modal-base/modal-base.component';
   styleUrls: [],
 })
 export class ModalComponent {
-  @Input({ required: true }) open!: Signal<boolean>;
+  @Input({ required: true }) open!: WritableSignal<boolean>;
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input({ required: true }) title!: string;
