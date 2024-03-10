@@ -6,5 +6,6 @@ import { Component, signal } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  open = signal(false);
+  openIncome = signal(false);
+  openExpense = signal(false);
 }
