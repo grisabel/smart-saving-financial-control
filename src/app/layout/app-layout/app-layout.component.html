@@ -1,9 +1,9 @@
 <div class="layout">
   <app-desktop-layout class="layout-desktop" *ngIf="!isMobile()">
     <ng-container slot="menu">
-      <app-menu-mobile
+      <app-menu-desktop
         [items]="items"
-        [initialActive]="initialActive"
+        [initialActive]="currentMenu()"
         (onChange)="handleMenuChange($event)"
       />
     </ng-container>
@@ -17,7 +17,7 @@
       ><app-menu-mobile
         class="menu"
         [items]="items"
-        [initialActive]="initialActive"
+        [initialActive]="currentMenu()"
         (onChange)="handleMenuChange($event)"
     /></ng-container>
     <ng-container slot="content">

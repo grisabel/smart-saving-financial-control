@@ -16,7 +16,7 @@ export class AppLayoutComponent {
   isMobile = signal(true);
   @Input() content!: TemplateRef<any>;
 
-  initialActive: string = 'finanzas';
+  currentMenu = signal('finanzas');
   items: MenuItem[] = [
     { id: 'finanzas', icon: 'financial', title: 'Finanzas' },
     { id: 'herramientas', icon: 'tools', title: 'Herramienta' },
@@ -29,6 +29,7 @@ export class AppLayoutComponent {
   }
 
   handleMenuChange(id: string) {
+    this.currentMenu.set(id);
     console.log({ id });
   }
 

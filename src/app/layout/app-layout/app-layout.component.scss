@@ -5,6 +5,7 @@
     display: none;
     @media (min-width: $bpMdMin) {
       display: block;
+      margin-left: 16px;
     }
     .menu {
       width: 100%;
