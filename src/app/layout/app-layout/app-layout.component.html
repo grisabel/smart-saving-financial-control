@@ -1,0 +1,27 @@
+<div class="layout">
+  <app-desktop-layout class="layout-desktop" *ngIf="!isMobile()">
+    <ng-container slot="menu">
+      <app-menu-mobile
+        [items]="items"
+        [initialActive]="initialActive"
+        (onChange)="handleMenuChange($event)"
+      />
+    </ng-container>
+    <ng-container slot="content">
+      <ng-container *ngTemplateOutlet="content" />
+    </ng-container>
+  </app-desktop-layout>
+
+  <app-mobile-layout class="layout-mobile" *ngIf="isMobile()">
+    <ng-container slot="menu"
+      ><app-menu-mobile
+        class="menu"
+        [items]="items"
+        [initialActive]="initialActive"
+        (onChange)="handleMenuChange($event)"
+    /></ng-container>
+    <ng-container slot="content">
+      <ng-container *ngTemplateOutlet="content" />
+    </ng-container>
+  </app-mobile-layout>
+</div>

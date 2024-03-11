@@ -1,0 +1,7 @@
+<div
+  [ngClass]="{ MenuItemMobile: true, 'MenuItemMobile--active': active }"
+  (click)="onClick.emit(id)"
+>
+  <app-icon [name]="icon" />
+  <span class="title">{{ title }}</span>
+</div>
