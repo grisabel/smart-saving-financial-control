@@ -28,6 +28,10 @@ export class AppLayoutComponent {
     this.checkMediaQuery();
   }
 
+  handleMenuChange(id: string) {
+    console.log({ id });
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkMediaQuery();
