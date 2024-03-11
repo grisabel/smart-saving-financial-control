@@ -1,0 +1,18 @@
+<div class="inputTextArea">
+    <label for="{{ id }}" class="label">{{ label }}</label>
+    <div class="inputContainer">
+      <textarea 
+        [id]="id"
+        class="input"
+        [placeholder]="placeholder"
+        [value]="value"
+        (input)="handleChange($event)"
+        autocomplete="off"
+        maxlength="150"
+      ></textarea>
+      <span class="icon">
+        <ng-content select="[icon]"></ng-content>
+      </span>
+    </div>
+  </div>
+  
