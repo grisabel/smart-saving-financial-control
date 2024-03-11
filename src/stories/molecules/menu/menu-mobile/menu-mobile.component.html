@@ -1,9 +1,11 @@
 <div class="MenuMobile">
-  <ng-container *ngFor="let _ of [].constructor(4); index as i">
+  <ng-container *ngFor="let item of items">
     <app-menu-item-mobile
-      [active]="currentId() === '' + i"
-      [id]="'' + i"
-      (onClick)="currentId.set($event)"
+      [active]="currentId() === item.id"
+      [id]="item.id"
+      [icon]="item.icon"
+      [title]="item.title"
+      (onClick)="handleMenuChange($event)"
     />
   </ng-container>
 </div>

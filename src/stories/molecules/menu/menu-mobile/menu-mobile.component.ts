@@ -1,6 +1,15 @@
-import { Component, signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItemMobileComponent } from './components/menu-item-mobile/menu-item-mobile.component';
+import { MenuItem } from '../shared/menu-item.types';
 
 @Component({
   selector: 'app-menu-mobile',
@@ -9,11 +18,21 @@ import { MenuItemMobileComponent } from './components/menu-item-mobile/menu-item
   templateUrl: './menu-mobile.component.html',
   styleUrls: ['./menu-mobile.component.scss'],
 })
-export class MenuMobileComponent {
-  currentId = signal('0');
+export class MenuMobileComponent implements OnChanges {
+  @Input() initialActive!: string;
+  @Input() items: MenuItem[] = [];
+  @Output() onChange: EventEmitter<string /*id*/> = new EventEmitter<string>();
 
-  //id
-  //icon
-  //title
-  //click
+  currentId = signal<null | string>(null);
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['initialActive'] && changes['initialActive'].currentValue) {
+      this.currentId.set(changes['initialActive'].currentValue);
+    }
+  }
+
+  handleMenuChange(id: string) {
+    this.currentId.set(id);
+    this.onChange.emit(id);
+  }
 }
