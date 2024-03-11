@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
-import { MenuMobileComponent } from './menu-mobile.component';
+import { MenuDesktopComponent } from './menu-desktop.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<MenuMobileComponent> = {
-  title: 'Molecules/Menu/MenuMobile',
-  component: MenuMobileComponent,
+const meta: Meta<MenuDesktopComponent> = {
+  title: 'Molecules/Menu/MenuDesktop',
+  component: MenuDesktopComponent,
   tags: ['autodocs'],
-  render: (args: MenuMobileComponent) => ({
+  render: (args: MenuDesktopComponent) => ({
     props: {
       backgroundColor: null,
       ...args,
@@ -17,9 +17,9 @@ const meta: Meta<MenuMobileComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<MenuMobileComponent>;
+type Story = StoryObj<MenuDesktopComponent>;
 
-export const MenuMobileExample: Story = {
+export const MenuDesktopExample: Story = {
   args: {
     initialActive: 'finanzas',
     items: [
