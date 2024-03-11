@@ -23,6 +23,9 @@ export class AppLayoutComponent {
     { id: 'contenido', icon: 'book', title: 'Contenido' },
     { id: 'mi-cuenta', icon: 'account', title: 'Mi cuente' },
   ];
+  logout: MenuItem[] = [
+    { id: 'logout', icon: 'logout', title: 'Cerrar Sesión' },
+  ];
 
   ngOnInit() {
     this.checkMediaQuery();

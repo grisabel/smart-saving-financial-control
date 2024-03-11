@@ -1,12 +1,14 @@
 <div class="layout">
   <app-desktop-layout class="layout-desktop" *ngIf="!isMobile()">
-    <ng-container slot="menu">
+    <div class="menu" slot="menu">
+      <app-menu-desktop [items]="logout" />
+      <app-divisor class="divisor" />
       <app-menu-desktop
         [items]="items"
         [initialActive]="currentMenu()"
         (onChange)="handleMenuChange($event)"
       />
-    </ng-container>
+    </div>
     <ng-container slot="content">
       <ng-container *ngTemplateOutlet="content" />
     </ng-container>

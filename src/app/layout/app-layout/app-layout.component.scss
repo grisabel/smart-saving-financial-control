@@ -5,10 +5,20 @@
     display: none;
     @media (min-width: $bpMdMin) {
       display: block;
-      margin-left: 16px;
     }
     .menu {
+      margin-left: 16px;
+      margin-right: 16px;
+      margin-top: 32px;
       width: 100%;
+
+      .divisor {
+        ::ng-deep {
+          div {
+            margin-bottom: 20px;
+          }
+        }
+      }
     }
   }
 

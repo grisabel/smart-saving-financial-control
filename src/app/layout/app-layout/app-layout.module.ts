@@ -5,6 +5,7 @@ import { AppDesktopLayoutComponent } from '@stories/templates/app-desktop-layout
 import { AppMobileLayoutComponent } from '@stories/templates/app-mobile-layout/app-mobile-layout.component';
 import { MenuMobileComponent } from '@stories/molecules/menu/menu-mobile/menu-mobile.component';
 import { MenuDesktopComponent } from '@stories/molecules/menu/menu-desktop/menu-desktop.component';
+import { DivisorComponent } from '@stories/atoms/divisor/divisor.component';
 
 @NgModule({
   declarations: [AppLayoutComponent],
@@ -14,6 +15,7 @@ import { MenuDesktopComponent } from '@stories/molecules/menu/menu-desktop/menu-
     AppMobileLayoutComponent,
     MenuMobileComponent,
     MenuDesktopComponent,
+    DivisorComponent,
   ],
   exports: [AppLayoutComponent],
 })
