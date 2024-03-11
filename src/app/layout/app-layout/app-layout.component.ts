@@ -5,6 +5,7 @@ import {
   TemplateRef,
   signal,
 } from '@angular/core';
+import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
 
 @Component({
   selector: 'app-layout',
@@ -15,10 +16,13 @@ export class AppLayoutComponent {
   isMobile = signal(true);
   @Input() content!: TemplateRef<any>;
 
-  //id
-  //icon
-  //title
-  //click
+  initialActive: string = 'finanzas';
+  items: MenuItem[] = [
+    { id: 'finanzas', icon: 'financial', title: 'Finanzas' },
+    { id: 'herramientas', icon: 'tools', title: 'Herramienta' },
+    { id: 'contenido', icon: 'book', title: 'Contenido' },
+    { id: 'mi-cuenta', icon: 'account', title: 'Mi cuente' },
+  ];
 
   ngOnInit() {
     this.checkMediaQuery();

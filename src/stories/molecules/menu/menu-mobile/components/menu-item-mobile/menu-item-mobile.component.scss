@@ -7,7 +7,7 @@
   align-items: center;
 
   .title {
-    @include f--b1-light;
+    @include f--b2-light;
     color: var(--color-carbon);
     cursor: pointer;
     padding-top: 8px;
@@ -15,7 +15,7 @@
 
   ::ng-deep {
     svg {
-      transform: scale(2);
+      transform: scale(1.5);
       cursor: pointer;
     }
   }
