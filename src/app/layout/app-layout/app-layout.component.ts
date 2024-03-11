@@ -16,12 +16,15 @@ export class AppLayoutComponent {
   isMobile = signal(true);
   @Input() content!: TemplateRef<any>;
 
-  initialActive: string = 'finanzas';
+  currentMenu = signal('finanzas');
   items: MenuItem[] = [
     { id: 'finanzas', icon: 'financial', title: 'Finanzas' },
     { id: 'herramientas', icon: 'tools', title: 'Herramienta' },
     { id: 'contenido', icon: 'book', title: 'Contenido' },
     { id: 'mi-cuenta', icon: 'account', title: 'Mi cuente' },
+  ];
+  logout: MenuItem[] = [
+    { id: 'logout', icon: 'logout', title: 'Cerrar Sesión' },
   ];
 
   ngOnInit() {
@@ -29,6 +32,7 @@ export class AppLayoutComponent {
   }
 
   handleMenuChange(id: string) {
+    this.currentMenu.set(id);
     console.log({ id });
   }
 
