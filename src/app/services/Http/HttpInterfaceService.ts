@@ -1,3 +1,4 @@
+import { HttpResponse as AngularHttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export type HttpHeader = { [key: string]: string };
@@ -19,7 +20,7 @@ export type HttpPutRequest = HttpRequest;
 export type HttpPatchRequest = HttpRequest;
 export type HttpDeleteRequest = Omit<HttpRequest, 'body'>;
 
-export type HttpResponse<T> = Response;
+export type HttpResponse<T> = AngularHttpResponse<T>;
 
 export interface HttpInterfaceService {
   get<T>({ endpoint, headers }: HttpGetRequest): Observable<HttpResponse<T>>;
