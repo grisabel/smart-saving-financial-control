@@ -1,4 +1,4 @@
-import { HttpBody, HttpHeader, HttpInterfaceService } from './HttpInterfaceService';
+import { HttpBody, HttpHeader, HttpInterface } from './HttpInterface';
 
 export interface MockAdapterResponseFncParams {
   params?: Record<string /*id*/, string /*value*/>;
@@ -12,10 +12,10 @@ export interface MockAdapterResponseFncReturn<T> {
 }
 
 export type MockAdapterResponseFnc<T> = (
-  params: MockAdapterResponseFncParams,
+  params: MockAdapterResponseFncParams
 ) => Promise<MockAdapterResponseFncReturn<T>>;
 
-export interface HttpInterfaceMockAdapter extends HttpInterfaceService {
+export interface HttpInterfaceMockAdapter extends HttpInterface {
   onGet<T>(urlPattern: string, mockFnc: MockAdapterResponseFnc<T>): void;
   onPost<T>(urlPattern: string, mockFnc: MockAdapterResponseFnc<T>): void;
   onPut<T>(urlPattern: string, mockFnc: MockAdapterResponseFnc<T>): void;

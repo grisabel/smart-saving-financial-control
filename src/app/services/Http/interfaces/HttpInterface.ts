@@ -22,7 +22,7 @@ export type HttpDeleteRequest = Omit<HttpRequest, 'body'>;
 
 export type HttpResponse<T> = AngularHttpResponse<T>;
 
-export interface HttpInterfaceService {
+export interface HttpInterface {
   get<T>({ endpoint, headers }: HttpGetRequest): Observable<HttpResponse<T>>;
 
   post<T>({

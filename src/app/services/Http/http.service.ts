@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { HttpInterfaceService } from './http-interface.service';
+
 import {
   HttpDeleteRequest,
   HttpGetRequest,
-  HttpInterfaceService,
   HttpPatchRequest,
   HttpPostRequest,
   HttpPutRequest,
   HttpResponse,
-} from './interfaces/HttpInterfaceService';
-import { Observable } from 'rxjs';
+} from './interfaces/HttpInterface';
 
 @Injectable()
 export class HttpService implements HttpInterfaceService {

@@ -12,7 +12,7 @@ import {
   HttpResponse,
   HttpRequest,
   HttpDeleteRequest,
-} from './interfaces/HttpInterfaceService';
+} from './interfaces/HttpInterface';
 import { sleep } from '@app/utils/sleep';
 
 @Injectable()
