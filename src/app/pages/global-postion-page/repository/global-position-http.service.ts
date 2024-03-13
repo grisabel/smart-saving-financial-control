@@ -5,8 +5,6 @@ import { environment } from 'src/environments/environment';
 
 const { baseUrl, GlobalPositionAPI } = environment.endpoints;
 
-console.log({ baseUrl, GlobalPositionAPI });
-
 @Injectable()
 export class GlobalPositionHttpService {
   http = inject(HttpInterfaceService);

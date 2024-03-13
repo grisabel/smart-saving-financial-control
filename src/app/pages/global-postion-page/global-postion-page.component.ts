@@ -29,10 +29,10 @@ export class GlobalPostionPageComponent implements OnInit {
         repeatEmail: '',
         repeatPassword: '',
       })
-      .then((resul) => {
+      .then((resul: any) => {
         console.log(resul);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.log({ error });
       });
   }
