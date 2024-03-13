@@ -9,7 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { IconComponent } from '@stories/atoms/icon/icon.component';
-import { ButtonComponent } from '@stories/atoms/button/button.component';
+import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
 import {
   ModalBaseInputs,
   ModalBaseOutputs,

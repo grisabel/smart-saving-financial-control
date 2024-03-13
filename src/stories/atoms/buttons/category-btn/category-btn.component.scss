@@ -1,0 +1,55 @@
+button {
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 8px;
+
+  .add {
+    ::ng-deep {
+      svg {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .bets,
+  .car,
+  .electricity,
+  .food,
+  .health,
+  .heating,
+  .insurance,
+  .internet,
+  .leisure,
+  .mortgage,
+  .paylist,
+  .pets,
+  .scholarship,
+  .studies,
+  .water {
+    ::ng-deep {
+      svg {
+        transform: scale(0.7);
+      }
+    }
+  }
+
+  .tax {
+    ::ng-deep {
+      svg {
+        transform: scale(0.6);
+      }
+    }
+  }
+  .icon {
+    height: 24px;
+    width: 24px;
+
+    ::ng-deep {
+      svg {
+        color: white !important;
+      }
+    }
+  }
+}
