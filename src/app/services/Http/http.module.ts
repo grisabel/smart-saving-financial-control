@@ -13,7 +13,7 @@ import { HttpService } from './http.service';
     HttpMockAdapterService,
     {
       provide: HttpInterfaceService,
-      useClass: true ? HttpService : HttpMockAdapterService,
+      useClass: false ? HttpService : HttpMockAdapterService,
     },
   ],
 })
