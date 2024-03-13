@@ -6,13 +6,13 @@ import {
   HttpInterfaceMockAdapter,
   MockAdapterResponseFnc,
   MockAdapterResponseFncParams,
-} from './HttpInterfaceMockAdapter';
+} from './interfaces/HttpInterfaceMockAdapter';
 import {
   HttpGetRequest,
   HttpResponse,
   HttpRequest,
   HttpDeleteRequest,
-} from './HttpInterfaceService';
+} from './interfaces/HttpInterfaceService';
 import { sleep } from '@app/utils/sleep';
 
 @Injectable()

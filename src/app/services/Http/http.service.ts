@@ -8,7 +8,7 @@ import {
   HttpPostRequest,
   HttpPutRequest,
   HttpResponse,
-} from './HttpInterfaceService';
+} from './interfaces/HttpInterfaceService';
 import { Observable } from 'rxjs';
 
 @Injectable()
