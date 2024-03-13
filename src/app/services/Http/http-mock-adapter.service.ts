@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import {
+  HttpResponse as AngularHttpResponse,
+  HttpHeaders as AngularHttpHeaders,
+} from '@angular/common/http';
 import { Observable, defer } from 'rxjs';
 import * as pathToRegexp from 'path-to-regexp';
 
@@ -76,21 +80,27 @@ export class HttpMockAdapterService implements HttpInterfaceMockAdapter {
       })
         .then((data) => {
           const { status, response } = data;
-          return Promise.resolve({
-            ok: status >= 200 && status <= 299,
-            json: () => Promise.resolve(response),
-            status: status,
-            headers: headers,
-          }) as unknown as HttpResponse<T>;
+          return Promise.resolve<HttpResponse<T>>(
+            new AngularHttpResponse({
+              body: response,
+              headers: new AngularHttpHeaders(headers),
+              status: status,
+              statusText: '',
+              url: endpoint,
+            })
+          );
         })
         .catch((error) => {
           const { status, response } = error;
-          return Promise.reject({
-            json: () => Promise.resolve(response),
-            ok: status >= 200 && status <= 299,
-            status: status,
-            headers: headers,
-          }) as unknown as HttpResponse<T>;
+          return Promise.reject(
+            new AngularHttpResponse({
+              body: response,
+              headers: new AngularHttpHeaders(headers),
+              status: status,
+              statusText: '',
+              url: endpoint,
+            })
+          );
         });
     });
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { RegisterRequestModel } from './model/request/RegisterRequestModel';
 
 @Injectable()
-export class GlobalPositionInterfaceService {
-  constructor() {}
+export abstract class GlobalPositionInterfaceService {
+  abstract register(requestModel: RegisterRequestModel): Promise<void>;
 }

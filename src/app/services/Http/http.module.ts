@@ -11,7 +11,6 @@ import { HttpService } from './http.service';
   declarations: [],
   imports: [CommonModule, HttpClientModule],
   providers: [
-    HttpMockAdapterService,
     {
       provide: HttpInterfaceService,
       useClass: !environment.mock ? HttpService : HttpMockAdapterService,

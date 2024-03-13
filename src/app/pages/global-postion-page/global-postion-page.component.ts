@@ -18,7 +18,23 @@ export class GlobalPostionPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log({ globalPostionService: this.globalPostionService });
+    this.globalPostionService
+      .register({
+        dateBirth: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        objetive: '',
+        password: '',
+        repeatEmail: '',
+        repeatPassword: '',
+      })
+      .then((resul) => {
+        console.log(resul);
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
   }
 
   handlerCategory() {
