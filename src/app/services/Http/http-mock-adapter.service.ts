@@ -15,9 +15,7 @@ import {
 } from './HttpInterfaceService';
 import { sleep } from '@app/utils/sleep';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class HttpMockAdapterService implements HttpInterfaceMockAdapter {
   private mockResponsesGet = new Map<string, MockAdapterResponseFnc<any>>();
   private mockResponsesPost = new Map<string, MockAdapterResponseFnc<any>>();

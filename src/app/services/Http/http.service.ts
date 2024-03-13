@@ -11,9 +11,7 @@ import {
 } from './HttpInterfaceService';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class HttpService implements HttpInterfaceService {
   constructor(private http: HttpClient) {}
 
