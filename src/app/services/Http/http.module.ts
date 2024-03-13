@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 import { HttpInterfaceService } from './http-interface.service';
 import { HttpMockAdapterService } from './http-mock-adapter.service';
@@ -13,7 +14,7 @@ import { HttpService } from './http.service';
     HttpMockAdapterService,
     {
       provide: HttpInterfaceService,
-      useClass: false ? HttpService : HttpMockAdapterService,
+      useClass: !environment.mock ? HttpService : HttpMockAdapterService,
     },
   ],
 })

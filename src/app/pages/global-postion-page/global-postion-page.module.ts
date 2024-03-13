@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 import { GlobalPostionPageRoutingModule } from './global-postion-page-routing.module';
 import { GlobalPostionPageComponent } from './global-postion-page.component';
@@ -26,7 +27,9 @@ import { GlobalPositionMockService } from './repository/global-position-mock.ser
   providers: [
     {
       provide: GlobalPositionInterfaceService,
-      useClass: false ? GlobalPositionHttpService : GlobalPositionMockService,
+      useClass: !environment.mock
+        ? GlobalPositionHttpService
+        : GlobalPositionMockService,
     },
   ],
 })
