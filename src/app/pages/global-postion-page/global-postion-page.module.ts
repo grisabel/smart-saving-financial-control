@@ -12,6 +12,7 @@ import { GlobalPositionHttpService } from './repository/global-position-http.ser
 import { GlobalPositionMockService } from './repository/global-position-mock.service';
 import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
 import { IconComponent } from '@stories/atoms/icon/icon.component';
+import { CardBtnComponent } from '@stories/atoms/buttons/card-btn/card-btn.component';
 
 @NgModule({
   declarations: [GlobalPostionPageComponent],
@@ -23,6 +24,7 @@ import { IconComponent } from '@stories/atoms/icon/icon.component';
     // UI Modules
     ButtonComponent,
     IconComponent,
+    CardBtnComponent,
     // Feature Modules
     AddConceptModalModule,
   ],

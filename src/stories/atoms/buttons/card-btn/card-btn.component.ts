@@ -12,7 +12,7 @@ import { IconComponent } from '@stories/atoms/icon/icon.component';
 })
 export class CardBtnComponent {
   @Input() title: string = '';
-  @Input() iconName: string = '';
+  @Input() icon: string = '';
   @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick(): void {

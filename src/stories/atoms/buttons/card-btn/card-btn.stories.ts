@@ -28,9 +28,9 @@ export default meta;
 type Story = StoryObj<CardBtnComponent>;
 
 export const CardBtnIcome: Story = {
-  args: { iconName: 'income', title: 'Ingresos' },
+  args: { icon: 'income', title: 'Ingresos' },
 };
 
 export const CardBtnExpense: Story = {
-  args: { iconName: 'expense', title: 'Gastos' },
+  args: { icon: 'expense', title: 'Gastos' },
 };
