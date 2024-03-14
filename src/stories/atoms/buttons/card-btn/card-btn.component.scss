@@ -1,0 +1,35 @@
+@import "variables/fonts.scss";
+@import "variables/breakpoints.scss";
+
+.cardBtnWp {
+  max-height: 68px;
+  max-width: 98px;
+
+  .cardBtnContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 60px;
+    min-width: 80px;
+
+    @media (min-width: $bpSmMin) {
+      min-height: 80px;
+      min-width: 95px;
+    }
+
+    .title {
+      @include f--b2-light;
+    }
+  }
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}

@@ -4,7 +4,7 @@ import { CategoryBtnComponent } from './category-btn.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<CategoryBtnComponent> = {
-  title: 'Atoms/CategoryButton',
+  title: 'Atoms/Buttons/CategoryBtn',
   component: CategoryBtnComponent,
   tags: ['autodocs'],
   render: (args: CategoryBtnComponent) => ({

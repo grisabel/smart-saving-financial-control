@@ -3,10 +3,14 @@
 
   <app-button label="Categorias" (onClick)="handlerCategory()" />
 
-  <app-button label="Modal Ingresos" (onClick)="openIncome.set(true)" />
-  <app-button
-    label="Modal Gastos"
-    color="secondary"
+  <app-card-btn
+    icon="income"
+    title="Ingresos"
+    (onClick)="openIncome.set(true)"
+  />
+  <app-card-btn
+    icon="expense"
+    title="Gastos"
     (onClick)="openExpense.set(true)"
   />
 
