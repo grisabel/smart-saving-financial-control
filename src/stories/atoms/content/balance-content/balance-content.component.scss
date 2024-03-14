@@ -19,8 +19,17 @@
   .amount {
     @include f--b2-light;
     $size: 1rem;
+    color: #000000;
 
     font-size: $size;
     line-height: $size * 1.5;
+
+    &--positive {
+      color: var(--success-main);
+    }
+
+    &--negative {
+      color: var(--red-main);
+    }
   }
 }

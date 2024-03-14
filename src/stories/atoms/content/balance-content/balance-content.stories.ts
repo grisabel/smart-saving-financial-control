@@ -22,7 +22,6 @@ const meta: Meta<BalanceContentComponent> = {
       (story: any) => `<div style="margin: 32px">${story}</div>`
     ),
   ],
-  argTypes: { onClick: { action: 'buttonClick' } },
 };
 
 export default meta;
@@ -30,6 +29,23 @@ type Story = StoryObj<BalanceContentComponent>;
 
 export const BalanceContent: Story = {
   args: {
-    label: 'Button',
+    title: 'Balance',
+    amount: '500',
+  },
+};
+
+export const BalanceContentIcome: Story = {
+  args: {
+    title: 'Balance',
+    amount: '500',
+    type: 'income',
+  },
+};
+
+export const BalanceContentExpense: Story = {
+  args: {
+    title: 'Balance',
+    amount: '500',
+    type: 'expense',
   },
 };
