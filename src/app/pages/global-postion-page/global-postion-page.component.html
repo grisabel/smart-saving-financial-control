@@ -1,8 +1,7 @@
 <div>
   Global Position
 
-  <app-button label="Categorias" (onClick)="handlerCategory()" />
-
+  <app-balance-content title="Balance" amount="500" />
   <app-card-btn
     icon="income"
     title="Ingresos"
@@ -12,6 +11,11 @@
     icon="expense"
     title="Gastos"
     (onClick)="openExpense.set(true)"
+  />
+  <app-card-btn
+    icon="category"
+    title="Categorias"
+    (onClick)="handlerCategory()"
   />
 
   <app-add-concept-base-modal [open]="openIncome" />

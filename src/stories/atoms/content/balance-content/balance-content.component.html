@@ -1,0 +1,14 @@
+<app-content-base>
+  <div class="balanceContentWp">
+    <p class="title">{{ title }}</p>
+    <p
+      [ngClass]="{
+        amount: true,
+        'amount--positive': type === 'income',
+        'amount--negative': type === 'expense'
+      }"
+    >
+      {{ amount }} €
+    </p>
+  </div>
+</app-content-base>

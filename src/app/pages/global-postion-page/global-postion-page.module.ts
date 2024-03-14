@@ -13,6 +13,7 @@ import { GlobalPositionMockService } from './repository/global-position-mock.ser
 import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
 import { IconComponent } from '@stories/atoms/icon/icon.component';
 import { CardBtnComponent } from '@stories/atoms/buttons/card-btn/card-btn.component';
+import { BalanceContentComponent } from '@stories/atoms/content/balance-content/balance-content.component';
 
 @NgModule({
   declarations: [GlobalPostionPageComponent],
@@ -25,6 +26,7 @@ import { CardBtnComponent } from '@stories/atoms/buttons/card-btn/card-btn.compo
     ButtonComponent,
     IconComponent,
     CardBtnComponent,
+    BalanceContentComponent,
     // Feature Modules
     AddConceptModalModule,
   ],
