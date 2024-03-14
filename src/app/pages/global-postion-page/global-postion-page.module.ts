@@ -6,11 +6,12 @@ import { GlobalPostionPageRoutingModule } from './global-postion-page-routing.mo
 import { GlobalPostionPageComponent } from './global-postion-page.component';
 
 import { AddConceptModalModule } from '../../pages/add-concept-modal/add-concept-modal.module';
-import { UiBasicModule } from '../../../stories/ui-basic.module';
 import { HttpModule } from '@app/services/Http/http.module';
 import { GlobalPositionInterfaceService } from './repository/global-position-interface.service';
 import { GlobalPositionHttpService } from './repository/global-position-http.service';
 import { GlobalPositionMockService } from './repository/global-position-mock.service';
+import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
+import { IconComponent } from '@stories/atoms/icon/icon.component';
 
 @NgModule({
   declarations: [GlobalPostionPageComponent],
@@ -20,7 +21,8 @@ import { GlobalPositionMockService } from './repository/global-position-mock.ser
     // HttpModule
     HttpModule,
     // UI Modules
-    UiBasicModule,
+    ButtonComponent,
+    IconComponent,
     // Feature Modules
     AddConceptModalModule,
   ],

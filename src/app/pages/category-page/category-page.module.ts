@@ -6,7 +6,8 @@ import { CategoryPageComponent } from './category-page.component';
 import { CategoryPageRoutingModule } from './category-page-routing.module';
 import { AddCategoryModalComponent } from './modal/add-category-modal/add-category-modal.component';
 import { ModalComponent } from '@stories/atoms/modals/modal/modal.component';
-import { UiBasicModule } from '@stories/ui-basic.module';
+import { IconComponent } from '@stories/atoms/icon/icon.component';
+import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
 
 @NgModule({
   declarations: [CategoryPageComponent, AddCategoryModalComponent],
@@ -15,7 +16,8 @@ import { UiBasicModule } from '@stories/ui-basic.module';
     CategoryPageRoutingModule,
     //UI MODULES
     ModalComponent,
-    UiBasicModule,
+    ButtonComponent,
+    IconComponent,
   ],
 })
 export class CategoryPageModule {}
