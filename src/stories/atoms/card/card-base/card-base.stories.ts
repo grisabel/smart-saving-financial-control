@@ -1,4 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  componentWrapperDecorator,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 
 import { CardBaseComponent } from './card-base.component';
 
@@ -13,6 +17,11 @@ const meta: Meta<CardBaseComponent> = {
       ...args,
     },
   }),
+  decorators: [
+    componentWrapperDecorator(
+      (story: any) => `<div style="margin: 32px">${story}</div>`
+    ),
+  ],
   argTypes: { onClick: { action: 'buttonClick' } },
 };
 
