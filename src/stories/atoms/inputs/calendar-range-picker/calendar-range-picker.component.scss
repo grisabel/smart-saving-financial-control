@@ -1,15 +1,22 @@
 @import "variables/fonts.scss";
 
 .CalendarRangePickerWP {
-  padding-left: 120px;
-  padding-right: 120px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .decrement {
+  }
+
+  .increment {
+  }
 
   .container {
     display: flex;
     width: 100%;
     justify-content: space-between;
-
     padding: 16px;
+    gap: 16px;
 
     .data {
       .title {
