@@ -22,14 +22,11 @@ const meta: Meta<CalendarRangePickerComponent> = {
       (story: any) => `<div style="margin: 32px">${story}</div>`
     ),
   ],
-  argTypes: { onClick: { action: 'buttonClick' } },
 };
 
 export default meta;
 type Story = StoryObj<CalendarRangePickerComponent>;
 
 export const CalendarRangePickerExample: Story = {
-  args: {
-    label: 'Button',
-  },
+  args: {},
 };

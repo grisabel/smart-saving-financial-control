@@ -1,13 +1,14 @@
+<!-- TODO textos -->
 <div class="CalendarRangePickerWP">
   <app-circle-btn iconName="chevron-left" class="decrement" />
-  <app-card-base>
+  <app-card-base (onClick)="handleClick()">
     <div class="container">
       <div class="data">
-        <p class="title">Año</p>
+        <p class="title">{{ isYear() ? "Año" : "Mes" }}</p>
         <p class="date">2024</p>
       </div>
       <div class="icon">
-        <app-icon name="calendar" />
+        <app-icon [name]="isYear() ? 'calendar-year' : 'calendar-month'" />
       </div>
     </div>
   </app-card-base>
