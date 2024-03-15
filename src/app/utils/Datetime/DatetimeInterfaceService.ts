@@ -36,6 +36,7 @@ export interface DateTimeInterfaceService {
 
   today(): DateString; // DATE_FORMATS.Date
   now(): TimestampMs;
+  currentDate(): DateTimeModel;
 
   isValid(dateTime: DateTimeModel): boolean;
 
@@ -55,12 +56,12 @@ export interface DateTimeInterfaceService {
 
   calculatePastDate: (
     dateTime: DateTimeModel,
-    relative: { amount: number; unit: "days" | "weeks" | "months" | "years" }
+    relative: { amount: number; unit: 'days' | 'weeks' | 'months' | 'years' }
   ) => DateTimeModel;
 
   getMonthLimits(
     dateTime: DateTimeModel,
-    unit: "week" | "month" | "year"
+    unit: 'week' | 'month' | 'year'
   ): {
     dateStart: DateTimeModel;
     dateEnd: DateTimeModel;

@@ -5,7 +5,7 @@
     <div class="container">
       <div class="data">
         <p class="title">{{ isYear() ? "Año" : "Mes" }}</p>
-        <p class="date">2024</p>
+        <p class="date">{{ displayDate() }}</p>
       </div>
       <div class="icon">
         <app-icon [name]="isYear() ? 'calendar-year' : 'calendar-month'" />

@@ -5,6 +5,7 @@ import {
 } from '@storybook/angular';
 
 import { CalendarRangePickerComponent } from './calendar-range-picker.component';
+import DateTimeService from '@app/utils/Datetime/DatetimeService';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<CalendarRangePickerComponent> = {
@@ -28,5 +29,7 @@ export default meta;
 type Story = StoryObj<CalendarRangePickerComponent>;
 
 export const CalendarRangePickerExample: Story = {
-  args: {},
+  args: {
+    currentDate: DateTimeService.currentDate(),
+  },
 };
