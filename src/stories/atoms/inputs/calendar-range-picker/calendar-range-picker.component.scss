@@ -1,0 +1,32 @@
+@import "variables/fonts.scss";
+
+.CalendarRangePickerWP {
+  padding-left: 120px;
+  padding-right: 120px;
+
+  .container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    padding: 16px;
+
+    .data {
+      .title {
+        @include f--b1-light;
+        color: var(--blue-main);
+      }
+      .date {
+        @include f--b1-light;
+      }
+    }
+
+    .icon {
+      ::ng-deep {
+        svg {
+          color: var(--blue-main);
+        }
+      }
+    }
+  }
+}
