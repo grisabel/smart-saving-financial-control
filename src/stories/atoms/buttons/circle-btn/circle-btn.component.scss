@@ -9,6 +9,11 @@ button {
   .icon {
     width: 16px;
     height: 16px;
+    ::ng-deep {
+      svg {
+        color: var(--blue-main);
+      }
+    }
   }
 
   .add {

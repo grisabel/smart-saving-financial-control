@@ -29,8 +29,11 @@
     }
 
     .icon {
+      display: flex;
+      align-items: center;
       ::ng-deep {
         svg {
+          transform: scale(1.2);
           color: var(--blue-main);
         }
       }
