@@ -4,14 +4,14 @@ import {
   type StoryObj,
 } from '@storybook/angular';
 
-import { CardBaseComponent } from './card-base.component';
+import { CalendarRangePickerComponent } from './calendar-range-picker.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<CardBaseComponent> = {
-  title: 'Atoms/Card/CardBase',
-  component: CardBaseComponent,
+const meta: Meta<CalendarRangePickerComponent> = {
+  title: 'Atoms/Inputs/CalendarRangePicker',
+  component: CalendarRangePickerComponent,
   tags: ['autodocs'],
-  render: (args: CardBaseComponent) => ({
+  render: (args: CalendarRangePickerComponent) => ({
     props: {
       backgroundColor: null,
       ...args,
@@ -26,9 +26,9 @@ const meta: Meta<CardBaseComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<CardBaseComponent>;
+type Story = StoryObj<CalendarRangePickerComponent>;
 
-export const CardBase: Story = {
+export const CalendarRangePickerExample: Story = {
   args: {
     label: 'Button',
   },
