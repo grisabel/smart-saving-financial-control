@@ -17,9 +17,10 @@ import { HttpModule } from '@app/services/Http/http.module';
 import { GlobalPositionInterfaceService } from './data/repository/global-position-interface.service';
 import { GlobalPositionHttpService } from './data/repository/global-position-http.service';
 import { GlobalPositionMockService } from './data/repository/global-position-mock.service';
+import { AccountCardComponent } from './view/components/account-card/account-card.component';
 
 @NgModule({
-  declarations: [GlobalPostionPageComponent],
+  declarations: [GlobalPostionPageComponent, AccountCardComponent],
   imports: [
     CommonModule,
     GlobalPostionPageRoutingModule,
