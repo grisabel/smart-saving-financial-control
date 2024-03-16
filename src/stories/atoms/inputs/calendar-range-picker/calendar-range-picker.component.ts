@@ -2,7 +2,10 @@ import {
   Attribute,
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
+  Output,
+  WritableSignal,
   signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +16,12 @@ import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { DATE_FORMATS } from '@app/utils/Datetime/constants';
 
+interface OnChangeEvent {
+  dateStart: DateTimeModel;
+  dateEnd: DateTimeModel;
+  format: 'year' | 'month';
+}
+
 @Component({
   selector: 'app-calendar-range-picker',
   standalone: true,
@@ -22,21 +31,26 @@ import { DATE_FORMATS } from '@app/utils/Datetime/constants';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarRangePickerComponent {
-  // Month: "MM/yyyy",
-  // Year: "yyyy",
-  @Input() maxDate!: DateTimeModel;
-  isYear = signal(true);
+  @Input() dateCurrent!: DateTimeModel;
+  @Input() dateStart!: DateTimeModel;
+  @Input() dateEnd!: DateTimeModel;
+  @Input() format!: 'year' | 'month';
+
+  isYear = signal(this.format === 'year');
+
+  @Output() onChange: EventEmitter<OnChangeEvent> =
+    new EventEmitter<OnChangeEvent>();
 
   handleClick() {
     this.isYear.update((value) => !value);
   }
 
   displayDate() {
-    console.log(this.maxDate);
+    console.log(this.dateCurrent);
     if (this.isYear()) {
-      return DateTimeService.parse(this.maxDate, DATE_FORMATS.Year);
+      return DateTimeService.parse(this.dateCurrent, DATE_FORMATS.Year);
     } else {
-      return DateTimeService.parse(this.maxDate, DATE_FORMATS.Month);
+      return DateTimeService.parse(this.dateCurrent, DATE_FORMATS.Month);
     }
   }
 }

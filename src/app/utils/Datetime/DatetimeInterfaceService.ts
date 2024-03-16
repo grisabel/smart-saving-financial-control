@@ -59,7 +59,7 @@ export interface DateTimeInterfaceService {
     relative: { amount: number; unit: 'days' | 'weeks' | 'months' | 'years' }
   ) => DateTimeModel;
 
-  getMonthLimits(
+  getDateLimits(
     dateTime: DateTimeModel,
     unit: 'week' | 'month' | 'year'
   ): {

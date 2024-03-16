@@ -158,7 +158,7 @@ const calculatePastDate = (
   };
 };
 
-const getMonthLimits = (
+const getDateLimits = (
   dateTime: DateTimeModel,
   unit: 'week' | 'month' | 'year'
 ): {
@@ -187,7 +187,7 @@ const DateTimeService: DateTimeInterfaceService = {
   VALIDATE_SET,
   validate,
   calculatePastDate,
-  getMonthLimits,
+  getDateLimits,
 };
 
 export default DateTimeService;
