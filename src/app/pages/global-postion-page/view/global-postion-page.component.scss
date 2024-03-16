@@ -1,0 +1,9 @@
+@import "variables/fonts.scss";
+
+.pageTitle {
+  @include f--b1-bold;
+}
+
+.sectionTitle {
+  @include f--b1-regular;
+}

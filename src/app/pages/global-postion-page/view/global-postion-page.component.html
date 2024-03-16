@@ -1,7 +1,5 @@
 <div>
-  Global Position
-  <br />
-  Resumen
+  <p class="pageTitle">Resumen</p>
   <app-calendar-range-picker
     [dateStart]="range.dateStart"
     [dateEnd]="range.dateEnd"
@@ -10,8 +8,9 @@
   />
 
   <app-balance-content title="Balance" amount="500" />
-  <br />
-  Operaciones
+
+  <p class="sectionTitle">Operaciones</p>
+
   <app-card-btn
     icon="income"
     title="Ingresos"
@@ -27,11 +26,12 @@
     title="Categorias"
     (onClick)="handlerCategory()"
   />
-  <br />
-  Cuentas
+
+  <p class="sectionTitle">Cuentas</p>
+
   <app-account-card (onClick)="handlerAccountDetails()" />
-  <br />
-  Habitos
+
+  <p class="sectionTitle">Habitos</p>
 
   <app-add-concept-base-modal [open]="openIncome" />
   <app-add-concept-base-modal [open]="openExpense" />

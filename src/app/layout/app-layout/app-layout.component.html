@@ -9,9 +9,9 @@
         (onChange)="handleMenuChange($event)"
       />
     </div>
-    <ng-container slot="content">
+    <div class="content" slot="content">
       <ng-container *ngTemplateOutlet="content" />
-    </ng-container>
+    </div>
   </app-desktop-layout>
 
   <app-mobile-layout class="layout-mobile" *ngIf="isMobile()">
@@ -22,8 +22,8 @@
         [initialActive]="currentMenu()"
         (onChange)="handleMenuChange($event)"
     /></ng-container>
-    <ng-container slot="content">
+    <div class="content" slot="content">
       <ng-container *ngTemplateOutlet="content" />
-    </ng-container>
+    </div>
   </app-mobile-layout>
 </div>
