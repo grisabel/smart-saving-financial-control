@@ -4,11 +4,16 @@ button {
   border-radius: 50%;
   border: none;
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px 1px rgba(15, 23, 42, 0.1);
 
   .icon {
     width: 16px;
     height: 16px;
+    ::ng-deep {
+      svg {
+        color: var(--blue-main);
+      }
+    }
   }
 
   .add {
@@ -34,6 +39,29 @@ button {
       svg {
         transform: scale(0.6);
         color: var(--red-main);
+      }
+    }
+  }
+
+  &:hover {
+    outline: solid 1px var(--blue-main);
+    // box-shadow: none;
+    cursor: pointer;
+
+    .delete {
+      color: var(--red-main);
+    }
+  }
+
+  &[disabled] {
+    cursor: auto;
+    outline: none;
+
+    .icon {
+      ::ng-deep {
+        svg {
+          color: var(--grey-main);
+        }
       }
     }
   }

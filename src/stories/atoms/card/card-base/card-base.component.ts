@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './card-base.component.html',
-  styleUrls: ['./card-base.component.scss']
+  styleUrls: ['./card-base.component.scss'],
 })
 export class CardBaseComponent {
-
+  @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 }

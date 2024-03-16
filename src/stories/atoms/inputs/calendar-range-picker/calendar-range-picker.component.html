@@ -1,0 +1,26 @@
+<!-- TODO textos -->
+<div class="CalendarRangePickerWP">
+  <app-circle-btn
+    iconName="chevron-left"
+    class="decrement"
+    [disabled]="disableDecrement()"
+    (onClick)="handleDecrement()"
+  />
+  <app-card-base (onClick)="handleClick()">
+    <div class="container">
+      <div class="data">
+        <p class="title">{{ isYear() ? "Año" : "Mes" }}</p>
+        <p class="date">{{ displayDate() }}</p>
+      </div>
+      <div class="icon">
+        <app-icon [name]="isYear() ? 'calendar-year' : 'calendar-month'" />
+      </div>
+    </div>
+  </app-card-base>
+  <app-circle-btn
+    iconName="chevron-right"
+    class="increment"
+    [disabled]="disableIncrement()"
+    (onClick)="handleIncrement()"
+  />
+</div>

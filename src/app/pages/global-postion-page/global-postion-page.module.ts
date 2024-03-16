@@ -14,6 +14,7 @@ import { ButtonComponent } from '@stories/atoms/buttons/button/button.component'
 import { IconComponent } from '@stories/atoms/icon/icon.component';
 import { CardBtnComponent } from '@stories/atoms/buttons/card-btn/card-btn.component';
 import { BalanceContentComponent } from '@stories/atoms/content/balance-content/balance-content.component';
+import { CalendarRangePickerComponent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
 
 @NgModule({
   declarations: [GlobalPostionPageComponent],
@@ -27,6 +28,7 @@ import { BalanceContentComponent } from '@stories/atoms/content/balance-content/
     IconComponent,
     CardBtnComponent,
     BalanceContentComponent,
+    CalendarRangePickerComponent,
     // Feature Modules
     AddConceptModalModule,
   ],

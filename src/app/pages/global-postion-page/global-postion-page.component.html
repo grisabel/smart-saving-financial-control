@@ -1,6 +1,13 @@
 <div>
   Global Position
 
+  <app-calendar-range-picker
+    [dateStart]="range.dateStart"
+    [dateEnd]="range.dateEnd"
+    [format]="format"
+    (onChange)="handleOnChange($event)"
+  />
+
   <app-balance-content title="Balance" amount="500" />
   <app-card-btn
     icon="income"

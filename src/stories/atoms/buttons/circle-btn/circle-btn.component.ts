@@ -12,6 +12,7 @@ import { IconComponent } from '@stories/atoms/icon/icon.component';
 })
 export class CircleBtnComponent {
   @Input() iconName: string = '';
+  @Input() disabled?: boolean;
   @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick(): void {
