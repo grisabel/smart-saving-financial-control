@@ -1,9 +1,29 @@
+@import "variables/breakpoints.scss";
 @import "variables/fonts.scss";
 
 .pageTitle {
-  @include f--b1-bold;
+  @include f--b0-regular;
+}
+.sectionSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 16px;
+
+  app-balance-content {
+    flex-grow: 1;
+  }
 }
 
 .sectionTitle {
   @include f--b1-regular;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.sectionActions {
+  display: flex;
+  gap: 16px;
 }

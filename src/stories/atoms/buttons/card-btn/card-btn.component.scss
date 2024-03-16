@@ -2,24 +2,26 @@
 @import "variables/breakpoints.scss";
 
 .cardBtnWp {
-  max-height: 68px;
-  max-width: 98px;
+  height: 100%;
+  width: 100%;
 
   .cardBtnContent {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    .title {
+      @include f--b2-light;
+    }
+
+    padding: 8px 0;
     min-height: 60px;
     min-width: 80px;
 
     @media (min-width: $bpSmMin) {
+      padding: 16px 0;
       min-height: 80px;
       min-width: 95px;
-    }
-
-    .title {
-      @include f--b2-light;
     }
   }
 }
