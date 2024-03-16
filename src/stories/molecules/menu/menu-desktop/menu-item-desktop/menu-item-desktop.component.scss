@@ -32,4 +32,15 @@
       }
     }
   }
+  &:hover {
+    .title {
+      color: var(--blue-main);
+    }
+
+    ::ng-deep {
+      svg {
+        color: var(--blue-main);
+      }
+    }
+  }
 }

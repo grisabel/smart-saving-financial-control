@@ -38,8 +38,8 @@ export class CalendarRangePickerComponent {
   @Input() onlyRead?: boolean;
   @Input() disableFormatChange?: boolean;
 
-  @Input() dateMax!: DateTimeModel;
-  @Input() dateMin!: DateTimeModel;
+  @Input() dateMax?: DateTimeModel;
+  @Input() dateMin?: DateTimeModel;
 
   @Input('format')
   set format(value: 'year' | 'month') {
