@@ -4,6 +4,7 @@
     iconName="chevron-left"
     class="decrement"
     [disabled]="disableDecrement()"
+    (onClick)="handleDecrement()"
   />
   <app-card-base (onClick)="handleClick()">
     <div class="container">
@@ -20,5 +21,6 @@
     iconName="chevron-right"
     class="increment"
     [disabled]="disableIncrement()"
+    (onClick)="handleIncrement()"
   />
 </div>

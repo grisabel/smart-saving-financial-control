@@ -54,7 +54,7 @@ export class CalendarRangePickerComponent {
     const resul = DateTimeService.validate(
       this.dateCurrent,
       value,
-      DateTimeService.VALIDATE_SET.UNTIL_EXCLUSIVE
+      DateTimeService.VALIDATE_SET.UNTIL
     );
 
     this._dateEnd = resul ? this.dateCurrent : value;
@@ -85,6 +85,50 @@ export class CalendarRangePickerComponent {
       dateStart: dateRangeUpdate.dateStart,
       dateEnd: dateRangeUpdate.dateEnd,
       format,
+    });
+  }
+
+  handleDecrement() {
+    let unit!: 'years' | 'months';
+
+    if (this.isYear()) {
+      unit = 'years';
+    } else {
+      unit = 'months';
+    }
+
+    this.onChange.emit({
+      dateStart: DateTimeService.calculatePastDate(this.dateStart, {
+        amount: 1,
+        unit,
+      }),
+      dateEnd: DateTimeService.calculatePastDate(this.dateEnd, {
+        amount: 1,
+        unit,
+      }),
+      format: this.format,
+    });
+  }
+
+  handleIncrement() {
+    let unit!: 'years' | 'months';
+
+    if (this.isYear()) {
+      unit = 'years';
+    } else {
+      unit = 'months';
+    }
+
+    this.onChange.emit({
+      dateStart: DateTimeService.calculateFutureDate(this.dateStart, {
+        amount: 1,
+        unit,
+      }),
+      dateEnd: DateTimeService.calculateFutureDate(this.dateEnd, {
+        amount: 1,
+        unit,
+      }),
+      format: this.format,
     });
   }
 

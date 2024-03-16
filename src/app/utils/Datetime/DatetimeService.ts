@@ -158,6 +158,28 @@ const calculatePastDate = (
   };
 };
 
+const calculateFutureDate = (
+  dateTime: DateTimeModel,
+  relative: { amount: number; unit: 'days' | 'weeks' | 'months' | 'years' }
+): DateTimeModel => {
+  const units = ['days', 'weeks', 'months', 'years'];
+
+  if (!units.includes(relative.unit)) {
+    throw new Error(
+      `Invalid unit: ${relative.unit}. Must be one of ${units.join(', ')}.`
+    );
+  }
+
+  const futureDate = _fromFormat(dateTime).plus({
+    [relative.unit]: relative.amount,
+  });
+
+  return {
+    date: _toFormat(futureDate, dateTime.format),
+    format: dateTime.format,
+  };
+};
+
 const getDateLimits = (
   dateTime: DateTimeModel,
   unit: 'week' | 'month' | 'year'
@@ -188,6 +210,7 @@ const DateTimeService: DateTimeInterfaceService = {
   VALIDATE_SET,
   validate,
   calculatePastDate,
+  calculateFutureDate,
   getDateLimits,
 };
 

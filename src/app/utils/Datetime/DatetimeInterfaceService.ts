@@ -59,6 +59,11 @@ export interface DateTimeInterfaceService {
     relative: { amount: number; unit: 'days' | 'weeks' | 'months' | 'years' }
   ) => DateTimeModel;
 
+  calculateFutureDate: (
+    dateTime: DateTimeModel,
+    relative: { amount: number; unit: 'days' | 'weeks' | 'months' | 'years' }
+  ) => DateTimeModel;
+
   getDateLimits(
     dateTime: DateTimeModel,
     unit: 'week' | 'month' | 'year'
