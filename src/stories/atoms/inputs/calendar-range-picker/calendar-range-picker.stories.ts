@@ -3,20 +3,26 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
+import { argsToTemplate } from '@storybook/angular';
 
 import {
   CalendarRangePickerChangeEvent,
   CalendarRangePickerComponent,
 } from './calendar-range-picker.component';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
 
 @Component({
   selector: 'app-calendar-range-picker-story',
   standalone: true,
   imports: [CommonModule, CalendarRangePickerComponent],
   template: `<app-calendar-range-picker
+    [disableFormatChange]="disableFormatChange"
+    [onlyRead]="onlyRead"
+    [dateMin]="dateMin"
+    [dateMax]="dateMax"
     [dateStart]="range.dateStart"
     [dateEnd]="range.dateEnd"
     [format]="format"
@@ -26,8 +32,13 @@ import { CommonModule } from '@angular/common';
 })
 export class CalendarRangePickerComponentStory {
   format = 'year';
-  range = DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year');
+  dateMax: DateTimeModel = DateTimeService.currentDate();
 
+  range = DateTimeService.getDateLimits(this.dateMax, 'year');
+  @Input() onlyRead?: boolean;
+  @Input() disableFormatChange?: boolean;
+
+  @Input() dateMin!: DateTimeModel;
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
 
   handleOnChange($event: CalendarRangePickerChangeEvent) {
@@ -66,6 +77,45 @@ const meta: Meta<CalendarRangePickerComponentStory> = {
 export default meta;
 type Story = StoryObj<CalendarRangePickerComponentStory>;
 
-export const CalendarRangePickerExample: Story = {
+export const CalendarRangePickerMaxDate: Story = {
   args: {},
+};
+
+export const CalendarRangePickerMinDate: Story = {
+  render: (args) => {
+    return {
+      props: args,
+      template: `<app-calendar-range-picker-story ${argsToTemplate(args)} />`,
+    };
+  },
+  args: {
+    dateMin: {
+      date: '01/01/2023',
+      format: 'dd/MM/yyyy',
+    },
+  },
+};
+
+export const CalendarRangePickerOnlyRead: Story = {
+  render: (args) => {
+    return {
+      props: args,
+      template: `<app-calendar-range-picker-story ${argsToTemplate(args)} />`,
+    };
+  },
+  args: {
+    onlyRead: true,
+  },
+};
+
+export const CalendarRangePickerDisableFormatChange: Story = {
+  render: (args) => {
+    return {
+      props: args,
+      template: `<app-calendar-range-picker-story ${argsToTemplate(args)} />`,
+    };
+  },
+  args: {
+    disableFormatChange: true,
+  },
 };

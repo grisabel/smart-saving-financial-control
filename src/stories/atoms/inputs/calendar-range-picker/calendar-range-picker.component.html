@@ -1,12 +1,16 @@
 <!-- TODO textos -->
 <div class="CalendarRangePickerWP">
   <app-circle-btn
+    *ngIf="!onlyRead"
     iconName="chevron-left"
     class="decrement"
     [disabled]="disableDecrement()"
     (onClick)="handleDecrement()"
   />
-  <app-card-base (onClick)="handleClick()">
+  <app-card-base
+    (onClick)="handleClick()"
+    [disabled]="onlyRead || disableFormatChange"
+  >
     <div class="container">
       <div class="data">
         <p class="title">{{ isYear() ? "Año" : "Mes" }}</p>
@@ -18,6 +22,7 @@
     </div>
   </app-card-base>
   <app-circle-btn
+    *ngIf="!onlyRead"
     iconName="chevron-right"
     class="increment"
     [disabled]="disableIncrement()"

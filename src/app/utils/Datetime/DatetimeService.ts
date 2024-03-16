@@ -199,7 +199,12 @@ const getDateLimits = (
   };
 };
 
+const toDate = (datetime: DateTimeModel): Date => {
+  return _fromFormat(datetime).toJSDate();
+};
+
 const DateTimeService: DateTimeInterfaceService = {
+  toDate,
   parse,
   isValid,
   now,

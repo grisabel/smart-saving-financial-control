@@ -31,10 +31,15 @@ export interface CalendarRangePickerChangeEvent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarRangePickerComponent {
-  dateCurrent = DateTimeService.currentDate();
   isYear = signal<boolean | null>(null);
   disableIncrement = signal(false);
   disableDecrement = signal(false);
+
+  @Input() onlyRead?: boolean;
+  @Input() disableFormatChange?: boolean;
+
+  @Input() dateMax?: DateTimeModel;
+  @Input() dateMin?: DateTimeModel;
 
   @Input('format')
   set format(value: 'year' | 'month') {
@@ -47,17 +52,40 @@ export class CalendarRangePickerComponent {
   }
   _format!: 'year' | 'month';
 
-  @Input() dateStart!: DateTimeModel;
+  @Input('dateStart')
+  set dateStart(value: DateTimeModel) {
+    if (!this.dateMin) {
+      this._dateStart = value;
+      return;
+    }
+    const resul = DateTimeService.validate(
+      value,
+      this.dateMin,
+      DateTimeService.VALIDATE_SET.UNTIL
+    );
+
+    this._dateStart = resul ? this.dateMin : value;
+    this.disableDecrement.update(() => resul);
+  }
+
+  get dateStart() {
+    return this._dateStart;
+  }
+  private _dateStart!: DateTimeModel;
 
   @Input('dateEnd')
   set dateEnd(value: DateTimeModel) {
+    if (!this.dateMax) {
+      this._dateEnd = value;
+      return;
+    }
     const resul = DateTimeService.validate(
-      this.dateCurrent,
+      this.dateMax,
       value,
       DateTimeService.VALIDATE_SET.UNTIL
     );
 
-    this._dateEnd = resul ? this.dateCurrent : value;
+    this._dateEnd = resul ? this.dateMax : value;
     this.disableIncrement.update(() => resul);
   }
 
@@ -92,22 +120,34 @@ export class CalendarRangePickerComponent {
     let unit!: 'years' | 'months';
 
     if (this.isYear()) {
+      console.log({ dateEnd: this.dateEnd });
       unit = 'years';
+      const year = DateTimeService.toDate(this.dateEnd).getFullYear();
+      this.onChange.emit({
+        dateStart: {
+          date: `01/01/${year - 1}`,
+          format: DATE_FORMATS.Date,
+        },
+        dateEnd: {
+          date: `31/12/${year - 1}`,
+          format: DATE_FORMATS.Date,
+        },
+        format: 'year',
+      });
     } else {
       unit = 'months';
+      this.onChange.emit({
+        dateStart: DateTimeService.calculatePastDate(this.dateStart, {
+          amount: 1,
+          unit,
+        }),
+        dateEnd: DateTimeService.calculatePastDate(this.dateEnd, {
+          amount: 1,
+          unit,
+        }),
+        format: 'month',
+      });
     }
-
-    this.onChange.emit({
-      dateStart: DateTimeService.calculatePastDate(this.dateStart, {
-        amount: 1,
-        unit,
-      }),
-      dateEnd: DateTimeService.calculatePastDate(this.dateEnd, {
-        amount: 1,
-        unit,
-      }),
-      format: this.format,
-    });
   }
 
   handleIncrement() {
