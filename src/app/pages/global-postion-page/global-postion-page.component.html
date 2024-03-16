@@ -1,6 +1,7 @@
 <div>
   Global Position
-
+  <br />
+  Resumen
   <app-calendar-range-picker
     [dateStart]="range.dateStart"
     [dateEnd]="range.dateEnd"
@@ -9,6 +10,8 @@
   />
 
   <app-balance-content title="Balance" amount="500" />
+  <br />
+  Operaciones
   <app-card-btn
     icon="income"
     title="Ingresos"
@@ -24,6 +27,10 @@
     title="Categorias"
     (onClick)="handlerCategory()"
   />
+  <br />
+  Cuentas
+  <br />
+  Habitos
 
   <app-add-concept-base-modal [open]="openIncome" />
   <app-add-concept-base-modal [open]="openExpense" />
