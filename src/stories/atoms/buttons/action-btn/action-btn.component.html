@@ -1,0 +1,10 @@
+<button type="button" class="actionBtnWp" (click)="handleClick()" [ngClass]="colorBtn">
+    <app-card-base>
+      <div class="actionBtnContent">
+        <app-icon name="add" class="icon"></app-icon>
+        <span class="label"> {{ label }} </span>
+        <app-icon [name]="iconName" class="icon"></app-icon>
+      </div>
+    </app-card-base>
+  </button>
+  
