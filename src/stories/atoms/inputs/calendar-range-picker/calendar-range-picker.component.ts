@@ -54,6 +54,10 @@ export class CalendarRangePickerComponent {
 
   @Input('dateStart')
   set dateStart(value: DateTimeModel) {
+    if (!this.dateMin) {
+      this._dateStart = value;
+      return;
+    }
     const resul = DateTimeService.validate(
       value,
       this.dateMin,
@@ -71,6 +75,10 @@ export class CalendarRangePickerComponent {
 
   @Input('dateEnd')
   set dateEnd(value: DateTimeModel) {
+    if (!this.dateMax) {
+      this._dateEnd = value;
+      return;
+    }
     const resul = DateTimeService.validate(
       this.dateMax,
       value,
@@ -112,6 +120,7 @@ export class CalendarRangePickerComponent {
     let unit!: 'years' | 'months';
 
     if (this.isYear()) {
+      console.log({ dateEnd: this.dateEnd });
       unit = 'years';
       const year = DateTimeService.toDate(this.dateEnd).getFullYear();
       this.onChange.emit({
