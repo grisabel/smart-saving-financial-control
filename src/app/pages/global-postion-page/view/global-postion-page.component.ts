@@ -52,4 +52,8 @@ export class GlobalPostionPageComponent implements OnInit {
     };
     this.format = $event.format;
   }
+
+  handlerAccountDetails() {
+    this.router.navigate([GLOBAL_APP_ROUTES.accountDetail]);
+  }
 }

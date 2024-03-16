@@ -18,6 +18,13 @@ const routes: Routes = [
         (m) => m.CategoryPageModule
       ),
   },
+  {
+    path: APP_ROUTES.accountDetail,
+    loadChildren: () =>
+      import('./pages/account-detail/account-detail.module').then(
+        (m) => m.AccountDetailModule
+      ),
+  },
 ];
 
 @NgModule({

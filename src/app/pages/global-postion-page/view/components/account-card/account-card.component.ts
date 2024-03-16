@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CardBaseComponent } from '@stories/atoms/card/card-base/card-base.component';
 import { BalanceConceptComponent } from './balance-concept/balance-concept.component';
 
@@ -10,4 +10,10 @@ import { BalanceConceptComponent } from './balance-concept/balance-concept.compo
   standalone: true,
   imports: [CommonModule, CardBaseComponent, BalanceConceptComponent],
 })
-export class AccountCardComponent {}
+export class AccountCardComponent {
+  @Output() onClick: EventEmitter<void> = new EventEmitter();
+
+  handleClick() {
+    this.onClick.emit();
+  }
+}
