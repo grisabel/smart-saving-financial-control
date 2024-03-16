@@ -6,7 +6,13 @@
 
   &:hover {
     outline: solid 1px var(--blue-main);
-    // box-shadow: none;
     cursor: pointer;
+  }
+
+  &--disabled {
+    &:hover {
+      outline: none;
+      cursor: auto;
+    }
   }
 }

@@ -1,1 +1,6 @@
-<div class="cardBaseWp" (click)="onClick.emit()"><ng-content></ng-content></div>
+<div
+  [ngClass]="{ cardBaseWp: true, 'cardBaseWp--disabled': disabled }"
+  (click)="handleClick()"
+>
+  <ng-content></ng-content>
+</div>

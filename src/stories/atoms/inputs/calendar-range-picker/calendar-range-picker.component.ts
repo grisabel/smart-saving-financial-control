@@ -35,6 +35,8 @@ export class CalendarRangePickerComponent {
   disableIncrement = signal(false);
   disableDecrement = signal(false);
 
+  @Input() onlyRead?: boolean;
+
   @Input() dateMax!: DateTimeModel;
   @Input() dateMin!: DateTimeModel;
 

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./card-base.component.scss'],
 })
 export class CardBaseComponent {
+  @Input() disabled?: boolean;
   @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
+
+  handleClick() {
+    if (this.disabled) return;
+    this.onClick.emit();
+  }
 }
