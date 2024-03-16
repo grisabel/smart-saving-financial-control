@@ -34,4 +34,8 @@
   padding: 0 16px;
   padding-top: 8px;
   padding-bottom: 16px;
+
+  app-balance-concept {
+    width: calc(50% - 8px);
+  }
 }
