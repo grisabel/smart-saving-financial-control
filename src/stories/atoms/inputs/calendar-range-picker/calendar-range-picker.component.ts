@@ -33,9 +33,8 @@ export interface CalendarRangePickerChangeEvent {
 export class CalendarRangePickerComponent {
   dateCurrent = DateTimeService.currentDate();
   isYear = signal<boolean | null>(null);
-
-  @Input() dateStart!: DateTimeModel;
-  @Input() dateEnd!: DateTimeModel;
+  disableIncrement = signal(false);
+  disableDecrement = signal(false);
 
   @Input('format')
   set format(value: 'year' | 'month') {
@@ -47,6 +46,25 @@ export class CalendarRangePickerComponent {
     return this._format;
   }
   _format!: 'year' | 'month';
+
+  @Input() dateStart!: DateTimeModel;
+
+  @Input('dateEnd')
+  set dateEnd(value: DateTimeModel) {
+    const resul = DateTimeService.validate(
+      this.dateCurrent,
+      value,
+      DateTimeService.VALIDATE_SET.UNTIL_EXCLUSIVE
+    );
+
+    this._dateEnd = resul ? this.dateCurrent : value;
+    this.disableIncrement.update(() => resul);
+  }
+
+  get dateEnd() {
+    return this._dateEnd;
+  }
+  private _dateEnd!: DateTimeModel;
 
   @Output() onChange: EventEmitter<CalendarRangePickerChangeEvent> =
     new EventEmitter<CalendarRangePickerChangeEvent>();

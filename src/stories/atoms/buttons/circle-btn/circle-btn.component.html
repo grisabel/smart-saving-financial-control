@@ -1,6 +1,3 @@
-<button
-  type="button"
-  (click)="handleClick()"
->
+<button type="button" (click)="handleClick()" [disabled]="disabled">
   <app-icon [name]="iconName" class="icon" [ngClass]="iconName"></app-icon>
 </button>

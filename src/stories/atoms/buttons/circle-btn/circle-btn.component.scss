@@ -52,4 +52,17 @@ button {
       color: var(--red-main);
     }
   }
+
+  &[disabled] {
+    cursor: auto;
+    outline: none;
+
+    .icon {
+      ::ng-deep {
+        svg {
+          color: var(--grey-main);
+        }
+      }
+    }
+  }
 }

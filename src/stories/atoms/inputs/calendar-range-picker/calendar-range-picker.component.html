@@ -1,6 +1,10 @@
 <!-- TODO textos -->
 <div class="CalendarRangePickerWP">
-  <app-circle-btn iconName="chevron-left" class="decrement" />
+  <app-circle-btn
+    iconName="chevron-left"
+    class="decrement"
+    [disabled]="disableDecrement()"
+  />
   <app-card-base (onClick)="handleClick()">
     <div class="container">
       <div class="data">
@@ -12,5 +16,9 @@
       </div>
     </div>
   </app-card-base>
-  <app-circle-btn iconName="chevron-right" class="increment" />
+  <app-circle-btn
+    iconName="chevron-right"
+    class="increment"
+    [disabled]="disableIncrement()"
+  />
 </div>
