@@ -19,8 +19,8 @@ type Story = StoryObj<UserInfoComponent>;
 
 export const userInfoExample: Story = {
   args: {
-    src: 'https://pixabay.com/es/vectors/foto-de-perfil-en-blanco-973460/',
-    userName: 'Efrén García Sánchez',
+    src: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+    userName: 'Pepe García Sánchez',
     objective: 'Jubilación',
   },
 };
