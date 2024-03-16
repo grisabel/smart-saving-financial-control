@@ -19,6 +19,7 @@ import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
   standalone: true,
   imports: [CommonModule, CalendarRangePickerComponent],
   template: `<app-calendar-range-picker
+    [disableFormatChange]="disableFormatChange"
     [onlyRead]="onlyRead"
     [dateMin]="dateMin"
     [dateMax]="dateMax"
@@ -35,6 +36,7 @@ export class CalendarRangePickerComponentStory {
 
   range = DateTimeService.getDateLimits(this.dateMax, 'year');
   @Input() onlyRead?: boolean;
+  @Input() disableFormatChange?: boolean;
 
   @Input() dateMin!: DateTimeModel;
   @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
@@ -103,5 +105,17 @@ export const CalendarRangePickerOnlyRead: Story = {
   },
   args: {
     onlyRead: true,
+  },
+};
+
+export const CalendarRangePickerDisableFormatChange: Story = {
+  render: (args) => {
+    return {
+      props: args,
+      template: `<app-calendar-range-picker-story ${argsToTemplate(args)} />`,
+    };
+  },
+  args: {
+    disableFormatChange: true,
   },
 };

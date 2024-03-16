@@ -7,7 +7,10 @@
     [disabled]="disableDecrement()"
     (onClick)="handleDecrement()"
   />
-  <app-card-base (onClick)="handleClick()" [disabled]="onlyRead">
+  <app-card-base
+    (onClick)="handleClick()"
+    [disabled]="onlyRead || disableFormatChange"
+  >
     <div class="container">
       <div class="data">
         <p class="title">{{ isYear() ? "Año" : "Mes" }}</p>

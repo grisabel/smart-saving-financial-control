@@ -36,6 +36,7 @@ export class CalendarRangePickerComponent {
   disableDecrement = signal(false);
 
   @Input() onlyRead?: boolean;
+  @Input() disableFormatChange?: boolean;
 
   @Input() dateMax!: DateTimeModel;
   @Input() dateMin!: DateTimeModel;
