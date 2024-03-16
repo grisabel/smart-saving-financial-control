@@ -166,6 +166,7 @@ const getDateLimits = (
   dateEnd: DateTimeModel;
 } => {
   // Crea una fecha de Luxon para el primer día del mes
+  // Ultimo dia del "formato" o dia actual
   const luxonDate = _fromFormat(dateTime);
   const firstDay = luxonDate.startOf(unit);
   const lastDay = luxonDate.endOf(unit);

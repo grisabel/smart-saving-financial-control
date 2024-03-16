@@ -16,7 +16,7 @@ import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { DATE_FORMATS } from '@app/utils/Datetime/constants';
 
-interface OnChangeEvent {
+export interface CalendarRangePickerChangeEvent {
   dateStart: DateTimeModel;
   dateEnd: DateTimeModel;
   format: 'year' | 'month';
@@ -31,26 +31,50 @@ interface OnChangeEvent {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarRangePickerComponent {
-  @Input() dateCurrent!: DateTimeModel;
+  dateCurrent = DateTimeService.currentDate();
+  isYear = signal<boolean | null>(null);
+
   @Input() dateStart!: DateTimeModel;
   @Input() dateEnd!: DateTimeModel;
-  @Input() format!: 'year' | 'month';
 
-  isYear = signal(this.format === 'year');
+  @Input('format')
+  set format(value: 'year' | 'month') {
+    this._format = value;
+    this.isYear.set(value === 'year');
+  }
 
-  @Output() onChange: EventEmitter<OnChangeEvent> =
-    new EventEmitter<OnChangeEvent>();
+  get format() {
+    return this._format;
+  }
+  _format!: 'year' | 'month';
+
+  @Output() onChange: EventEmitter<CalendarRangePickerChangeEvent> =
+    new EventEmitter<CalendarRangePickerChangeEvent>();
 
   handleClick() {
-    this.isYear.update((value) => !value);
+    let format!: 'year' | 'month';
+    let dateRangeUpdate!: { dateStart: DateTimeModel; dateEnd: DateTimeModel };
+
+    if (this.isYear()) {
+      format = 'month';
+    } else {
+      format = 'year';
+    }
+
+    dateRangeUpdate = DateTimeService.getDateLimits(this.dateEnd, format);
+
+    this.onChange.emit({
+      dateStart: dateRangeUpdate.dateStart,
+      dateEnd: dateRangeUpdate.dateEnd,
+      format,
+    });
   }
 
   displayDate() {
-    console.log(this.dateCurrent);
     if (this.isYear()) {
-      return DateTimeService.parse(this.dateCurrent, DATE_FORMATS.Year);
+      return DateTimeService.parse(this.dateEnd, DATE_FORMATS.Year);
     } else {
-      return DateTimeService.parse(this.dateCurrent, DATE_FORMATS.Month);
+      return DateTimeService.parse(this.dateEnd, DATE_FORMATS.Month);
     }
   }
 }

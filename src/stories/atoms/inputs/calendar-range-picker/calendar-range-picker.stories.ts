@@ -4,7 +4,10 @@ import {
   type StoryObj,
 } from '@storybook/angular';
 
-import { CalendarRangePickerComponent } from './calendar-range-picker.component';
+import {
+  CalendarRangePickerChangeEvent,
+  CalendarRangePickerComponent,
+} from './calendar-range-picker.component';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { Component, EventEmitter, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,19 +17,27 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, CalendarRangePickerComponent],
   template: `<app-calendar-range-picker
-    [dateCurrent]="dateCurrent"
     [dateStart]="range.dateStart"
     [dateEnd]="range.dateEnd"
     [format]="format"
+    (onChange)="handleOnChange($event)"
   />`,
   styleUrls: [],
 })
 export class CalendarRangePickerComponentStory {
   format = 'year';
-  dateCurrent = DateTimeService.currentDate();
-  range = DateTimeService.getDateLimits(this.dateCurrent, 'year');
+  range = DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year');
 
-  @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
+
+  handleOnChange($event: CalendarRangePickerChangeEvent) {
+    this.onChange.emit($event);
+    this.range = {
+      dateStart: $event.dateStart,
+      dateEnd: $event.dateEnd,
+    };
+    this.format = $event.format;
+  }
 
   onCloseHandler() {
     this.onChange.emit();
@@ -49,6 +60,7 @@ const meta: Meta<CalendarRangePickerComponentStory> = {
       (story: any) => `<div style="margin: 32px">${story}</div>`
     ),
   ],
+  argTypes: { onChange: { action: 'onChange' } },
 };
 
 export default meta;
