@@ -1,4 +1,10 @@
-import { Attribute, Component, Input, signal } from '@angular/core';
+import {
+  Attribute,
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardBaseComponent } from '@stories/atoms/card/card-base/card-base.component';
 import { IconComponent } from '@stories/atoms/icon/icon.component';
@@ -13,11 +19,12 @@ import { DATE_FORMATS } from '@app/utils/Datetime/constants';
   imports: [CommonModule, CardBaseComponent, IconComponent, CircleBtnComponent],
   templateUrl: './calendar-range-picker.component.html',
   styleUrls: ['./calendar-range-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarRangePickerComponent {
   // Month: "MM/yyyy",
   // Year: "yyyy",
-  @Input() currentDate!: DateTimeModel;
+  @Input() maxDate!: DateTimeModel;
   isYear = signal(true);
 
   handleClick() {
@@ -25,11 +32,11 @@ export class CalendarRangePickerComponent {
   }
 
   displayDate() {
-    console.log(this.currentDate);
+    console.log(this.maxDate);
     if (this.isYear()) {
-      return DateTimeService.parse(this.currentDate, DATE_FORMATS.Year);
+      return DateTimeService.parse(this.maxDate, DATE_FORMATS.Year);
     } else {
-      return DateTimeService.parse(this.currentDate, DATE_FORMATS.Month);
+      return DateTimeService.parse(this.maxDate, DATE_FORMATS.Month);
     }
   }
 }

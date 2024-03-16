@@ -6,13 +6,32 @@ import {
 
 import { CalendarRangePickerComponent } from './calendar-range-picker.component';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-calendar-range-picker-story',
+  standalone: true,
+  imports: [CommonModule, CalendarRangePickerComponent],
+  template: `<app-calendar-range-picker [maxDate]="currentDate" />`,
+  styleUrls: [],
+})
+export class CalendarRangePickerComponentStory {
+  currentDate = DateTimeService.currentDate();
+
+  @Output() onChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  onCloseHandler() {
+    this.onChange.emit();
+  }
+}
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
-const meta: Meta<CalendarRangePickerComponent> = {
+const meta: Meta<CalendarRangePickerComponentStory> = {
   title: 'Atoms/Inputs/CalendarRangePicker',
-  component: CalendarRangePickerComponent,
+  component: CalendarRangePickerComponentStory,
   tags: ['autodocs'],
-  render: (args: CalendarRangePickerComponent) => ({
+  render: (args: CalendarRangePickerComponentStory) => ({
     props: {
       backgroundColor: null,
       ...args,
@@ -26,10 +45,8 @@ const meta: Meta<CalendarRangePickerComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<CalendarRangePickerComponent>;
+type Story = StoryObj<CalendarRangePickerComponentStory>;
 
 export const CalendarRangePickerExample: Story = {
-  args: {
-    currentDate: DateTimeService.currentDate(),
-  },
+  args: {},
 };
