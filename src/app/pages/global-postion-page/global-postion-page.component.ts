@@ -2,6 +2,8 @@ import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import { GlobalPositionInterfaceService } from './repository/global-position-interface.service';
+import DateTimeService from '@app/utils/Datetime/DatetimeService';
+import { CalendarRangePickerChangeEvent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
 
 @Component({
   selector: 'app-global-postion-page',
@@ -39,5 +41,15 @@ export class GlobalPostionPageComponent implements OnInit {
 
   handlerCategory() {
     this.router.navigate([GLOBAL_APP_ROUTES.categories]);
+  }
+
+  format: 'year' | 'month' = 'year';
+  range = DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year');
+  handleOnChange($event: CalendarRangePickerChangeEvent) {
+    this.range = {
+      dateStart: $event.dateStart,
+      dateEnd: $event.dateEnd,
+    };
+    this.format = $event.format;
   }
 }
