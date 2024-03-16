@@ -1,0 +1,26 @@
+@import "variables/fonts.scss";
+
+.BalanceConceptWp {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 8px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+
+  .amount {
+    @include f--b1-regular;
+    &--income {
+      color: var(--success-main);
+    }
+
+    &--expense {
+      color: var(--red-main);
+    }
+  }
+
+  .concept {
+    @include f--b1-regular;
+  }
+}

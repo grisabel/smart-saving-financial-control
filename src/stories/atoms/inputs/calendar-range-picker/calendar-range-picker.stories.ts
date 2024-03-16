@@ -68,7 +68,7 @@ const meta: Meta<CalendarRangePickerComponentStory> = {
   }),
   decorators: [
     componentWrapperDecorator(
-      (story: any) => `<div style="margin: 32px">${story}</div>`
+      (story: any) => `<div style="margin: 32px;">${story}</div>`
     ),
   ],
   argTypes: { onChange: { action: 'onChange' } },

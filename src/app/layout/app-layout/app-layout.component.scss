@@ -20,6 +20,16 @@
         }
       }
     }
+    .content {
+      width: 100%;
+      padding: 0 32px;
+      padding-top: 32px;
+
+      @media (min-width: $bpDtMin) {
+        padding: 0 64px;
+        padding-top: 32px;
+      }
+    }
   }
 
   .layout-mobile {
@@ -30,6 +40,12 @@
 
     .menu {
       width: 100%;
+    }
+
+    .content {
+      width: 100%;
+      padding: 0 16px;
+      padding-top: 16px;
     }
   }
 }

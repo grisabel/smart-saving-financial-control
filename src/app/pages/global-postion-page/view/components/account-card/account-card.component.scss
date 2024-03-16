@@ -1,0 +1,41 @@
+@import "variables/fonts.scss";
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  padding-top: 16px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    .title {
+      @include f--b1-regular;
+    }
+    .subtitle {
+      @include f--b1-regular;
+    }
+  }
+  .amountInfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .amount {
+      @include f--b1-regular;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  padding: 0 16px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+
+  app-balance-concept {
+    width: calc(50% - 8px);
+  }
+}
