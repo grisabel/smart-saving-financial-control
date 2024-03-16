@@ -5,11 +5,12 @@ import { environment } from 'src/environments/environment';
 import { GlobalPostionPageRoutingModule } from './global-postion-page-routing.module';
 import { GlobalPostionPageComponent } from './global-postion-page.component';
 
-import { AddConceptModalModule } from '../../pages/add-concept-modal/add-concept-modal.module';
 import { HttpModule } from '@app/services/Http/http.module';
-import { GlobalPositionInterfaceService } from './repository/global-position-interface.service';
-import { GlobalPositionHttpService } from './repository/global-position-http.service';
-import { GlobalPositionMockService } from './repository/global-position-mock.service';
+import { GlobalPositionInterfaceService } from './data/repository/global-position-interface.service';
+import { GlobalPositionHttpService } from './data/repository/global-position-http.service';
+import { GlobalPositionMockService } from './data/repository/global-position-mock.service';
+
+import { AddConceptModalModule } from '../../pages/add-concept-modal/add-concept-modal.module';
 import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
 import { IconComponent } from '@stories/atoms/icon/icon.component';
 import { CardBtnComponent } from '@stories/atoms/buttons/card-btn/card-btn.component';
