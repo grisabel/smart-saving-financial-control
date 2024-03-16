@@ -18,29 +18,21 @@
     min-width: 244px;
   }
 
+  app-calendar-range-picker {
+    flex-grow: 1;
+  }
+
+  @media (min-width: 540px) {
+    app-calendar-range-picker {
+      flex-grow: 0;
+    }
+  }
+
   @media (min-width: $bpMdMin) {
     app-balance-content {
       min-width: 0;
     }
   }
-
-  //   app-calendar-range-picker {
-  //     ::ng-deep {
-  //       app-card-base {
-  //         min-width: 180px;
-  //       }
-  //     }
-  //   }
-
-  //   @media (min-width: $bpSmMin) {
-  //     app-calendar-range-picker {
-  //       ::ng-deep {
-  //         app-card-base {
-  //           min-width: 100px;
-  //         }
-  //       }
-  //     }
-  //   }
 }
 
 .sectionTitle {
