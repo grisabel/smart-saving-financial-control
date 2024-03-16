@@ -3,9 +3,12 @@ export type DateFormat = string;
 export type TimestampMs = string;
 export type ErrorBoolean = boolean;
 
+//Todo create class
 export interface DateTimeModel {
   date: DateString;
   format: DateFormat;
+
+  //static getYear
 }
 
 export type DateTimeSortFnc = (
@@ -71,4 +74,6 @@ export interface DateTimeInterfaceService {
     dateStart: DateTimeModel;
     dateEnd: DateTimeModel;
   };
+
+  toDate(dateime: DateTimeModel): Date;
 }
