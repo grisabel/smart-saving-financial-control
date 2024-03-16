@@ -12,15 +12,15 @@ import { AddConceptModalModule } from '@app/pages/add-concept-modal/add-concept-
 
 import { GlobalPostionPageRoutingModule } from './view/global-postion-page-routing.module';
 import { GlobalPostionPageComponent } from './view/global-postion-page.component';
+import { AccountCardComponent } from './view/components/account-card/account-card.component';
 
 import { HttpModule } from '@app/services/Http/http.module';
 import { GlobalPositionInterfaceService } from './data/repository/global-position-interface.service';
 import { GlobalPositionHttpService } from './data/repository/global-position-http.service';
 import { GlobalPositionMockService } from './data/repository/global-position-mock.service';
-import { AccountCardComponent } from './view/components/account-card/account-card.component';
 
 @NgModule({
-  declarations: [GlobalPostionPageComponent, AccountCardComponent],
+  declarations: [GlobalPostionPageComponent],
   imports: [
     CommonModule,
     GlobalPostionPageRoutingModule,
@@ -32,6 +32,7 @@ import { AccountCardComponent } from './view/components/account-card/account-car
     CardBtnComponent,
     BalanceContentComponent,
     CalendarRangePickerComponent,
+    AccountCardComponent,
     // Feature Modules
     AddConceptModalModule,
   ],
