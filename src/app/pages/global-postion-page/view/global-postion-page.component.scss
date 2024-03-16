@@ -6,7 +6,8 @@
 }
 .sectionSummary {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
   gap: 16px;
 
   width: 100%;
@@ -14,7 +15,32 @@
 
   app-balance-content {
     flex-grow: 1;
+    min-width: 244px;
   }
+
+  @media (min-width: $bpMdMin) {
+    app-balance-content {
+      min-width: 0;
+    }
+  }
+
+  //   app-calendar-range-picker {
+  //     ::ng-deep {
+  //       app-card-base {
+  //         min-width: 180px;
+  //       }
+  //     }
+  //   }
+
+  //   @media (min-width: $bpSmMin) {
+  //     app-calendar-range-picker {
+  //       ::ng-deep {
+  //         app-card-base {
+  //           min-width: 100px;
+  //         }
+  //       }
+  //     }
+  //   }
 }
 
 .sectionTitle {
