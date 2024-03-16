@@ -1,9 +1,9 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
-import { GlobalPositionInterfaceService } from './repository/global-position-interface.service';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { CalendarRangePickerChangeEvent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
+import { GlobalPositionInterfaceService } from '../data/repository/global-position-interface.service';
 
 @Component({
   selector: 'app-global-postion-page',
