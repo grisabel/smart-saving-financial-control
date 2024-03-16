@@ -125,7 +125,7 @@ export class CalendarRangePickerComponent {
       const year = DateTimeService.toDate(this.dateEnd).getFullYear();
       this.onChange.emit({
         dateStart: {
-          date: `01/12/${year - 1}`,
+          date: `01/01/${year - 1}`,
           format: DATE_FORMATS.Date,
         },
         dateEnd: {
