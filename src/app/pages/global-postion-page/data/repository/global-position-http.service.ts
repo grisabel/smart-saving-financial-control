@@ -29,7 +29,7 @@ export class GlobalPositionHttpService
           next: (response) => {
             try {
               switch (response.status) {
-                case 204:
+                case 200:
                   resolve(response.body as GPSummaryResponseModel);
                   break;
 
