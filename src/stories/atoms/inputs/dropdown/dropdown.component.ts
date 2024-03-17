@@ -31,6 +31,7 @@ export class DropdownComponent {
   @Input() placeholder?: string;
   @Input() options: InputOption[] = [];
   @Input() value?: string | null;
+  @Input() disabled?: boolean;
   @Output() onChange: EventEmitter<InputEvent> = new EventEmitter<InputEvent>();
 
   @ViewChild('dropdownRef') dropdownRef!: ElementRef<HTMLDivElement>;
@@ -136,5 +137,10 @@ export class DropdownComponent {
     this.onChange.emit({
       target: { value: '' },
     } as unknown as InputEvent);
+  }
+
+  openDropdownHandler() {
+    if (this.disabled) return;
+    this.openDropdown.set(true);
   }
 }
