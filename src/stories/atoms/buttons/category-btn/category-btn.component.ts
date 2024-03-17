@@ -13,14 +13,17 @@ export class CategoryBtnComponent {
   backgroundColor = '';
 
   @Input() iconName: string = '';
-  @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit() {
     this.generateContrastingColor();
   }
 
   handleClick(): void {
-    this.onClick.emit();
+    this.onClick.emit({
+      icon: this.iconName,
+      background: this.backgroundColor,
+    });
   }
 
   generateContrastingColor() {

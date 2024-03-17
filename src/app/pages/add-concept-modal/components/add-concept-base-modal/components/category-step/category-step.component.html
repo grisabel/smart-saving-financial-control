@@ -1,3 +1,4 @@
 <div class="selectCategories">
-    <app-selector-category-btn [icons]="categories"/>
+    <!-- <app-input-text [label]="categorySelected"/> -->
+    <app-selector-category-btn [icons]="categories" (childEvent)="handleClickCategory($event)"/>
 </div>

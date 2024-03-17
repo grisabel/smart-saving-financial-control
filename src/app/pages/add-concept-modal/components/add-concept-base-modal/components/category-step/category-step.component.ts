@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class CategoryStepComponent {
   categories: string[] = [''];
+  categorySelected: string = '';
+  colorCategory: string = '#E0E0E0';
   @Input() titleOpen: string = '';
 
   ngOnChanges(): void {
@@ -31,5 +33,10 @@ export class CategoryStepComponent {
         'car',
       ];
     }
+  }
+
+  handleClickCategory(event: any) {
+    this.categorySelected = event.icon;
+    this.colorCategory = event.background;
   }
 }
