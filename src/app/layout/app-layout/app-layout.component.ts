@@ -5,7 +5,11 @@ import {
   TemplateRef,
   signal,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
+
+const MY_ACCOUNT_ID = 'mi-cuenta';
 
 @Component({
   selector: 'app-layout',
@@ -21,11 +25,13 @@ export class AppLayoutComponent {
     { id: 'finanzas', icon: 'financial', title: 'Finanzas' },
     { id: 'herramientas', icon: 'tools', title: 'Herramienta' },
     { id: 'contenido', icon: 'book', title: 'Contenido' },
-    { id: 'mi-cuenta', icon: 'account', title: 'Mi cuente' },
+    { id: MY_ACCOUNT_ID, icon: 'account', title: 'Mi cuente' },
   ];
   logout: MenuItem[] = [
     { id: 'logout', icon: 'logout', title: 'Cerrar Sesión' },
   ];
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkMediaQuery();
@@ -34,6 +40,18 @@ export class AppLayoutComponent {
   handleMenuChange(id: string) {
     this.currentMenu.set(id);
     console.log({ id });
+    switch (id) {
+      case MY_ACCOUNT_ID:
+        this.navigateMyAccount();
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  navigateMyAccount() {
+    this.router.navigate([GLOBAL_APP_ROUTES.myAccount]);
   }
 
   @HostListener('window:resize', ['$event'])
