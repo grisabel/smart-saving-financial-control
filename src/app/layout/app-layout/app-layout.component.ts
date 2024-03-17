@@ -19,6 +19,11 @@ const FINANCIAL_ID = 'finanzas';
 })
 export class AppLayoutComponent {
   isMobile = signal(true);
+  src =
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+  //todo El nombre y objetivo vendrán de un servicio
+  userName = 'Pepe García Sánchez';
+  objective = 'Jubilación';
   @Input() content!: TemplateRef<any>;
 
   currentMenu = signal(FINANCIAL_ID);

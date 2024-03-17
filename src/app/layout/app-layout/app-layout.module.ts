@@ -6,6 +6,8 @@ import { AppMobileLayoutComponent } from '@stories/templates/app-mobile-layout/a
 import { MenuMobileComponent } from '@stories/molecules/menu/menu-mobile/menu-mobile.component';
 import { MenuDesktopComponent } from '@stories/molecules/menu/menu-desktop/menu-desktop.component';
 import { DivisorComponent } from '@stories/atoms/divisor/divisor.component';
+import { LogoComponent } from '@stories/atoms/logo/logo.component';
+import { UserInfoComponent } from '@stories/atoms/user-info/user-info.component';
 
 @NgModule({
   declarations: [AppLayoutComponent],
@@ -16,6 +18,8 @@ import { DivisorComponent } from '@stories/atoms/divisor/divisor.component';
     MenuMobileComponent,
     MenuDesktopComponent,
     DivisorComponent,
+    LogoComponent,
+    UserInfoComponent,
   ],
   exports: [AppLayoutComponent],
 })
