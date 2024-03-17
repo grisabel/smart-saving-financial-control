@@ -54,9 +54,16 @@ export class CalendarRangePickerComponent {
 
   @Input('dateStart')
   set dateStart(value: DateTimeModel) {
+    this._dateStart = this.calculateMinDate(value);
+  }
+
+  get dateStart() {
+    return this._dateStart;
+  }
+  private _dateStart!: DateTimeModel;
+  private calculateMinDate(value: DateTimeModel) {
     if (!this.dateMin) {
-      this._dateStart = value;
-      return;
+      return value;
     }
     const resul = DateTimeService.validate(
       value,
@@ -64,20 +71,22 @@ export class CalendarRangePickerComponent {
       DateTimeService.VALIDATE_SET.UNTIL
     );
 
-    this._dateStart = resul ? this.dateMin : value;
     this.disableDecrement.update(() => resul);
+    return resul ? this.dateMin : value;
   }
-
-  get dateStart() {
-    return this._dateStart;
-  }
-  private _dateStart!: DateTimeModel;
 
   @Input('dateEnd')
   set dateEnd(value: DateTimeModel) {
+    this._dateEnd = this.calculateDateMax(value);
+  }
+
+  get dateEnd() {
+    return this._dateEnd;
+  }
+  private _dateEnd!: DateTimeModel;
+  private calculateDateMax(value: DateTimeModel) {
     if (!this.dateMax) {
-      this._dateEnd = value;
-      return;
+      return value;
     }
     const resul = DateTimeService.validate(
       this.dateMax,
@@ -85,14 +94,9 @@ export class CalendarRangePickerComponent {
       DateTimeService.VALIDATE_SET.UNTIL
     );
 
-    this._dateEnd = resul ? this.dateMax : value;
     this.disableIncrement.update(() => resul);
+    return resul ? this.dateMax : value;
   }
-
-  get dateEnd() {
-    return this._dateEnd;
-  }
-  private _dateEnd!: DateTimeModel;
 
   @Output() onChange: EventEmitter<CalendarRangePickerChangeEvent> =
     new EventEmitter<CalendarRangePickerChangeEvent>();
@@ -123,10 +127,10 @@ export class CalendarRangePickerComponent {
       unit = 'years';
       const year = DateTimeService.toDate(this.dateEnd).getFullYear();
       this.onChange.emit({
-        dateStart: {
+        dateStart: this.calculateMinDate({
           date: `01/01/${year - 1}`,
           format: DATE_FORMATS.Date,
-        },
+        }),
         dateEnd: {
           date: `31/12/${year - 1}`,
           format: DATE_FORMATS.Date,
@@ -136,10 +140,12 @@ export class CalendarRangePickerComponent {
     } else {
       unit = 'months';
       this.onChange.emit({
-        dateStart: DateTimeService.calculatePastDate(this.dateStart, {
-          amount: 1,
-          unit,
-        }),
+        dateStart: this.calculateMinDate(
+          DateTimeService.calculatePastDate(this.dateStart, {
+            amount: 1,
+            unit,
+          })
+        ),
         dateEnd: DateTimeService.calculatePastDate(this.dateEnd, {
           amount: 1,
           unit,
@@ -163,10 +169,12 @@ export class CalendarRangePickerComponent {
         amount: 1,
         unit,
       }),
-      dateEnd: DateTimeService.calculateFutureDate(this.dateEnd, {
-        amount: 1,
-        unit,
-      }),
+      dateEnd: this.calculateDateMax(
+        DateTimeService.calculateFutureDate(this.dateEnd, {
+          amount: 1,
+          unit,
+        })
+      ),
       format: this.format,
     });
   }

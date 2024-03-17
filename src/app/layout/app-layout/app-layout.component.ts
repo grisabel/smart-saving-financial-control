@@ -33,7 +33,7 @@ export class AppLayoutComponent {
     { id: FINANCIAL_ID, icon: 'financial', title: 'Finanzas' },
     { id: 'herramientas', icon: 'tools', title: 'Herramienta' },
     { id: 'contenido', icon: 'book', title: 'Contenido' },
-    { id: MY_ACCOUNT_ID, icon: 'account', title: 'Mi cuente' },
+    { id: MY_ACCOUNT_ID, icon: 'account', title: 'Mi cuenta' },
   ];
   logout: MenuItem[] = [
     { id: 'logout', icon: 'logout', title: 'Cerrar Sesión' },

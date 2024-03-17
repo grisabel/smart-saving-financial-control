@@ -25,6 +25,7 @@ export class AccountCardComponent {
   income = signal(0);
   total = signal(0);
   accountName = signal('');
+  lastMovement = signal('');
 
   account$ = toObservable(this.globalPositionStore.account);
   dataRange$ = toObservable(this.globalPositionStore.dataRange);
@@ -36,6 +37,7 @@ export class AccountCardComponent {
       const year = DateTimeService.parse(dateEnd, DATE_FORMATS.Year);
 
       this.accountName.set(account.accountName);
+      this.lastMovement.set(DateTimeService.parse(dateEnd, DATE_FORMATS.Date));
       this.calculateExpense(account, year);
       this.calculateIncome(account, year);
       this.calculateTotal(account, year);

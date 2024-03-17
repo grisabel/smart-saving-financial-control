@@ -14,9 +14,13 @@ export class GlobalPositionStoreService {
     format: 'dd/MM/yyyy',
   };
 
-  dataRange = signal<DataRage>(
-    DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year')
-  );
+  dataRange = signal<DataRage>({
+    dateStart: {
+      date: '01/01/2024',
+      format: 'dd/MM/yyyy',
+    },
+    dateEnd: DateTimeService.currentDate(),
+  });
 
   account = signal<GlobalPositionAccount>({
     accountId: '0',
