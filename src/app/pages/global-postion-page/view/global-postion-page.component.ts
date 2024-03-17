@@ -39,7 +39,7 @@ export class GlobalPostionPageComponent implements OnInit {
       },
       view: {
         setLoading: (value: boolean) => {
-          this.loadingService.open.update(() => value);
+          value ? this.loadingService.show() : this.loadingService.hide();
         },
       },
     });
