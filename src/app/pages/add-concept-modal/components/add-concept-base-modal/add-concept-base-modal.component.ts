@@ -19,7 +19,7 @@ import {
 })
 export class AddConceptBaseModalComponent {
   @Input() open!: WritableSignal<boolean>;
-  @Input() titleOpen!: string;
+  @Input() titleOpen: string = '';
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onConfirm: ModalBaseOutputs['onConfirm'] = new EventEmitter<void>();
   @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
@@ -50,6 +50,7 @@ export class AddConceptBaseModalComponent {
             ];
     }
   }
+
   onCloseHandler() {
     this.onClose.emit();
   }

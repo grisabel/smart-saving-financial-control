@@ -10,5 +10,5 @@ import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/catego
   styleUrls: ['./selector-category-btn.component.scss'],
 })
 export class SelectorCategoryBtnComponent {
-  @Input() icons: Array<String> = [];
+  @Input() icons: Array<string> = [];
 }
