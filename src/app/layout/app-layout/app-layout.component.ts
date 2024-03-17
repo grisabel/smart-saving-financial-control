@@ -5,8 +5,11 @@ import {
   TemplateRef,
   signal,
 } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
+import { UserInfoResponseModel } from '@app/repository/User/model/response/UserInfoResponseModel';
+import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
 import { Subscription, filter } from 'rxjs';
 
@@ -41,7 +44,12 @@ export class AppLayoutComponent {
 
   private routerSubscription!: Subscription;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private commonStore: CommonStoreService
+  ) {}
+
+  userInfo$ = toObservable(this.commonStore.userInfo);
 
   ngOnInit() {
     this.checkMediaQuery();

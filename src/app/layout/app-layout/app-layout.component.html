@@ -3,7 +3,19 @@
     <div class="menu" slot="menu">
       <div class="user">
         <app-logo />
-        <app-user-info [src]="src" [userName]="userName" [objective]="objective"/>
+
+        <ng-container *ngIf="userInfo$ | async as userInfo; else loading">
+          <app-user-info
+            [src]="src"
+            [userName]="
+              (userInfo?.firstName ?? '') + ' ' + (userInfo?.lastName ?? '')
+            "
+            [objective]="userInfo?.objective ?? ''"
+          />
+        </ng-container>
+        <ng-template #loading>
+          <app-user-info [src]="src" userName="" objective="" />
+        </ng-template>
       </div>
       <app-divisor class="divisor" />
       <app-menu-desktop [items]="logout" />
