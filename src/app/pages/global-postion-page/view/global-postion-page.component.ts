@@ -4,6 +4,7 @@ import { GlobalPositionStoreService } from './store/global-position-store.servic
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { DATE_FORMATS } from '@app/utils/Datetime/constants';
 import { toObservable } from '@angular/core/rxjs-interop';
+import { GloabalPositionUseCaseService } from '../domain/gloabal-position-use-case.service';
 @Component({
   selector: 'app-global-postion-page',
   templateUrl: './global-postion-page.component.html',
@@ -14,7 +15,7 @@ export class GlobalPostionPageComponent implements OnInit {
   openExpense = signal(false);
 
   constructor(
-    private globalPostionService: GlobalPositionInterfaceService,
+    private gloabalPositionUseCase: GloabalPositionUseCaseService,
     private globalPositionStore: GlobalPositionStoreService
   ) {}
 
@@ -30,15 +31,13 @@ export class GlobalPostionPageComponent implements OnInit {
     const dateEnd = this.globalPositionStore.dataRange().dateEnd;
     const year = DateTimeService.parse(dateEnd, DATE_FORMATS.Year);
 
-    this.globalPostionService
-      .summary({
+    this.gloabalPositionUseCase.summary({
+      requestModel: {
         year,
-      })
-      .then((resul: any) => {
-        console.log(resul);
-      })
-      .catch((error: any) => {
-        console.log({ error });
-      });
+      },
+      view: {
+        setLoading: (value: boolean) => null,
+      },
+    });
   }
 }

@@ -6,9 +6,7 @@ import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { DataRage } from './models/DataRange';
 import { GlobalPositionAccount } from './models/GlobalPositionAccoount';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class GlobalPositionStoreService {
   DATE_MAX: DateTimeModel = DateTimeService.currentDate();
   DATE_MIN: DateTimeModel = {
@@ -20,5 +18,9 @@ export class GlobalPositionStoreService {
     DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year')
   );
 
-  account = signal<GlobalPositionAccount | null>(null);
+  account = signal<GlobalPositionAccount>({
+    accountId: '0',
+    accountName: 'Cuenta Principal',
+    data: {},
+  });
 }

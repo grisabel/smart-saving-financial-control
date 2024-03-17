@@ -22,6 +22,8 @@ import { SectionActionsComponent } from './view/components/section-actions/secti
 import { SectionAccountComponent } from './view/components/section-account/section-account.component';
 import { SectionHabitsComponent } from './view/components/section-habits/section-habits.component';
 import { AccountCardComponent } from './view/components/section-account/components/account-card/account-card.component';
+import { GloabalPositionUseCaseService } from './domain/gloabal-position-use-case.service';
+import { GlobalPositionStoreService } from './view/store/global-position-store.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { AccountCardComponent } from './view/components/section-account/componen
         ? GlobalPositionHttpService
         : GlobalPositionMockService,
     },
+    GloabalPositionUseCaseService,
+    GlobalPositionStoreService,
   ],
 })
 export class GlobalPostionPageModule {}

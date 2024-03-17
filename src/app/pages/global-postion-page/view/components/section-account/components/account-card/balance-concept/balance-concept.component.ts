@@ -19,4 +19,5 @@ type EnumToType<T> = {
 })
 export class BalanceConceptComponent {
   @Input() concept!: EnumToType<BalanceConceptEnum>;
+  @Input() amount!: string;
 }

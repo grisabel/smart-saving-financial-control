@@ -2,15 +2,18 @@
 <app-card-base (onClick)="handleClick()">
   <div class="head">
     <div class="info">
-      <p class="title">Cuenta Principal</p>
+      <p class="title">{{ accountName() }}</p>
       <p class="subtitle">Ultimo Movimiento: 12/08/2024</p>
     </div>
     <div class="amountInfo">
-      <p class="amount">10.000 €</p>
+      <p class="amount">{{ total().toFixed(2) }}</p>
     </div>
   </div>
   <div class="content">
-    <app-balance-concept [concept]="'income'" />
-    <app-balance-concept [concept]="'expense'" />
+    <app-balance-concept [concept]="'income'" [amount]="income().toFixed(2)" />
+    <app-balance-concept
+      [concept]="'expense'"
+      [amount]="expense().toFixed(2)"
+    />
   </div>
 </app-card-base>
