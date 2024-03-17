@@ -1,36 +1,36 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpInterfaceService } from '@app/services/Http/http-interface.service';
-import { RegisterRequestModel } from './model/request/RegisterRequestModel';
+import { GPSummaryRequestModel } from './model/request/GPSummaryRequestModel';
 import { environment } from 'src/environments/environment';
+import { GlobalPositionInterfaceService } from './global-position-interface.service';
+import { GPSummaryResponseModel } from './model/response/GPSummaryResponseModel';
 
 const { baseUrl, GlobalPositionAPI } = environment.endpoints;
 
 @Injectable()
-export class GlobalPositionHttpService {
+export class GlobalPositionHttpService
+  implements GlobalPositionInterfaceService
+{
   http = inject(HttpInterfaceService);
 
-  register(requestModel: RegisterRequestModel): Promise<void> {
+  summary(
+    requestModel: GPSummaryRequestModel
+  ): Promise<GPSummaryResponseModel> {
     return new Promise((resolve, reject) => {
       return this.http
-        .post({
-          endpoint: baseUrl + GlobalPositionAPI.register,
-          body: {
-            firstName: requestModel.firstName,
-            lastName: requestModel.lastName,
-            dateBirth: requestModel.dateBirth,
-            objetive: requestModel.objetive,
-            email: requestModel.email,
-            repeatEmail: requestModel.repeatEmail,
-            password: requestModel.password,
-            repeatPassword: requestModel.repeatPassword,
-          },
+        .get<GPSummaryResponseModel>({
+          endpoint:
+            baseUrl +
+            GlobalPositionAPI.summary
+              .replace(':accountNumber', '0')
+              .replace(':year', requestModel.year),
         })
         .subscribe({
           next: (response) => {
             try {
               switch (response.status) {
                 case 204:
-                  resolve();
+                  resolve(response.body as GPSummaryResponseModel);
                   break;
 
                 default:

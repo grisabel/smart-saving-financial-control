@@ -15,15 +15,8 @@ export class GlobalPostionPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.globalPostionService
-      .register({
-        dateBirth: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        objetive: '',
-        password: '',
-        repeatEmail: '',
-        repeatPassword: '',
+      .summary({
+        year: '2023',
       })
       .then((resul: any) => {
         console.log(resul);

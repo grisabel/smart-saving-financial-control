@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { RegisterRequestModel } from './model/request/RegisterRequestModel';
+import { GPSummaryRequestModel } from './model/request/GPSummaryRequestModel';
+import { GPSummaryResponseModel } from './model/response/GPSummaryResponseModel';
 
 @Injectable()
 export abstract class GlobalPositionInterfaceService {
-  abstract register(requestModel: RegisterRequestModel): Promise<void>;
+  abstract summary(
+    requestModel: GPSummaryRequestModel
+  ): Promise<GPSummaryResponseModel>;
 }
