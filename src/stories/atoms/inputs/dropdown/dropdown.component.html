@@ -2,7 +2,7 @@
   class="DropdownWp"
   [ngClass]="{ 'DropdownWp--open': openDropdown() }"
   (blur)="openDropdown.set(false)"
-  (focus)="openDropdown.set(true)"
+  (focus)="openDropdownHandler()"
   (keydown)="handleKeyDropdown($event)"
   tabindex="0"
   #dropdownRef

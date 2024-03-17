@@ -11,7 +11,7 @@ import { MaskitoOptions } from '@maskito/core';
   styleUrls: ['./input-base.component.scss'],
 })
 export class InputBaseComponent {
-  @Input({ required: true }) id!: string;
+  @Input({ required: true }) id?: string;
   @Input({ required: true }) type!: 'email' | 'password' | 'text' | 'number';
 
   @Input() label?: string;
@@ -21,8 +21,9 @@ export class InputBaseComponent {
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() optionsMask?: MaskitoOptions;
+  @Input() disabled?: boolean;
 
-  handleChange(event: InputEvent): void {
+  handleChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.onChange.emit(input.value);
   }

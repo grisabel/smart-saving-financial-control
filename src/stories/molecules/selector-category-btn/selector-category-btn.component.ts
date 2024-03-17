@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/category-btn.component';
 
@@ -10,5 +10,13 @@ import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/catego
   styleUrls: ['./selector-category-btn.component.scss'],
 })
 export class SelectorCategoryBtnComponent {
-  @Input() icons: Array<String> = [];
+  @Input() icons: Array<string> = [];
+  @Output() childEvent: EventEmitter<any> = new EventEmitter();
+
+  iconClicked(event: any) {
+    this.childEvent.emit({
+      icon: event.icon,
+      background: event.background,
+    });
+  }
 }

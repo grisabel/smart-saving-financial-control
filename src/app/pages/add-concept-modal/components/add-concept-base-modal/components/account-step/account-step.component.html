@@ -1,20 +1,12 @@
-<p>account-step works!</p>
-<!-- Para usar este componente hay que meterlo en el modulo, revisar add-concept-modal.module en el imports -->
-<app-dropdown
-  id="dropdown"
-  label="label"
-  placeholder="placeholder"
-  value="b"
-  [options]="[
-    { value: 'a', label: 'Internet Explorer' },
-    { value: 'b', label: 'Explorer' },
-    { value: 'c', label: 'Internet' }
-  ]"
-/>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
+<div class="accountStep">
+  <app-dropdown
+    id="dropdown"
+    [label]="label"
+    [placeholder]="placeholder"
+    [disabled]="true"
+    [options]="[
+      { value: 'a', label: 'Cuenta Principal' },
+    ]"
+  />
+</div>
