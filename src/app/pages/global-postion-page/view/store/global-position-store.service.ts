@@ -1,33 +1,18 @@
-import { Injectable } from '@angular/core';
-import {
-  DataRage,
-  GlobalPositionAccount,
-  GlobalPositionStoreInterfaceService,
-} from './global-position-store-interface.service';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 
 import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 
+import { DataRage } from './models/DataRange';
+import { GlobalPositionAccount } from './models/GlobalPositionAccoount';
+
 @Injectable({
   providedIn: 'root',
 })
-export class GlobalPositionStoreService
-  implements GlobalPositionStoreInterfaceService
-{
+export class GlobalPositionStoreService {
   DATE_MAX: DateTimeModel = DateTimeService.currentDate();
 
-  private dataRange = new BehaviorSubject<DataRage | null>(null);
-  public dataRange$ = this.dataRange.asObservable();
+  dataRange = signal<DataRage | null>(null);
 
-  _setDataRange(value: DataRage): void {
-    this.dataRange.next(value);
-  }
-
-  private account = new BehaviorSubject<GlobalPositionAccount | null>(null);
-  public account$ = this.account.asObservable();
-
-  _setAccount(value: GlobalPositionAccount): void {
-    this.account.next(value);
-  }
+  account = signal<GlobalPositionAccount | null>(null);
 }
