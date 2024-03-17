@@ -4,6 +4,7 @@ import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { CalendarRangePickerChangeEvent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
 import { GlobalPositionInterfaceService } from '../data/repository/global-position-interface.service';
+import { GlobalPositionStoreService } from './store/global-position-store.service';
 
 @Component({
   selector: 'app-global-postion-page',
@@ -16,7 +17,8 @@ export class GlobalPostionPageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private globalPostionService: GlobalPositionInterfaceService
+    private globalPostionService: GlobalPositionInterfaceService,
+    public globalPositionStore: GlobalPositionStoreService
   ) {}
 
   ngOnInit(): void {
