@@ -21,7 +21,6 @@ export class MyAccountComponent {
   objective = 'Jubilación';
   //todo traducciones
   categories = 'Categorías';
-  mydata = 'Mis datos';
   unsubscribe = 'Darse de baja';
   logout = 'Cerrar Sesión';
 
@@ -29,10 +28,6 @@ export class MyAccountComponent {
 
   handleClickCategories() {
     this.router.navigate([GLOBAL_APP_ROUTES.categories]);
-  }
-
-  handleClickMyData() {
-    this.router.navigate([GLOBAL_APP_ROUTES.accountDetail]);
   }
 
   //todo llamada servicio unsubscribe y redirigir a login
