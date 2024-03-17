@@ -3,7 +3,7 @@
       <div class="actionBtnContent">
         <app-icon name="add" class="icon"></app-icon>
         <span class="label"> {{ label }} </span>
-        <app-icon [name]="iconName" class="icon"></app-icon>
+        <app-icon *ngIf="iconName" [name]="iconName" class="icon"></app-icon>
       </div>
     </app-card-base>
   </button>

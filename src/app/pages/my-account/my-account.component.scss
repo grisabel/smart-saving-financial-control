@@ -1,0 +1,23 @@
+@import "variables/breakpoints.scss";
+
+.myAccount {
+  app-user-info {
+    @media (min-width: $bpMdMin) {
+      display: none;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+
+    @media (min-width: $bpMdMin) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 608px;
+    }
+  }
+}
