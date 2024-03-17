@@ -50,7 +50,6 @@ export class AppLayoutComponent {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((_event) => {
         const event = _event as NavigationEnd;
-        console.log('NavigationEnd:', event.url);
         this.checkCurrentMenu(event.url);
       });
   }

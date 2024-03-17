@@ -19,8 +19,4 @@ type EnumToType<T> = {
 })
 export class BalanceConceptComponent {
   @Input() concept!: EnumToType<BalanceConceptEnum>;
-
-  ngOnChanges(changes: any) {
-    console.log(changes);
-  }
 }

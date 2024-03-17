@@ -12,7 +12,10 @@ import { GlobalPositionAccount } from './models/GlobalPositionAccoount';
 export class GlobalPositionStoreService {
   DATE_MAX: DateTimeModel = DateTimeService.currentDate();
 
-  dataRange = signal<DataRage | null>(null);
+  format = signal<'year' | 'month'>('year');
+  dataRange = signal<DataRage>(
+    DateTimeService.getDateLimits(DateTimeService.currentDate(), this.format())
+  );
 
   account = signal<GlobalPositionAccount | null>(null);
 }

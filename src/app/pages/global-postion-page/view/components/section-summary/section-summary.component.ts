@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { GlobalPositionStoreService } from '../../store/global-position-store.service';
-import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { CalendarRangePickerChangeEvent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
 
 @Component({
@@ -11,13 +10,11 @@ import { CalendarRangePickerChangeEvent } from '@stories/atoms/inputs/calendar-r
 export class SectionSummaryComponent {
   constructor(public globalPositionStore: GlobalPositionStoreService) {}
 
-  format: 'year' | 'month' = 'year';
-  range = DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year');
   handleOnChange($event: CalendarRangePickerChangeEvent) {
-    this.range = {
+    this.globalPositionStore.dataRange.set({
       dateStart: $event.dateStart,
       dateEnd: $event.dateEnd,
-    };
-    this.format = $event.format;
+    });
+    this.globalPositionStore.format.set($event.format);
   }
 }
