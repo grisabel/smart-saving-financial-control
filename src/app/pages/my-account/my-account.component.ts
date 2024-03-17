@@ -12,7 +12,7 @@ const SRC_USER =
   styleUrls: ['./my-account.component.scss'],
 })
 export class MyAccountComponent {
-  href = '/global-position';
+  href = GLOBAL_APP_ROUTES.globalPosition;
   labelLink = 'Mi Cuenta';
 
   src = SRC_USER;
