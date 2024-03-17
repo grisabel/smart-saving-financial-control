@@ -1,0 +1,5 @@
+<app-back-link [href]="href" [labelLink]="labelLink" />
+
+<ng-container *ngIf="{ userInfo: userInfo$ | async } as data">
+  {{ data | json }}
+</ng-container>

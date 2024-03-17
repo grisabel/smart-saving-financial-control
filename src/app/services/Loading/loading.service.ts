@@ -18,6 +18,10 @@ export class LoadingService {
   }
 
   async hide() {
+    if (this.number == 0) {
+      return;
+    }
+
     this.number--;
 
     if (this.open() && this.number == 0) {
