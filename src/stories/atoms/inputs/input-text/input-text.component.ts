@@ -15,5 +15,6 @@ export class InputTextComponent {
   @Input() label?: string;
   @Input() placeholder?: string;
   @Input() value?: string = '';
+  @Input() disabled?: boolean;
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 }

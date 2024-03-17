@@ -21,6 +21,7 @@ export class InputBaseComponent {
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() optionsMask?: MaskitoOptions;
+  @Input() disabled?: boolean;
 
   handleChange(event: Event): void {
     const input = event.target as HTMLInputElement;
