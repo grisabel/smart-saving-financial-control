@@ -1,1 +1,10 @@
-<p>my-account works!</p>
+<div class="myAccount">
+    <app-back-link [href]="href" [labelLink]="labelLink"/>
+    <app-user-info [src]="src" [userName]="userName" [objective]="objective" class="userInfo"/>
+    <div class="buttons">
+        <app-action-btn [label]="categories" iconName="chevron-right" (click)="handleClickCategories()"></app-action-btn>
+        <app-action-btn [label]="unsubscribe" iconName="chevron-right" (click)="handleClickUnsubscribe()"></app-action-btn>
+        <app-action-btn [label]="logout" colorBtn="secondary" (click)="handleClickLogout()"></app-action-btn>
+    </div>
+   
+</div>

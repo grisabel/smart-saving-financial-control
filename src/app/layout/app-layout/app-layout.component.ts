@@ -12,6 +12,9 @@ import { Subscription, filter } from 'rxjs';
 
 const MY_ACCOUNT_ID = 'mi-cuenta';
 const FINANCIAL_ID = 'finanzas';
+const SRC_USER =
+  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+
 @Component({
   selector: 'app-layout',
   templateUrl: './app-layout.component.html',
@@ -19,8 +22,7 @@ const FINANCIAL_ID = 'finanzas';
 })
 export class AppLayoutComponent {
   isMobile = signal(true);
-  src =
-    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+  src = SRC_USER;
   //todo El nombre y objetivo vendrán de un servicio
   userName = 'Pepe García Sánchez';
   objective = 'Jubilación';
