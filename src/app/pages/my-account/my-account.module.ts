@@ -6,9 +6,10 @@ import { MyAccountComponent } from './my-account.component';
 import { BackLinkComponent } from '@stories/atoms/links/back-link/back-link.component';
 import { UserInfoComponent } from '@stories/atoms/user-info/user-info.component';
 import { ActionBtnComponent } from '@stories/atoms/buttons/action-btn/action-btn.component';
+import { MyAccountDetailsComponent } from './page/my-account-details/my-account-details.component';
 
 @NgModule({
-  declarations: [MyAccountComponent],
+  declarations: [MyAccountComponent, MyAccountDetailsComponent],
   imports: [
     CommonModule,
     MyAccountRoutingModule,

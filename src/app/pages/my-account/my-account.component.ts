@@ -4,6 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import { CommonStoreService } from '@app/store/Common/common-store.service';
+import {
+  GLOBAL_MY_ACCOUNT_ROUTES,
+  MY_ACCOUNT_ROUTES,
+} from './my-account.routes';
 
 const SRC_USER =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
@@ -33,6 +37,10 @@ export class MyAccountComponent {
 
   handleClickCategories() {
     this.router.navigate([GLOBAL_APP_ROUTES.categories]);
+  }
+
+  handleNavigateInfo() {
+    this.router.navigate([GLOBAL_MY_ACCOUNT_ROUTES.myAccountInfoDetails]);
   }
 
   //todo llamada servicio unsubscribe y redirigir a login
