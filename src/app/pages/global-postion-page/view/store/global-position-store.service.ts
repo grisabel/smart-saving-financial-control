@@ -16,9 +16,8 @@ export class GlobalPositionStoreService {
     format: 'dd/MM/yyyy',
   };
 
-  format = signal<'year' | 'month'>('year');
   dataRange = signal<DataRage>(
-    DateTimeService.getDateLimits(DateTimeService.currentDate(), this.format())
+    DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year')
   );
 
   account = signal<GlobalPositionAccount | null>(null);

@@ -15,6 +15,5 @@ export class SectionSummaryComponent {
       dateStart: $event.dateStart,
       dateEnd: $event.dateEnd,
     });
-    this.globalPositionStore.format.set($event.format);
   }
 }

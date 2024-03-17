@@ -7,7 +7,8 @@
       [dateMin]="globalPositionStore.DATE_MIN"
       [dateStart]="globalPositionStore.dataRange().dateStart"
       [dateEnd]="globalPositionStore.dataRange().dateEnd"
-      [format]="globalPositionStore.format()"
+      format="year"
+      [disableFormatChange]="true"
       (onChange)="handleOnChange($event)"
     />
   </div>
