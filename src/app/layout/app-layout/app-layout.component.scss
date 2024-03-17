@@ -12,6 +12,11 @@
       margin-top: 32px;
       width: 100%;
 
+      .user {
+        margin-bottom: 48px;
+        margin-left: 20px;
+      }
+
       .divisor {
         ::ng-deep {
           div {

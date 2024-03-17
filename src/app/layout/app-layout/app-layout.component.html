@@ -1,6 +1,12 @@
 <div class="layout">
   <app-desktop-layout class="layout-desktop" *ngIf="!isMobile()">
     <div class="menu" slot="menu">
+      <div class="user">
+        <app-logo />
+
+      </div>
+      <app-divisor class="divisor" />
+      <!-- <app-user-info [src]="src" [userName]=""/> -->
       <app-menu-desktop [items]="logout" />
       <app-divisor class="divisor" />
       <app-menu-desktop
