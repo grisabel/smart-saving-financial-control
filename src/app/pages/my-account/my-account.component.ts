@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
+import { CommonStoreService } from '@app/store/Common/common-store.service';
 
 const SRC_USER =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
@@ -12,19 +14,22 @@ const SRC_USER =
   styleUrls: ['./my-account.component.scss'],
 })
 export class MyAccountComponent {
+  constructor(
+    private router: Router,
+    private commonStore: CommonStoreService
+  ) {}
+
   href = GLOBAL_APP_ROUTES.globalPosition;
   labelLink = 'Mi Cuenta';
 
   src = SRC_USER;
-  //todo El nombre y objetivo vendrán de un servicio
-  userName = 'Pepe García Sánchez';
-  objective = 'Jubilación';
+  userInfo$ = toObservable(this.commonStore.userInfo);
+
   //todo traducciones
   categories = 'Categorías';
   unsubscribe = 'Darse de baja';
   logout = 'Cerrar Sesión';
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  accountInfoDetails = 'Mis Datos';
 
   handleClickCategories() {
     this.router.navigate([GLOBAL_APP_ROUTES.categories]);
