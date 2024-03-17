@@ -1,0 +1,13 @@
+<section>
+  <p class="pageTitle">Resumen</p>
+  <div class="sectionSummary">
+    <app-balance-content title="Balance" amount="500" />
+    <app-calendar-range-picker
+      [dateMax]="globalPositionStore.DATE_MAX"
+      [dateStart]="range.dateStart"
+      [dateEnd]="range.dateEnd"
+      [format]="format"
+      (onChange)="handleOnChange($event)"
+    />
+  </div>
+</section>
