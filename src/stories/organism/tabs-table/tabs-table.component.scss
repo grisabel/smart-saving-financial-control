@@ -1,6 +1,29 @@
+@import "variables/fonts.scss";
+
 .tabsTableWp {
+  width: 100%;
+  height: 100%;
   .tabsTableHeader {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e2e8f0;
+
+    .title {
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-start;
+      height: 30px;
+      @include f--b1-regular;
+      cursor: pointer;
+      margin-top: 10px;
+
+      &--active {
+        border-bottom: 4px solid var(--blue-main);
+        padding-bottom: -4px;
+      }
+    }
   }
   .tabsTableContent {
+    height: 100%;
   }
 }

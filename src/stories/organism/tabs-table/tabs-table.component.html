@@ -1,5 +1,15 @@
 <div class="tabsTableWp">
-  <div class="tabsTableHeader">hola</div>
+  <div class="tabsTableHeader">
+    <ng-container *ngFor="let title of titleTabs; index as i">
+      <div
+        class="title"
+        [ngClass]="{ title: true, 'title--active': currentTab() === i }"
+        (click)="handleActiveTab(i)"
+      >
+        {{ title }}
+      </div>
+    </ng-container>
+  </div>
   <div class="tabsTableContent">
     <ng-container *ngFor="let tab of contentTabs; index as i">
       <ng-container *ngIf="currentTab() === i">

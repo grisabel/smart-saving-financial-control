@@ -10,6 +10,11 @@ import { ModalStepsInputs } from '@stories/atoms/modals/modal-steps/modal-base.c
   styleUrls: ['./tabs-table.component.scss'],
 })
 export class TabsTableComponent {
+  @Input() titleTabs!: string[];
   @Input() currentTab!: WritableSignal<number>;
   @Input() contentTabs!: ModalStepsInputs['steps'];
+
+  handleActiveTab(tabId: number) {
+    this.currentTab.set(tabId);
+  }
 }

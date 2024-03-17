@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 
 import { TabsTableComponent } from './tabs-table.component';
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,7 +9,11 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, TabsTableComponent],
   template: `
-    <app-tabs-table [currentTab]="currentTab" [contentTabs]="[tab1, tab2]" />
+    <app-tabs-table
+      [titleTabs]="titleTabs"
+      [currentTab]="currentTab"
+      [contentTabs]="[tab1, tab2]"
+    />
 
     <ng-template #tab1>
       <div>Hola0</div>
@@ -23,6 +27,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TabsTableComponentStory {
   currentTab = signal(0);
+  @Input() titleTabs!: string[];
 }
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
@@ -42,5 +47,7 @@ export default meta;
 type Story = StoryObj<TabsTableComponentStory>;
 
 export const TabstableExample: Story = {
-  args: {},
+  args: {
+    titleTabs: ['tab1', 'tab2'],
+  },
 };
