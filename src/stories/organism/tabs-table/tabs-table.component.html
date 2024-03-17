@@ -1,0 +1,10 @@
+<div class="tabsTableWp">
+  <div class="tabsTableHeader">hola</div>
+  <div class="tabsTableContent">
+    <ng-container *ngFor="let tab of contentTabs; index as i">
+      <ng-container *ngIf="currentTab() === i">
+        <ng-container *ngTemplateOutlet="tab" />
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
