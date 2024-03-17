@@ -4,6 +4,7 @@ import {
   Input,
   Output,
   Signal,
+  SimpleChanges,
   WritableSignal,
 } from '@angular/core';
 import {
@@ -18,10 +19,37 @@ import {
 })
 export class AddConceptBaseModalComponent {
   @Input() open!: WritableSignal<boolean>;
+  @Input() titleOpen!: string;
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onConfirm: ModalBaseOutputs['onConfirm'] = new EventEmitter<void>();
   @Output() onCancel: ModalBaseOutputs['onCancel'] = new EventEmitter<void>();
 
+  title: string = '';
+  descriptions: string[] = [''];
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['titleOpen']) {
+      this.title =
+        this.titleOpen === 'openIncome'
+          ? 'Registra tus ingresos'
+          : 'Registra tus gastos';
+
+      this.descriptions =
+        this.titleOpen === 'openIncome'
+          ? [
+              'Añade tus ingresos antes de que se te olvide',
+              'Añade tus ingresos antes de que se te olvide',
+              'Añade tus ingresos antes de que se te olvide',
+              'Añade tus ingresos antes de que se te olvide',
+            ]
+          : [
+              'Añade tus gastos antes de que se te olvide',
+              'Añade tus gastos antes de que se te olvide',
+              'Añade tus gastos antes de que se te olvide',
+              'Añade tus gastos antes de que se te olvide',
+            ];
+    }
+  }
   onCloseHandler() {
     this.onClose.emit();
   }
@@ -33,40 +61,32 @@ export class AddConceptBaseModalComponent {
   onCancelHandler() {
     this.onCancel.emit();
   }
-
-  title: string = 'titulo';
-  descriptions: string[] = [
-    'description 1',
-    'description 2',
-    'description 3',
-    'description 4',
-  ];
   cancelBtns: ModalBaseBtn[] = [
     {
-      text: 'cancel 1',
+      text: 'Cancelar',
     },
     {
-      text: 'cancel 2',
+      text: 'Atrás',
     },
     {
-      text: 'cancel 3',
+      text: 'Atrás',
     },
     {
-      text: 'cancel 4',
+      text: 'Atrás',
     },
   ];
   confirmBtns: ModalBaseBtn[] = [
     {
-      text: 'confirm 1',
+      text: 'Siguiente',
     },
     {
-      text: 'confirm 2',
+      text: 'Siguiente',
     },
     {
-      text: 'confirm 3',
+      text: 'Siguiente',
     },
     {
-      text: 'confirm 4',
+      text: 'Añadir',
     },
   ];
 }
