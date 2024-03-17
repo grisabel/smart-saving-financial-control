@@ -1,0 +1,15 @@
+<section>
+  <p class="pageTitle">Resumen</p>
+  <div class="sectionSummary">
+    <app-balance-content title="Balance" [amount]="total().toFixed(2)" />
+    <app-calendar-range-picker
+      [dateMax]="globalPositionStore.DATE_MAX"
+      [dateMin]="globalPositionStore.DATE_MIN"
+      [dateStart]="globalPositionStore.dataRange().dateStart"
+      [dateEnd]="globalPositionStore.dataRange().dateEnd"
+      format="year"
+      [disableFormatChange]="true"
+      (onChange)="handleOnChange($event)"
+    />
+  </div>
+</section>

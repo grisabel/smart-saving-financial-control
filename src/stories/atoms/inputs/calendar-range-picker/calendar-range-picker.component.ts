@@ -120,7 +120,6 @@ export class CalendarRangePickerComponent {
     let unit!: 'years' | 'months';
 
     if (this.isYear()) {
-      console.log({ dateEnd: this.dateEnd });
       unit = 'years';
       const year = DateTimeService.toDate(this.dateEnd).getFullYear();
       this.onChange.emit({

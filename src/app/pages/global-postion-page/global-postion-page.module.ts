@@ -12,15 +12,27 @@ import { AddConceptModalModule } from '@app/pages/add-concept-modal/add-concept-
 
 import { GlobalPostionPageRoutingModule } from './view/global-postion-page-routing.module';
 import { GlobalPostionPageComponent } from './view/global-postion-page.component';
-import { AccountCardComponent } from './view/components/account-card/account-card.component';
 
 import { HttpModule } from '@app/services/Http/http.module';
 import { GlobalPositionInterfaceService } from './data/repository/global-position-interface.service';
 import { GlobalPositionHttpService } from './data/repository/global-position-http.service';
 import { GlobalPositionMockService } from './data/repository/global-position-mock.service';
+import { SectionSummaryComponent } from './view/components/section-summary/section-summary.component';
+import { SectionActionsComponent } from './view/components/section-actions/section-actions.component';
+import { SectionAccountComponent } from './view/components/section-account/section-account.component';
+import { SectionHabitsComponent } from './view/components/section-habits/section-habits.component';
+import { AccountCardComponent } from './view/components/section-account/components/account-card/account-card.component';
+import { GloabalPositionUseCaseService } from './domain/gloabal-position-use-case.service';
+import { GlobalPositionStoreService } from './view/store/global-position-store.service';
 
 @NgModule({
-  declarations: [GlobalPostionPageComponent],
+  declarations: [
+    GlobalPostionPageComponent,
+    SectionSummaryComponent,
+    SectionActionsComponent,
+    SectionAccountComponent,
+    SectionHabitsComponent,
+  ],
   imports: [
     CommonModule,
     GlobalPostionPageRoutingModule,
@@ -43,6 +55,8 @@ import { GlobalPositionMockService } from './data/repository/global-position-moc
         ? GlobalPositionHttpService
         : GlobalPositionMockService,
     },
+    GloabalPositionUseCaseService,
+    GlobalPositionStoreService,
   ],
 })
 export class GlobalPostionPageModule {}

@@ -1,0 +1,20 @@
+<section>
+  <p class="sectionTitle">Operaciones</p>
+  <div class="sectionActions">
+    <app-card-btn
+      icon="income"
+      title="Ingresos"
+      (onClick)="openIncome.set(true)"
+    />
+    <app-card-btn
+      icon="expense"
+      title="Gastos"
+      (onClick)="openExpense.set(true)"
+    />
+    <app-card-btn
+      icon="category"
+      title="Categorias"
+      (onClick)="handlerCategory()"
+    />
+  </div>
+</section>

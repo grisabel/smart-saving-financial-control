@@ -6,7 +6,8 @@
       'amount--expense': concept === 'expense'
     }"
   >
-    50 €
+    {{ amount }} €
   </p>
-  <p class="concept">Ingresos</p>
+  <p class="concept" *ngIf="concept === 'income'">Ingresos</p>
+  <p class="concept" *ngIf="concept === 'expense'">Gastos</p>
 </div>

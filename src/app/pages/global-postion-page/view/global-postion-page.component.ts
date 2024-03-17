@@ -1,10 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { Router } from '@angular/router';
-import { GLOBAL_APP_ROUTES } from '@app/app-routes';
-import DateTimeService from '@app/utils/Datetime/DatetimeService';
-import { CalendarRangePickerChangeEvent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
 import { GlobalPositionInterfaceService } from '../data/repository/global-position-interface.service';
-
+import { GlobalPositionStoreService } from './store/global-position-store.service';
+import DateTimeService from '@app/utils/Datetime/DatetimeService';
+import { DATE_FORMATS } from '@app/utils/Datetime/constants';
+import { toObservable } from '@angular/core/rxjs-interop';
+import { GloabalPositionUseCaseService } from '../domain/gloabal-position-use-case.service';
+import { LoadingService } from '@app/services/Loading/loading.service';
 @Component({
   selector: 'app-global-postion-page',
   templateUrl: './global-postion-page.component.html',
@@ -15,45 +16,32 @@ export class GlobalPostionPageComponent implements OnInit {
   openExpense = signal(false);
 
   constructor(
-    private router: Router,
-    private globalPostionService: GlobalPositionInterfaceService
+    private gloabalPositionUseCase: GloabalPositionUseCaseService,
+    private globalPositionStore: GlobalPositionStoreService,
+    private loadingService: LoadingService
   ) {}
 
+  dataRange$ = toObservable(this.globalPositionStore.dataRange);
+
   ngOnInit(): void {
-    this.globalPostionService
-      .register({
-        dateBirth: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        objetive: '',
-        password: '',
-        repeatEmail: '',
-        repeatPassword: '',
-      })
-      .then((resul: any) => {
-        console.log(resul);
-      })
-      .catch((error: any) => {
-        console.log({ error });
-      });
+    this.dataRange$.subscribe(() => {
+      this.fetchAccountByYear();
+    });
   }
 
-  handlerCategory() {
-    this.router.navigate([GLOBAL_APP_ROUTES.categories]);
-  }
+  private fetchAccountByYear() {
+    const dateEnd = this.globalPositionStore.dataRange().dateEnd;
+    const year = DateTimeService.parse(dateEnd, DATE_FORMATS.Year);
 
-  format: 'year' | 'month' = 'year';
-  range = DateTimeService.getDateLimits(DateTimeService.currentDate(), 'year');
-  handleOnChange($event: CalendarRangePickerChangeEvent) {
-    this.range = {
-      dateStart: $event.dateStart,
-      dateEnd: $event.dateEnd,
-    };
-    this.format = $event.format;
-  }
-
-  handlerAccountDetails() {
-    this.router.navigate([GLOBAL_APP_ROUTES.accountDetail]);
+    this.gloabalPositionUseCase.summary({
+      requestModel: {
+        year,
+      },
+      view: {
+        setLoading: (value: boolean) => {
+          this.loadingService.open.update(() => value);
+        },
+      },
+    });
   }
 }

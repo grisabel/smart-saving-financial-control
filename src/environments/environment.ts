@@ -3,7 +3,7 @@ export const environment = {
   endpoints: {
     baseUrl: 'http://localhost:3000',
     GlobalPositionAPI: {
-      register: '/register',
+      summary: '/financial-control/accounts/:accountNumber/summary/:year',
     },
   },
 };

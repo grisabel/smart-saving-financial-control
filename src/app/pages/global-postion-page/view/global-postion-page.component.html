@@ -1,46 +1,11 @@
 <div>
-  <section>
-    <p class="pageTitle">Resumen</p>
-    <div class="sectionSummary">
-      <app-balance-content title="Balance" amount="500" />
-      <app-calendar-range-picker
-        [dateStart]="range.dateStart"
-        [dateEnd]="range.dateEnd"
-        [format]="format"
-        (onChange)="handleOnChange($event)"
-      />
-    </div>
-  </section>
+  <app-section-summary />
 
-  <section>
-    <p class="sectionTitle">Operaciones</p>
-    <div class="sectionActions">
-      <app-card-btn
-        icon="income"
-        title="Ingresos"
-        (onClick)="openIncome.set(true)"
-      />
-      <app-card-btn
-        icon="expense"
-        title="Gastos"
-        (onClick)="openExpense.set(true)"
-      />
-      <app-card-btn
-        icon="category"
-        title="Categorias"
-        (onClick)="handlerCategory()"
-      />
-    </div>
-  </section>
+  <app-section-actions [openIncome]="openIncome" [openExpense]="openExpense" />
 
-  <section>
-    <p class="sectionTitle">Cuentas</p>
-    <app-account-card (onClick)="handlerAccountDetails()" />
-  </section>
+  <app-section-account />
 
-  <section>
-    <p class="sectionTitle">Habitos</p>
-  </section>
+  <app-section-habits />
 
   <app-add-concept-base-modal [open]="openIncome" />
   <app-add-concept-base-modal [open]="openExpense" />
