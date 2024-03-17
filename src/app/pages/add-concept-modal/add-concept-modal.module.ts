@@ -8,7 +8,7 @@ import { ConceptStepComponent } from './components/add-concept-base-modal/compon
 import { SummaryStepComponent } from './components/add-concept-base-modal/components/summary-step/summary-step.component';
 import { DropdownComponent } from '@stories/atoms/inputs/dropdown/dropdown.component';
 import { SelectorCategoryBtnComponent } from '@stories/molecules/selector-category-btn/selector-category-btn.component';
-
+import { InputTextComponent } from '@stories/atoms/inputs/input-text/input-text.component';
 @NgModule({
   declarations: [
     AddConceptBaseModalComponent,
@@ -22,6 +22,7 @@ import { SelectorCategoryBtnComponent } from '@stories/molecules/selector-catego
     ModalStepsComponent,
     DropdownComponent,
     SelectorCategoryBtnComponent,
+    InputTextComponent,
   ],
   exports: [AddConceptBaseModalComponent],
 })

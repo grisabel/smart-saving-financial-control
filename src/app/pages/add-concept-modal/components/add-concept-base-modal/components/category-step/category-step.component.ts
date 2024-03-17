@@ -7,7 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class CategoryStepComponent {
   categories: string[] = [''];
-  categorySelected: string = '';
+  categorySelected: string = 'Elija una de las categorías';
+  category: string = 'Categoría';
   colorCategory: string = '#E0E0E0';
   @Input() titleOpen: string = '';
 
