@@ -5,6 +5,7 @@ a {
   background-color: transparent;
   display: flex;
   gap: 4px;
+  cursor: pointer;
 
   @include f--b0-light;
 
