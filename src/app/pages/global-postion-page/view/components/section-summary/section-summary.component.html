@@ -4,6 +4,7 @@
     <app-balance-content title="Balance" amount="500" />
     <app-calendar-range-picker
       [dateMax]="globalPositionStore.DATE_MAX"
+      [dateMin]="globalPositionStore.DATE_MIN"
       [dateStart]="globalPositionStore.dataRange().dateStart"
       [dateEnd]="globalPositionStore.dataRange().dateEnd"
       [format]="globalPositionStore.format()"

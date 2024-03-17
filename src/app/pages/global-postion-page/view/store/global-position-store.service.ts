@@ -11,6 +11,10 @@ import { GlobalPositionAccount } from './models/GlobalPositionAccoount';
 })
 export class GlobalPositionStoreService {
   DATE_MAX: DateTimeModel = DateTimeService.currentDate();
+  DATE_MIN: DateTimeModel = {
+    date: '01/01/2023',
+    format: 'dd/MM/yyyy',
+  };
 
   format = signal<'year' | 'month'>('year');
   dataRange = signal<DataRage>(
