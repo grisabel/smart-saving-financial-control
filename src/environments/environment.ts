@@ -5,5 +5,8 @@ export const environment = {
     GlobalPositionAPI: {
       summary: '/financial-control/accounts/:accountNumber/summary/:year',
     },
+    UserAPI: {
+      info: '/user/info',
+    },
   },
 };
