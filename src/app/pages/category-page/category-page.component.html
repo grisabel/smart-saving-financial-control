@@ -1,3 +1,28 @@
-<p (click)="handleBack()">"<--" atras</p>
-<app-button label="Modal Categorias" (onClick)="openAddCategory.set(true)" />
-<app-add-category-modal [open]="openAddCategory" />
+<app-back-link [href]="href" [labelLink]="labelLink" />
+
+<p class="text">Explora todas las categorías disponibles.</p>
+
+<div class="tableWp">
+  <div class="table">
+    <app-tabs-table
+      [titleTabs]="['Gastos', 'Ingresos']"
+      [contentTabs]="[tab1, tab2]"
+      [currentTab]="currentTab"
+    />
+
+    <ng-template #tab1>
+      <ng-container *ngFor="let income of incomes">
+        <app-item-category [iconName]="income" />
+      </ng-container>
+    </ng-template>
+
+    <ng-template #tab2>
+      <ng-container *ngFor="let expense of expenses">
+        <app-item-category [iconName]="expense" />
+      </ng-container>
+    </ng-template>
+  </div>
+</div>
+
+<!-- <app-button label="Modal Categorias" (onClick)="openAddCategory.set(true)" /> -->
+<!-- <app-add-category-modal [open]="openAddCategory" /> -->

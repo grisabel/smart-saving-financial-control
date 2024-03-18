@@ -15,6 +15,8 @@ export class CategoryBtnComponent {
   @Input() iconName: string = '';
   @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
 
+  @Input() readOnly?: boolean;
+
   ngOnInit() {
     this.generateContrastingColor();
   }

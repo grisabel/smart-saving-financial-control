@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CategoryService } from '@app/pages/category-page/repository/Category/category.service';
 
 @Component({
   selector: 'app-category-step',
@@ -12,27 +13,13 @@ export class CategoryStepComponent {
   colorCategory: string = '#E0E0E0';
   @Input() titleOpen: string = '';
 
+  constructor(private categoryService: CategoryService) {}
+
   ngOnChanges(): void {
     if (this.titleOpen === 'openIncome') {
-      this.categories = ['paylist', 'revenues', 'scholarship', 'bets'];
+      this.categories = this.categoryService.getIcomeList();
     } else {
-      this.categories = [
-        'mortgage',
-        'food',
-        'pets',
-        'electricity',
-        'fuel',
-        'heating',
-        'internet',
-        'water',
-        'studies',
-        'leisure',
-        'tax',
-        'studies',
-        'health',
-        'insurance',
-        'car',
-      ];
+      this.categories = this.categoryService.getExpenseList();
     }
   }
 
