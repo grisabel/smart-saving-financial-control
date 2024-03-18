@@ -1,0 +1,12 @@
+<app-input-base
+  [id]="id"
+  [label]="label"
+  [placeholder]="placeholder"
+  type="number"
+  [value]="value"
+  (onChange)="onChange.emit($event)"
+  [disabled]="disabled"
+>
+
+<app-icon *ngIf="name" [name]="name" icon></app-icon>
+</app-input-base>
