@@ -8,6 +8,8 @@ import { AddCategoryModalComponent } from './modal/add-category-modal/add-catego
 import { ModalComponent } from '@stories/atoms/modals/modal/modal.component';
 import { IconComponent } from '@stories/atoms/icon/icon.component';
 import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
+import { BackLinkComponent } from '@stories/atoms/links/back-link/back-link.component';
+import { TabsTableComponent } from '@stories/organism/tabs-table/tabs-table.component';
 
 @NgModule({
   declarations: [CategoryPageComponent, AddCategoryModalComponent],
@@ -18,6 +20,8 @@ import { ButtonComponent } from '@stories/atoms/buttons/button/button.component'
     ModalComponent,
     ButtonComponent,
     IconComponent,
+    BackLinkComponent,
+    TabsTableComponent,
   ],
 })
 export class CategoryPageModule {}

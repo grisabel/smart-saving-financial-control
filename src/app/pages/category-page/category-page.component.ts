@@ -1,5 +1,4 @@
 import { Component, WritableSignal, signal } from '@angular/core';
-import { Router } from '@angular/router';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 
 @Component({
@@ -8,11 +7,9 @@ import { GLOBAL_APP_ROUTES } from '@app/app-routes';
   styleUrls: ['./category-page.component.scss'],
 })
 export class CategoryPageComponent {
-  openAddCategory: WritableSignal<boolean> = signal(false);
+  // openAddCategory: WritableSignal<boolean> = signal(false);
+  href = GLOBAL_APP_ROUTES.globalPosition;
+  labelLink = 'Categorias';
 
-  constructor(private router: Router) {}
-
-  handleBack() {
-    this.router.navigate([GLOBAL_APP_ROUTES.globalPosition]);
-  }
+  currentTab = signal(0);
 }
