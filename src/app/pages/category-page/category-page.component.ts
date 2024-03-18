@@ -1,5 +1,6 @@
 import { Component, WritableSignal, signal } from '@angular/core';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
+import { CategoryService } from './repository/Category/category.service';
 
 @Component({
   selector: 'app-category-page',
@@ -13,22 +14,8 @@ export class CategoryPageComponent {
 
   currentTab = signal(0);
 
-  incomes = ['paylist', 'revenues', 'scholarship', 'bets'];
-  expenses = [
-    'mortgage',
-    'food',
-    'pets',
-    'electricity',
-    'fuel',
-    'heating',
-    'internet',
-    'water',
-    'studies',
-    'leisure',
-    'tax',
-    'studies',
-    'health',
-    'insurance',
-    'car',
-  ];
+  constructor(private categoryService: CategoryService) {}
+
+  incomes = this.categoryService.getIcomeList();
+  expenses = this.categoryService.getExpenseList();
 }
