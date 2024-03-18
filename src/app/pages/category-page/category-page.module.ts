@@ -10,6 +10,7 @@ import { IconComponent } from '@stories/atoms/icon/icon.component';
 import { ButtonComponent } from '@stories/atoms/buttons/button/button.component';
 import { BackLinkComponent } from '@stories/atoms/links/back-link/back-link.component';
 import { TabsTableComponent } from '@stories/organism/tabs-table/tabs-table.component';
+import { ItemCategoryComponent } from '@stories/organism/item-category/item-category.component';
 
 @NgModule({
   declarations: [CategoryPageComponent, AddCategoryModalComponent],
@@ -22,6 +23,7 @@ import { TabsTableComponent } from '@stories/organism/tabs-table/tabs-table.comp
     IconComponent,
     BackLinkComponent,
     TabsTableComponent,
+    ItemCategoryComponent,
   ],
 })
 export class CategoryPageModule {}

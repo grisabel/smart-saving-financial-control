@@ -12,4 +12,23 @@ export class CategoryPageComponent {
   labelLink = 'Categorias';
 
   currentTab = signal(0);
+
+  incomes = ['paylist', 'revenues', 'scholarship', 'bets'];
+  expenses = [
+    'mortgage',
+    'food',
+    'pets',
+    'electricity',
+    'fuel',
+    'heating',
+    'internet',
+    'water',
+    'studies',
+    'leisure',
+    'tax',
+    'studies',
+    'health',
+    'insurance',
+    'car',
+  ];
 }

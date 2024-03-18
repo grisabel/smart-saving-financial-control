@@ -6,16 +6,20 @@
   <div class="table">
     <app-tabs-table
       [titleTabs]="['Gastos', 'Ingresos']"
-      tabs="[tab1, tab2]"
+      [contentTabs]="[tab1, tab2]"
       [currentTab]="currentTab"
     />
 
     <ng-template #tab1>
-      <div>Hola0</div>
+      <ng-container *ngFor="let income of incomes">
+        <app-item-category [iconName]="income" />
+      </ng-container>
     </ng-template>
 
     <ng-template #tab2>
-      <div>Hola1</div>
+      <ng-container *ngFor="let expense of expenses">
+        <app-item-category [iconName]="expense" />
+      </ng-container>
     </ng-template>
   </div>
 </div>

@@ -2,7 +2,9 @@
   display: flex;
   justify-content: center;
   margin-top: 16px;
+  width: 100%;
   .table {
-    min-width: 500px;
+    width: 100%;
+    max-width: 500px;
   }
 }
