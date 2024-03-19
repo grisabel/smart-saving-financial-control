@@ -17,7 +17,7 @@ export class InputTextAreaComponent {
   @Input() value?: string = '';
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
-  handleChange(event: InputEvent): void {
+  handleChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.onChange.emit(input.value);
   }
