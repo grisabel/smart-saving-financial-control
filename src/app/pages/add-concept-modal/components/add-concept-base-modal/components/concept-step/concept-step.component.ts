@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-concept-step',
   templateUrl: './concept-step.component.html',
-  styleUrls: ['./concept-step.component.scss']
+  styleUrls: ['./concept-step.component.scss'],
 })
 export class ConceptStepComponent {
-
+  inputNumberLabel = 'Importe';
+  inputDateLabel = 'Fecha';
+  inputCommentLabel = 'Comentario';
 }
