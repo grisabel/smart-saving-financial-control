@@ -9,6 +9,7 @@
         (input)="handleChange($event)"
         autocomplete="off"
         maxlength="150"
+        [disabled]="disabled"
       ></textarea>
       <span class="icon">
         <ng-content select="[icon]"></ng-content>

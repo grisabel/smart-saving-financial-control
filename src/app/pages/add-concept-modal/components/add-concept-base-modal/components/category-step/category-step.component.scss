@@ -9,10 +9,19 @@
 
   .categorySelected {
     display: flex;
+    align-items: center;
     gap: 8px;
+    border-radius: 8px;
+    background-color: var(--blue-container);
+    border: 1px solid var(--color-grey-input);
+    padding: 0 8px;
 
-    app-input-text {
-      background-color: var(--blue-container);
+    ::ng-deep {
+      app-input-base {
+        .inputWp {
+          border: none;
+        }
+      }
     }
 
     .colorCategory {

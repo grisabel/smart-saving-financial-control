@@ -17,7 +17,7 @@ export class InputBaseComponent {
   @Input() label?: string;
   @Input() placeholder?: string;
 
-  @Input() value?: string = '';
+  @Input() value?: string | number = '';
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() optionsMask?: MaskitoOptions;

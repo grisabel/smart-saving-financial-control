@@ -1,0 +1,11 @@
+.conceptStep {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  ::ng-deep {
+    svg {
+      color: var(--blue-main);
+    }
+  }
+}

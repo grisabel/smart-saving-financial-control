@@ -15,9 +15,10 @@ export class InputTextAreaComponent {
   @Input() placeholder?: string;
 
   @Input() value?: string = '';
+  @Input() disabled?: boolean;
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
-  handleChange(event: InputEvent): void {
+  handleChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.onChange.emit(input.value);
   }

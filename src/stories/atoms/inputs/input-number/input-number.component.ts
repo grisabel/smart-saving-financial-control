@@ -18,4 +18,8 @@ export class InputNumberComponent {
   @Input() disabled?: boolean;
   @Input() name?: string;
   @Output() onChange: EventEmitter<number> = new EventEmitter<number>();
+
+  handleChange($event: any) {
+    this.onChange.emit($event);
+  }
 }

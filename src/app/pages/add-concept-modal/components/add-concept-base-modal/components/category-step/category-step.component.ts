@@ -12,7 +12,7 @@ export class CategoryStepComponent {
   category: string = 'Categoría';
   colorCategory: string = '#E0E0E0';
   @Input() titleOpen: string = '';
-
+  readOnly = true;
   constructor(private categoryService: CategoryService) {}
 
   ngOnChanges(): void {

@@ -9,6 +9,11 @@ import { SummaryStepComponent } from './components/add-concept-base-modal/compon
 import { DropdownComponent } from '@stories/atoms/inputs/dropdown/dropdown.component';
 import { SelectorCategoryBtnComponent } from '@stories/molecules/selector-category-btn/selector-category-btn.component';
 import { InputTextComponent } from '@stories/atoms/inputs/input-text/input-text.component';
+import { InputNumberComponent } from '@stories/atoms/inputs/input-number/input-number.component';
+import { InputTextDateComponent } from '@stories/atoms/inputs/input-text-date/input-text-date.component';
+import { InputTextAreaComponent } from '@stories/atoms/inputs/input-text-area/input-text-area.component';
+import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/category-btn.component';
+
 @NgModule({
   declarations: [
     AddConceptBaseModalComponent,
@@ -23,6 +28,10 @@ import { InputTextComponent } from '@stories/atoms/inputs/input-text/input-text.
     DropdownComponent,
     SelectorCategoryBtnComponent,
     InputTextComponent,
+    InputNumberComponent,
+    InputTextDateComponent,
+    InputTextAreaComponent,
+    CategoryBtnComponent,
   ],
   exports: [AddConceptBaseModalComponent],
 })
