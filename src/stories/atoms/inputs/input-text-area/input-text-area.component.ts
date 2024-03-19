@@ -15,6 +15,7 @@ export class InputTextAreaComponent {
   @Input() placeholder?: string;
 
   @Input() value?: string = '';
+  @Input() disabled?: boolean;
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
   handleChange(event: Event): void {

@@ -8,11 +8,10 @@
       { value: 'a', label: 'Cuenta Principal' },
     ]"
   />
-  <div class="categorySelected">
-    <app-input-text-date [label]="inputDateLabel"/>
-    <!-- <div class="colorCategory" [style.backgroundColor]="colorCategory"></div> -->
+  <div class="dateCategory">
+    <app-input-text-date [label]="inputDateLabel" [disabled]="disabled"/>
+    <app-category-btn iconName="add" [readOnly]="readOnly"></app-category-btn>
 </div>
-<app-input-number name="euro" [label]="inputNumberLabel" placeholder="0,00" />
-   
-    <app-input-text-area id="comment" [label]="inputCommentLabel" placeholder=""/>
+<app-input-number name="euro" [label]="inputNumberLabel" placeholder="0,00" [disabled]="disabled"/>
+<app-input-text-area id="comment" [label]="inputCommentLabel" placeholder="" [disabled]="disabled"/>
 </div>

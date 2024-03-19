@@ -11,4 +11,6 @@ export class SummaryStepComponent {
   inputCommentLabel = 'Comentario';
   labelAccount = 'Cuenta';
   placeholderAccount = 'Cuenta Principal';
+  readOnly = true;
+  disabled = true;
 }
