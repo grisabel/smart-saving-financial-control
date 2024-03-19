@@ -9,6 +9,7 @@
 
   .categorySelected {
     display: flex;
+    align-items: center;
     gap: 8px;
 
     app-input-text {

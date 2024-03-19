@@ -1,1 +1,18 @@
-<p>summary-step works!</p>
+<div class="summary">
+    <app-dropdown
+    id="dropdown"
+    [label]="labelAccount"
+    [placeholder]="placeholderAccount"
+    [disabled]="true"
+    [options]="[
+      { value: 'a', label: 'Cuenta Principal' },
+    ]"
+  />
+  <div class="categorySelected">
+    <app-input-text-date [label]="inputDateLabel"/>
+    <!-- <div class="colorCategory" [style.backgroundColor]="colorCategory"></div> -->
+</div>
+<app-input-number name="euro" [label]="inputNumberLabel" placeholder="0,00" />
+   
+    <app-input-text-area id="comment" [label]="inputCommentLabel" placeholder=""/>
+</div>

@@ -12,6 +12,8 @@ import { InputTextComponent } from '@stories/atoms/inputs/input-text/input-text.
 import { InputNumberComponent } from '@stories/atoms/inputs/input-number/input-number.component';
 import { InputTextDateComponent } from '@stories/atoms/inputs/input-text-date/input-text-date.component';
 import { InputTextAreaComponent } from '@stories/atoms/inputs/input-text-area/input-text-area.component';
+import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/category-btn.component';
+
 @NgModule({
   declarations: [
     AddConceptBaseModalComponent,
@@ -29,6 +31,7 @@ import { InputTextAreaComponent } from '@stories/atoms/inputs/input-text-area/in
     InputNumberComponent,
     InputTextDateComponent,
     InputTextAreaComponent,
+    CategoryBtnComponent,
   ],
   exports: [AddConceptBaseModalComponent],
 })
