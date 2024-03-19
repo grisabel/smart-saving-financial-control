@@ -1,7 +1,7 @@
 <div class="selectCategories">
     <div class="categorySelected">
         <app-input-text [label]="category" [value]="categorySelected" [disabled]="true"/>
-        <app-category-btn [iconName]="categorySelected" ></app-category-btn>
+        <app-category-btn [iconName]="categorySelected" [readOnly]="readOnly"></app-category-btn>
     </div>
     <app-selector-category-btn [icons]="categories" (childEvent)="handleClickCategory($event)"/>
 </div>
