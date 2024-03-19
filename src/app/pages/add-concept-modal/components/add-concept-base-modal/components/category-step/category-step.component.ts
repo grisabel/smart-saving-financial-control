@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { CategoryService } from '@app/pages/category-page/repository/Category/category.service';
+import {
+  CategoryModel,
+  CategoryService,
+} from '@app/pages/category-page/repository/Category/category.service';
 
 @Component({
   selector: 'app-category-step',
@@ -7,8 +10,11 @@ import { CategoryService } from '@app/pages/category-page/repository/Category/ca
   styleUrls: ['./category-step.component.scss'],
 })
 export class CategoryStepComponent {
-  categories: string[] = [''];
+  categories: CategoryModel[] = [];
+  icons: string[] = [];
+
   categorySelected: string = 'Elija una de las categorías';
+  categorySelectedId: string | null = null;
   category: string = 'Categoría';
   colorCategory: string = '#E0E0E0';
   @Input() titleOpen: string = '';
@@ -18,13 +24,21 @@ export class CategoryStepComponent {
   ngOnChanges(): void {
     if (this.titleOpen === 'openIncome') {
       this.categories = this.categoryService.getIcomeList();
+      this.icons = this.categories.map((c) => c.icon);
     } else {
       this.categories = this.categoryService.getExpenseList();
+      this.icons = this.categories.map((c) => c.icon);
     }
   }
 
   handleClickCategory(event: any) {
     this.categorySelected = event.icon;
     this.colorCategory = event.background;
+    this.categorySelectedId = this.categories.reduce((acc, c) => {
+      if (c.icon === event.icon) {
+        return c.id;
+      }
+      return acc;
+    }, '');
   }
 }

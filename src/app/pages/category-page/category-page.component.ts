@@ -16,6 +16,6 @@ export class CategoryPageComponent {
 
   constructor(private categoryService: CategoryService) {}
 
-  incomes = this.categoryService.getIcomeList();
-  expenses = this.categoryService.getExpenseList();
+  incomes = this.categoryService.getIcomeList().map((c) => c.icon);
+  expenses = this.categoryService.getExpenseList().map((c) => c.icon);
 }
