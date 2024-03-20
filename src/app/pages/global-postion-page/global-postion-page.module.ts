@@ -8,8 +8,6 @@ import { CardBtnComponent } from '@stories/atoms/buttons/card-btn/card-btn.compo
 import { BalanceContentComponent } from '@stories/atoms/content/balance-content/balance-content.component';
 import { CalendarRangePickerComponent } from '@stories/atoms/inputs/calendar-range-picker/calendar-range-picker.component';
 
-import { AddConceptModalModule } from '@app/pages/add-concept-modal/add-concept-modal.module';
-
 import { GlobalPostionPageRoutingModule } from './view/global-postion-page-routing.module';
 import { GlobalPostionPageComponent } from './view/global-postion-page.component';
 
@@ -24,6 +22,7 @@ import { SectionHabitsComponent } from './view/components/section-habits/section
 import { AccountCardComponent } from './view/components/section-account/components/account-card/account-card.component';
 import { GloabalPositionUseCaseService } from './domain/gloabal-position-use-case.service';
 import { GlobalPositionStoreService } from './view/store/global-position-store.service';
+import { AddConceptModalModule } from '../add-concept-modal/add-concept-modal.module';
 
 @NgModule({
   declarations: [

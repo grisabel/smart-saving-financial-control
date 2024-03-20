@@ -8,5 +8,9 @@ export const environment = {
     UserAPI: {
       info: '/user/info',
     },
+    FinancialControlAPI: {
+      addIncome: '/financial-control/accounts/:accountNumber/income',
+      addExpense: '/financial-control/accounts/:accountNumber/expense',
+    },
   },
 };
