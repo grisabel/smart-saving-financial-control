@@ -1,24 +1,21 @@
-import {
-  provideTransloco,
-  TranslocoModule
-} from '@ngneat/transloco';
+import { provideTransloco, TranslocoModule } from '@ngneat/transloco';
 import { NgModule } from '@angular/core';
 import { TranslocoHttpLoader } from './transloco-loader';
-import { environment } from '../../Workspace.TFG/smart-saving-financial-control/src/environments/environment';
+import { environment } from '../environments/environment';
 
 @NgModule({
-  exports: [ TranslocoModule ],
+  exports: [TranslocoModule],
   providers: [
-      provideTransloco({
-        config: {
-          availableLangs: ['en', 'es'],
-          defaultLang: 'en',
-          // Remove this option if your application doesn't support changing language in runtime.
-          reRenderOnLangChange: true,
-          prodMode: environment.production,
-        },
-        loader: TranslocoHttpLoader
-      }),
+    provideTransloco({
+      config: {
+        availableLangs: ['en', 'es'],
+        defaultLang: 'es',
+        // Remove this option if your application doesn't support changing language in runtime.
+        reRenderOnLangChange: true,
+        prodMode: environment.mock,
+      },
+      loader: TranslocoHttpLoader,
+    }),
   ],
 })
 export class TranslocoRootModule {}
