@@ -13,17 +13,17 @@ export class ConceptStepComponent {
 
   constructor(private addConceptStoreService: AddConceptStoreService) {}
 
-  valueDate = '';
+  valueDate = this.addConceptStoreService.date() ?? '';
   handleValueDate(value: string) {
     this.addConceptStoreService.date.set(value);
   }
 
-  valueComment = '';
+  valueComment = this.addConceptStoreService.note() ?? '';
   handleValueComment(value: string) {
     this.addConceptStoreService.note.set(value);
   }
 
-  valueAmount = undefined;
+  valueAmount = this.addConceptStoreService.amount() ?? undefined;
   handleValueAmount(value: number) {
     this.addConceptStoreService.amount.set(value);
   }
