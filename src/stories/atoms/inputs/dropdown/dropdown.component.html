@@ -1,6 +1,9 @@
 <div
   class="DropdownWp"
-  [ngClass]="{ 'DropdownWp--open': openDropdown() }"
+  [ngClass]="{
+    'DropdownWp--open': openDropdown(),
+    'DropdownWp--disabled': disabled
+  }"
   (blur)="openDropdown.set(false)"
   (focus)="openDropdownHandler()"
   (keydown)="handleKeyDropdown($event)"

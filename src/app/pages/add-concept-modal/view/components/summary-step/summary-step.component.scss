@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-height: 375px;
+
   .dateCategory {
     display: flex;
     align-items: center;
