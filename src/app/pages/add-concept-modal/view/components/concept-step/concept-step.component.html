@@ -1,5 +1,21 @@
 <div class="conceptStep">
-    <app-input-number name="euro" [label]="inputNumberLabel" placeholder="0,00" />
-    <app-input-text-date [label]="inputDateLabel"/>
-    <app-input-text-area id="comment" [label]="inputCommentLabel" placeholder=""/>
+  <app-input-number
+    name="euro"
+    [label]="inputNumberLabel"
+    placeholder="0,00"
+    [value]="valueAmount"
+    (onChange)="handleValueAmount($event)"
+  />
+  <app-input-text-date
+    [label]="inputDateLabel"
+    [value]="valueDate"
+    (onChange)="handleValueDate($event)"
+  />
+  <app-input-text-area
+    id="comment"
+    [label]="inputCommentLabel"
+    placeholder=""
+    [value]="valueComment"
+    (onChange)="handleValueComment($event)"
+  />
 </div>

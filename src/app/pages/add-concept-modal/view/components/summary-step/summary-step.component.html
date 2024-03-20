@@ -1,17 +1,34 @@
 <div class="summary">
-    <app-dropdown
+  <app-dropdown
     id="dropdown"
     [label]="labelAccount"
     [placeholder]="placeholderAccount"
     [disabled]="true"
-    [options]="[
-      { value: 'a', label: 'Cuenta Principal' },
-    ]"
+    [options]="[{ value: 'a', label: 'Cuenta Principal' }]"
   />
   <div class="dateCategory">
-    <app-input-text-date [label]="inputDateLabel" [disabled]="disabled"/>
-    <app-category-btn iconName="add" [readOnly]="readOnly"></app-category-btn>
-</div>
-<app-input-number name="euro" [label]="inputNumberLabel" placeholder="0,00" [disabled]="disabled"/>
-<app-input-text-area id="comment" [label]="inputCommentLabel" placeholder="" [disabled]="disabled"/>
+    <app-input-text-date
+      [label]="inputDateLabel"
+      [disabled]="disabled"
+      [value]="valueDate"
+    />
+    <app-category-btn
+      [iconName]="categorySelected"
+      [readOnly]="readOnly"
+    ></app-category-btn>
+  </div>
+  <app-input-number
+    name="euro"
+    [label]="inputNumberLabel"
+    placeholder="0,00"
+    [disabled]="disabled"
+    [value]="valueAmount"
+  />
+  <app-input-text-area
+    id="comment"
+    [label]="inputCommentLabel"
+    placeholder=""
+    [disabled]="disabled"
+    [value]="valueComment"
+  />
 </div>

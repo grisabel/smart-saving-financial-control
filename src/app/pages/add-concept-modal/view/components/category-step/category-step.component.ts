@@ -29,7 +29,6 @@ export class CategoryStepComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
     this.categorySelectedId = this.addConceptStoreService.conceptId();
     this.categorySelected = this.categories.reduce((acc, c) => {
       if (c.id === this.categorySelectedId) {
