@@ -49,21 +49,21 @@ export class CategoryBtnComponent {
     const lowValue = lowValueBase;
 
     let [r, g, b] = [midValue, midValue, midValue];
-    const highComponent = Math.floor(Math.random() * 3);
+    const highComponent = this.iconName.length % 3;
     switch (highComponent) {
       case 0:
         r = highValue;
-        g = this.iconName.length % 2 === 0 ? midValue : lowValue;
+        g = this.iconName.length % 2 === 0 ? lowValue : midValue;
         b = g === midValue ? lowValue : midValue;
         break;
       case 1:
         g = highValue;
-        r = this.iconName.length % 2 === 0 ? midValue : lowValue;
+        r = this.iconName.length % 2 === 0 ? lowValue : midValue;
         b = r === midValue ? lowValue : midValue;
         break;
       case 2:
         b = highValue;
-        r = this.iconName.length % 2 === 0 ? midValue : lowValue;
+        r = this.iconName.length % 2 === 0 ? lowValue : midValue;
         g = r === midValue ? lowValue : midValue;
         break;
     }

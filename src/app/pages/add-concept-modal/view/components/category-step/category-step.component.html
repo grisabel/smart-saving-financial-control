@@ -1,8 +1,9 @@
 <div class="selectCategories">
   <div class="categorySelected">
     <app-input-text
-      [label]="'Elija una de las categorías'"
-      [value]=""
+      [label]="'Categoría'"
+      [placeholder]="'Elija una categoría'"
+      [value]="categorySelected"
       [disabled]="true"
     />
     <app-category-btn
