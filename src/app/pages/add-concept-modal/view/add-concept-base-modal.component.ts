@@ -32,6 +32,12 @@ export class AddConceptBaseModalComponent {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['titleOpen']) {
+      if (this.titleOpen === 'openIncome') {
+        this.addConceptStoreService.conceptType.set('income');
+      } else {
+        this.addConceptStoreService.conceptType.set('expense');
+      }
+
       this.title =
         this.titleOpen === 'openIncome'
           ? 'Registra tus ingresos'
