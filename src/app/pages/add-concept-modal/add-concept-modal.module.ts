@@ -13,7 +13,10 @@ import { InputNumberComponent } from '@stories/atoms/inputs/input-number/input-n
 import { InputTextDateComponent } from '@stories/atoms/inputs/input-text-date/input-text-date.component';
 import { InputTextAreaComponent } from '@stories/atoms/inputs/input-text-area/input-text-area.component';
 import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/category-btn.component';
-
+import { FinancialControlInterfaceService } from './components/add-concept-base-modal/data/repository/financial-control/financial-control-interface.service';
+import { environment } from 'src/environments/environment';
+import { FinancialControlMockService } from './components/add-concept-base-modal/data/repository/financial-control/financial-control-mock.service';
+import { FinancialControlHttpService } from './components/add-concept-base-modal/data/repository/financial-control/financial-control-http.service';
 @NgModule({
   declarations: [
     AddConceptBaseModalComponent,
@@ -34,5 +37,13 @@ import { CategoryBtnComponent } from '@stories/atoms/buttons/category-btn/catego
     CategoryBtnComponent,
   ],
   exports: [AddConceptBaseModalComponent],
+  providers: [
+    {
+      provide: FinancialControlInterfaceService,
+      useClass: !environment.mock
+        ? FinancialControlHttpService
+        : FinancialControlMockService,
+    },
+  ],
 })
 export class AddConceptModalModule {}
