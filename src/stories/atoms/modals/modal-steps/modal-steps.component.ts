@@ -75,4 +75,9 @@ export class ModalStepsComponent implements OnInit {
     }
     this.currentStep.update((value) => value - 1);
   }
+
+  handleClose() {
+    this.currentStep.set(0);
+    this.onClose.emit();
+  }
 }

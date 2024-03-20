@@ -11,6 +11,7 @@ import {
   ModalBaseBtn,
   ModalBaseOutputs,
 } from '@stories/atoms/modals/modal-base/modal-base.component.types';
+import { AddConceptStoreService } from './store/add-concept-store.service';
 
 @Component({
   selector: 'app-add-concept-base-modal',
@@ -26,6 +27,8 @@ export class AddConceptBaseModalComponent {
 
   title: string = '';
   descriptions: string[] = [''];
+
+  constructor(private addConceptStoreService: AddConceptStoreService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['titleOpen']) {
@@ -51,19 +54,6 @@ export class AddConceptBaseModalComponent {
     }
   }
 
-  onCloseHandler() {
-    this.onClose.emit();
-  }
-
-  onConfirmHandler() {
-    this.onConfirm.emit();
-  }
-
-  onCancelHandler() {
-    console.log('onCancelHandler');
-    this.onCancel.emit();
-    this.open.set(false);
-  }
   cancelBtns: ModalBaseBtn[] = [
     {
       text: 'Cancelar',
@@ -92,4 +82,39 @@ export class AddConceptBaseModalComponent {
       text: 'Añadir',
     },
   ];
+
+  onConfirmHandler() {
+    //todo
+    // this.addConceptStoreService.conceptType.set(null);
+
+    // this.addConceptStoreService.amount.set(null);
+    // this.addConceptStoreService.conceptId.set(null);
+    // this.addConceptStoreService.date.set(null);
+    // this.addConceptStoreService.note.set(null);
+    this.onConfirm.emit();
+
+    this.cleanState();
+  }
+
+  onCancelHandler() {
+    this.onCancel.emit();
+    this.open.set(false);
+
+    this.cleanState();
+  }
+
+  onCloseHandler() {
+    this.onClose.emit();
+
+    this.cleanState();
+  }
+
+  private cleanState() {
+    this.addConceptStoreService.conceptType.set(null);
+
+    this.addConceptStoreService.amount.set(null);
+    this.addConceptStoreService.conceptId.set(null);
+    this.addConceptStoreService.date.set(null);
+    this.addConceptStoreService.note.set(null);
+  }
 }

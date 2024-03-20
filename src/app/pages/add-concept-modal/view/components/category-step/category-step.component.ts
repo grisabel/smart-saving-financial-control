@@ -15,10 +15,13 @@ export class CategoryStepComponent {
 
   categorySelected: string = '';
   categorySelectedId: string | null = null;
+
   category: string = 'Categoría';
   colorCategory: string = '#E0E0E0';
+
   @Input() titleOpen: string = '';
   readOnly = true;
+
   constructor(private categoryService: CategoryService) {}
 
   ngOnChanges(): void {
