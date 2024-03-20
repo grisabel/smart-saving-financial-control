@@ -10,10 +10,11 @@ import { IconComponent } from '@stories/atoms/icon/icon.component';
   styleUrls: ['./category-btn.component.scss'],
 })
 export class CategoryBtnComponent {
-  backgroundColor = '';
+  backgroundColor = '#ffffff';
 
   @Input()
   set iconName(value: string) {
+    if (!value) return;
     this.#iconName = value;
     this.backgroundColor = this.generateContrastingColor();
   }
