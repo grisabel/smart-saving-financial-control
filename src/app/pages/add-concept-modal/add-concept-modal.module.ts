@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalStepsComponent } from '@stories/atoms/modals/modal-steps/modal-steps.component';
-import { AddConceptBaseModalComponent } from './components/add-concept-base-modal/add-concept-base-modal.component';
-import { AccountStepComponent } from './components/add-concept-base-modal/components/account-step/account-step.component';
-import { CategoryStepComponent } from './components/add-concept-base-modal/components/category-step/category-step.component';
-import { ConceptStepComponent } from './components/add-concept-base-modal/components/concept-step/concept-step.component';
-import { SummaryStepComponent } from './components/add-concept-base-modal/components/summary-step/summary-step.component';
+import { AddConceptBaseModalComponent } from './components/add-concept-base-modal/view/add-concept-base-modal.component';
+
 import { DropdownComponent } from '@stories/atoms/inputs/dropdown/dropdown.component';
 import { SelectorCategoryBtnComponent } from '@stories/molecules/selector-category-btn/selector-category-btn.component';
 import { InputTextComponent } from '@stories/atoms/inputs/input-text/input-text.component';
@@ -17,6 +14,10 @@ import { FinancialControlInterfaceService } from './components/add-concept-base-
 import { environment } from 'src/environments/environment';
 import { FinancialControlMockService } from './components/add-concept-base-modal/data/repository/financial-control/financial-control-mock.service';
 import { FinancialControlHttpService } from './components/add-concept-base-modal/data/repository/financial-control/financial-control-http.service';
+import { AccountStepComponent } from './components/add-concept-base-modal/view/components/account-step/account-step.component';
+import { CategoryStepComponent } from './components/add-concept-base-modal/view/components/category-step/category-step.component';
+import { ConceptStepComponent } from './components/add-concept-base-modal/view/components/concept-step/concept-step.component';
+import { SummaryStepComponent } from './components/add-concept-base-modal/view/components/summary-step/summary-step.component';
 @NgModule({
   declarations: [
     AddConceptBaseModalComponent,
