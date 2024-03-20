@@ -60,7 +60,9 @@ export class AddConceptBaseModalComponent {
   }
 
   onCancelHandler() {
+    console.log('onCancelHandler');
     this.onCancel.emit();
+    this.open.set(false);
   }
   cancelBtns: ModalBaseBtn[] = [
     {

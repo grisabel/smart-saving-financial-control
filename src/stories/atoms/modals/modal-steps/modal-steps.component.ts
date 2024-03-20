@@ -70,7 +70,7 @@ export class ModalStepsComponent implements OnInit {
 
   handleCancel() {
     if (this.currentStep() === 0) {
-      this.onClose.emit();
+      this.onCancel.emit();
       return;
     }
     this.currentStep.update((value) => value - 1);
