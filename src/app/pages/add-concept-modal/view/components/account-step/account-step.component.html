@@ -2,8 +2,8 @@
 <div class="accountStep">
   <app-dropdown
     id="dropdown"
-    [label]="label"
-    [placeholder]="placeholder"
+    [label]="'input-account-label' | transloco"
+    [placeholder]="'input-account-placeholder' | transloco"
     [disabled]="true"
     [options]="[
       { value: 'a', label: 'Cuenta Principal' },

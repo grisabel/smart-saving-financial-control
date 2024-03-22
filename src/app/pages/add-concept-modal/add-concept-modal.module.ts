@@ -22,6 +22,7 @@ import { CategoryStepComponent } from './view/components/category-step/category-
 import { ConceptStepComponent } from './view/components/concept-step/concept-step.component';
 import { SummaryStepComponent } from './view/components/summary-step/summary-step.component';
 import { HttpModule } from '@app/services/Http/http.module';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { HttpModule } from '@app/services/Http/http.module';
     InputTextAreaComponent,
     CategoryBtnComponent,
     HttpModule,
+    TranslocoModule,
   ],
   exports: [AddConceptBaseModalComponent],
   providers: [
