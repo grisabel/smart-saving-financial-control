@@ -2,6 +2,8 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
+  OnInit,
   Output,
   Signal,
   SimpleChanges,
@@ -12,13 +14,14 @@ import {
   ModalBaseOutputs,
 } from '@stories/atoms/modals/modal-base/modal-base.component.types';
 import { AddConceptStoreService } from './store/add-concept-store.service';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-add-concept-base-modal',
   templateUrl: './add-concept-base-modal.component.html',
   styleUrls: ['./add-concept-base-modal.component.scss'],
 })
-export class AddConceptBaseModalComponent {
+export class AddConceptBaseModalComponent implements OnChanges, OnInit {
   @Input() open!: WritableSignal<boolean>;
   @Input() titleOpen: string = '';
   @Output() onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -27,8 +30,57 @@ export class AddConceptBaseModalComponent {
 
   title: string = '';
   descriptions: string[] = [''];
+  cancelBtns: ModalBaseBtn[] = [
+    {
+      text: 'Cancelar',
+    },
+    {
+      text: 'Atrás',
+    },
+    {
+      text: 'Atrás',
+    },
+    {
+      text: 'Atrás',
+    },
+  ];
+
+  confirmBtns: ModalBaseBtn[] = [
+    {
+      text: 'Siguiente',
+    },
+    {
+      text: 'Siguiente',
+      isDisable: true,
+    },
+    {
+      text: 'Siguiente',
+      isDisable: true,
+    },
+    {
+      text: 'Añadir',
+      isDisable: true,
+    },
+  ];
 
   constructor(private addConceptStoreService: AddConceptStoreService) {}
+
+  conceptId$ = toObservable(this.addConceptStoreService.conceptId);
+
+  ngOnInit(): void {
+    this.conceptId$.subscribe((conceptId) => {
+      this.confirmBtns = this.confirmBtns.map((confirmBtn, i) => {
+        if (i === 1) {
+          return {
+            ...confirmBtn,
+            isDisable: !conceptId,
+          };
+        }
+        return confirmBtn;
+      });
+      console.log({ confirmBtns: this.confirmBtns });
+    });
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['titleOpen']) {
@@ -59,35 +111,6 @@ export class AddConceptBaseModalComponent {
             ];
     }
   }
-
-  cancelBtns: ModalBaseBtn[] = [
-    {
-      text: 'Cancelar',
-    },
-    {
-      text: 'Atrás',
-    },
-    {
-      text: 'Atrás',
-    },
-    {
-      text: 'Atrás',
-    },
-  ];
-  confirmBtns: ModalBaseBtn[] = [
-    {
-      text: 'Siguiente',
-    },
-    {
-      text: 'Siguiente',
-    },
-    {
-      text: 'Siguiente',
-    },
-    {
-      text: 'Añadir',
-    },
-  ];
 
   onConfirmHandler() {
     //todo
