@@ -13,7 +13,7 @@ export class CategoryStepComponent {
   categories: CategoryModel[] = [];
   icons: string[] = [];
 
-  categorySelected: string = 'Elija una de las categorías';
+  categorySelected: string = 'Elija una categoría';
   categorySelectedId: string | null = null;
   category: string = 'Categoría';
   colorCategory: string = '#E0E0E0';

@@ -10,7 +10,7 @@ import { CategoryService } from './repository/Category/category.service';
 export class CategoryPageComponent {
   // openAddCategory: WritableSignal<boolean> = signal(false);
   href = GLOBAL_APP_ROUTES.globalPosition;
-  labelLink = 'Categorias';
+  labelLink = 'Categorías';
 
   currentTab = signal(0);
 

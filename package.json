@@ -23,6 +23,7 @@
     "@maskito/angular": "^2.2.0",
     "@maskito/core": "^2.2.0",
     "@maskito/kit": "^2.2.0",
+    "@ngneat/transloco": "^6.0.4",
     "luxon": "^3.4.4",
     "path-to-regexp": "^6.2.1",
     "rxjs": "~7.8.0",

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-account-step',
@@ -6,6 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./account-step.component.scss'],
 })
 export class AccountStepComponent {
-  label = 'Cuenta';
-  placeholder = 'Cuenta Principal';
+  label: string = '';
+  placeholder: string = '';
+  constructor(private translocoService: TranslocoService) {}
+
+  ngOnInit() {
+    this.translations();
+  }
+
+  private translations() {
+    this.translocoService
+      .selectTranslate('input-account-label')
+      .subscribe((traduccion: string) => {
+        this.label = traduccion;
+      });
+    this.translocoService
+      .selectTranslate('input-account-placeholder')
+      .subscribe((traduccion: string) => {
+        this.placeholder = traduccion;
+      });
+  }
 }

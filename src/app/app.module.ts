@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 import { UserHttpService } from './repository/User/user-http.service';
 import { UserMockService } from './repository/User/user-mock.service';
 import { HttpModule } from './services/Http/http.module';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslocoRootModule } from './transloco-root.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +21,8 @@ import { HttpModule } from './services/Http/http.module';
     AppLayoutModule,
     SpinnerComponent,
     HttpModule,
+    HttpClientModule,
+    TranslocoRootModule,
   ],
   providers: [
     {
