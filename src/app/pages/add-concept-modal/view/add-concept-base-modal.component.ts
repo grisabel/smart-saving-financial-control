@@ -15,6 +15,7 @@ import {
 } from '@stories/atoms/modals/modal-base/modal-base.component.types';
 import { AddConceptStoreService } from './store/add-concept-store.service';
 import { toObservable } from '@angular/core/rxjs-interop';
+import { combineLatest, forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-add-concept-base-modal',
@@ -59,13 +60,18 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
     },
     {
       text: 'Añadir',
-      isDisable: true,
     },
   ];
 
   constructor(private addConceptStoreService: AddConceptStoreService) {}
 
   conceptId$ = toObservable(this.addConceptStoreService.conceptId);
+
+  conpectData$ = combineLatest({
+    amount: toObservable(this.addConceptStoreService.amount),
+    date: toObservable(this.addConceptStoreService.date),
+    note: toObservable(this.addConceptStoreService.note),
+  });
 
   ngOnInit(): void {
     this.conceptId$.subscribe((conceptId) => {
@@ -78,7 +84,18 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
         }
         return confirmBtn;
       });
-      console.log({ confirmBtns: this.confirmBtns });
+    });
+
+    this.conpectData$.subscribe(({ amount, date, note }) => {
+      this.confirmBtns = this.confirmBtns.map((confirmBtn, i) => {
+        if (i === 2) {
+          return {
+            ...confirmBtn,
+            isDisable: !amount || !date || !note,
+          };
+        }
+        return confirmBtn;
+      });
     });
   }
 
