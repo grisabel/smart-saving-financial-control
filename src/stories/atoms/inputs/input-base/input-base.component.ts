@@ -22,13 +22,10 @@ export class InputBaseComponent {
 
   @Input() optionsMask?: MaskitoOptions;
   @Input() disabled?: boolean;
+  @Input() maxlength?: number;
 
   handleChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.onChange.emit(input.value);
-  }
-
-  ngOnChanges(changes: any) {
-    console.log({ changes });
   }
 }

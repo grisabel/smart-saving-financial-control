@@ -111,4 +111,8 @@
       }
     }
   }
+
+  &--disabled {
+    background-color: var(--blue-container);
+  }
 }

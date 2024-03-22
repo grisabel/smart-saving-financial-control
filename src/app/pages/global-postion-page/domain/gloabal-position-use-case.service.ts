@@ -26,7 +26,6 @@ export class GloabalPositionUseCaseService {
           year: requestModel.year,
         })
         .then((resul: GPSummaryResponseModel) => {
-          console.log({ resul });
           this.globalPositionStore.account.update((value) => {
             const data = structuredClone(value?.data) ?? {};
             data[requestModel.year] = {

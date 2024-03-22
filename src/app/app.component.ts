@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     this.userInterfaceService
       .info()
       .then((userInfo) => {
-        console.log({ userInfo });
         this.commonStore.userInfo.set(userInfo);
       })
       .finally(() => {

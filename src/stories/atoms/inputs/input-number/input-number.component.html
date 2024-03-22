@@ -2,11 +2,12 @@
   [id]="id"
   [label]="label"
   [placeholder]="placeholder"
-  type="number"
-  [value]="value"
+  type="text"
+  [value]="value ?? ''"
   (onChange)="handleChange($event)"
+  [optionsMask]="optionsMask"
   [disabled]="disabled"
+  [maxlength]="10"
 >
-
-<app-icon *ngIf="name" [name]="name" icon></app-icon>
+  <app-icon *ngIf="name" [name]="name" icon></app-icon>
 </app-input-base>

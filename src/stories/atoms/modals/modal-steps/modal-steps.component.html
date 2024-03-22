@@ -1,6 +1,6 @@
 <app-modal-base
   [open]="open"
-  (onClose)="onClose.emit()"
+  (onClose)="handleClose()"
   [disableBackdrop]="true"
   [title]="title"
   [description]="descriptions?.[currentStep()]"

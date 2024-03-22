@@ -1,25 +1,42 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   CategoryModel,
   CategoryService,
 } from '@app/pages/category-page/repository/Category/category.service';
+import { AddConceptStoreService } from '../../store/add-concept-store.service';
 
 @Component({
   selector: 'app-category-step',
   templateUrl: './category-step.component.html',
   styleUrls: ['./category-step.component.scss'],
 })
-export class CategoryStepComponent {
+export class CategoryStepComponent implements OnInit {
   categories: CategoryModel[] = [];
   icons: string[] = [];
 
-  categorySelected: string = 'Elija una categoría';
-  categorySelectedId: string | null = null;
+  categorySelected: string = '';
+  categorySelectedId!: string | null;
+
   category: string = 'Categoría';
   colorCategory: string = '#E0E0E0';
+
   @Input() titleOpen: string = '';
   readOnly = true;
-  constructor(private categoryService: CategoryService) {}
+
+  constructor(
+    private categoryService: CategoryService,
+    private addConceptStoreService: AddConceptStoreService
+  ) {}
+
+  ngOnInit(): void {
+    this.categorySelectedId = this.addConceptStoreService.conceptId();
+    this.categorySelected = this.categories.reduce((acc, c) => {
+      if (c.id === this.categorySelectedId) {
+        return c.icon;
+      }
+      return acc;
+    }, '');
+  }
 
   ngOnChanges(): void {
     if (this.titleOpen === 'openIncome') {
@@ -40,5 +57,7 @@ export class CategoryStepComponent {
       }
       return acc;
     }, '');
+
+    this.addConceptStoreService.conceptId.set(this.categorySelectedId);
   }
 }

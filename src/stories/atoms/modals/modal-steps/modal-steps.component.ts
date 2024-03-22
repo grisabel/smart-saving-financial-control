@@ -63,6 +63,7 @@ export class ModalStepsComponent implements OnInit {
   handleConfirm() {
     if (this.currentStep() === this.steps.length - 1) {
       this.onConfirm.emit();
+      this.currentStep.set(0);
       return;
     }
     this.currentStep.update((value) => value + 1);
@@ -70,9 +71,14 @@ export class ModalStepsComponent implements OnInit {
 
   handleCancel() {
     if (this.currentStep() === 0) {
-      this.onClose.emit();
+      this.onCancel.emit();
       return;
     }
     this.currentStep.update((value) => value - 1);
+  }
+
+  handleClose() {
+    this.currentStep.set(0);
+    this.onClose.emit();
   }
 }
