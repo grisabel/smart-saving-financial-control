@@ -137,9 +137,12 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
     // this.addConceptStoreService.conceptId.set(null);
     // this.addConceptStoreService.date.set(null);
     // this.addConceptStoreService.note.set(null);
-    this.onConfirm.emit();
+
+    this.open.set(false);
 
     this.cleanState();
+
+    this.onConfirm.emit();
   }
 
   onCancelHandler() {

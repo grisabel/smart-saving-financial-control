@@ -63,6 +63,7 @@ export class ModalStepsComponent implements OnInit {
   handleConfirm() {
     if (this.currentStep() === this.steps.length - 1) {
       this.onConfirm.emit();
+      this.currentStep.set(0);
       return;
     }
     this.currentStep.update((value) => value + 1);

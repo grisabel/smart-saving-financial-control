@@ -7,6 +7,14 @@
 
   <app-section-habits />
 
-  <app-add-concept-base-modal [open]="openIncome" titleOpen="openIncome"/>
-  <app-add-concept-base-modal [open]="openExpense" titleOpen="openExpense"/>
+  <app-add-concept-base-modal
+    [open]="openIncome"
+    titleOpen="openIncome"
+    (onConfirm)="handleAddedConcept()"
+  />
+  <app-add-concept-base-modal
+    [open]="openExpense"
+    titleOpen="openExpense"
+    (onConfirm)="handleAddedConcept()"
+  />
 </div>

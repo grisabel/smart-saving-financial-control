@@ -29,6 +29,10 @@ export class GlobalPostionPageComponent implements OnInit {
     });
   }
 
+  handleAddedConcept() {
+    this.fetchAccountByYear();
+  }
+
   private fetchAccountByYear() {
     const dateEnd = this.globalPositionStore.dataRange().dateEnd;
     const year = DateTimeService.parse(dateEnd, DATE_FORMATS.Year);
