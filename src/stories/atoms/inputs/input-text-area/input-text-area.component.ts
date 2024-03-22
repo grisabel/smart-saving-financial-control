@@ -22,8 +22,4 @@ export class InputTextAreaComponent {
     const input = event.target as HTMLInputElement;
     this.onChange.emit(input.value);
   }
-
-  ngOnChanges(changes: any) {
-    console.log({ changes });
-  }
 }
