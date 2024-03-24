@@ -6,9 +6,7 @@ import { environment } from 'src/environments/environment';
 
 const { baseUrl, UserAPI } = environment.endpoints;
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UserHttpService implements UserInterfaceService {
   http = inject(HttpInterfaceService);
 
