@@ -6,7 +6,7 @@ import { LoadingService } from '@app/services/Loading/loading.service';
 import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { environment } from 'src/environments/environment';
 
-const LOCAL_STORAGE_KEYS = {
+export const LOCAL_STORAGE_KEYS = {
   accessToken: 'accessToken',
   refreshToken: 'refreshToken',
 };
@@ -65,10 +65,10 @@ export class SessionUseCaseService {
       this.sessionService
         .logout({ refreshToken: this.getRefershToken() })
         .finally(() => {
-          // window.localStorage.removeItem(LOCAL_STORAGE_KEYS.accessToken);
-          // window.localStorage.removeItem(LOCAL_STORAGE_KEYS.refreshToken);
+          window.localStorage.removeItem(LOCAL_STORAGE_KEYS.accessToken);
+          window.localStorage.removeItem(LOCAL_STORAGE_KEYS.refreshToken);
           resolve();
-          // document.location.href = environment.data.logoutUrl;
+          document.location.href = environment.data.logoutUrl;
         });
     });
   }

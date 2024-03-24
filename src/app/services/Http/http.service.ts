@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 import { HttpInterfaceService } from './http-interface.service';
 
@@ -13,6 +13,8 @@ import {
   HttpResponse,
 } from './interfaces/HttpInterface';
 import { BaseHttpHeader } from './model/request/BaseHttpHeader';
+import { environment } from 'src/environments/environment';
+import { LOCAL_STORAGE_KEYS } from '@app/domain/Session/session-use-case.service';
 
 @Injectable()
 export class HttpService implements HttpInterfaceService {
@@ -28,18 +30,32 @@ export class HttpService implements HttpInterfaceService {
     return baseAuthHttpHeader;
   }
 
+  private logout() {
+    window.localStorage.removeItem(LOCAL_STORAGE_KEYS.accessToken);
+    window.localStorage.removeItem(LOCAL_STORAGE_KEYS.refreshToken);
+    document.location.href = environment.data.logoutUrl;
+  }
+
   setAccessToken = (value: string | null) => {
     this.access_token = value;
   };
 
   get<T>({ endpoint, headers }: HttpGetRequest): Observable<HttpResponse<T>> {
-    return this.http.get<T>(endpoint, {
-      headers: {
-        ...this.createAuthHeaders(),
-        ...headers,
-      },
-      observe: 'response',
-    });
+    return this.http
+      .get<T>(endpoint, {
+        headers: {
+          ...this.createAuthHeaders(),
+          ...headers,
+        },
+        observe: 'response',
+      })
+      .pipe(
+        tap((response) => {
+          if (response.status === 401) {
+            this.logout();
+          }
+        })
+      );
   }
 
   post<T>({
@@ -47,13 +63,21 @@ export class HttpService implements HttpInterfaceService {
     body,
     headers,
   }: HttpPostRequest): Observable<HttpResponse<T>> {
-    return this.http.post<T>(endpoint, body, {
-      headers: {
-        ...this.createAuthHeaders(),
-        ...headers,
-      },
-      observe: 'response',
-    });
+    return this.http
+      .post<T>(endpoint, body, {
+        headers: {
+          ...this.createAuthHeaders(),
+          ...headers,
+        },
+        observe: 'response',
+      })
+      .pipe(
+        tap((response) => {
+          if (response.status === 401) {
+            this.logout();
+          }
+        })
+      );
   }
 
   put<T>({
@@ -61,13 +85,21 @@ export class HttpService implements HttpInterfaceService {
     body,
     headers,
   }: HttpPutRequest): Observable<HttpResponse<T>> {
-    return this.http.put<T>(endpoint, body, {
-      headers: {
-        ...this.createAuthHeaders(),
-        ...headers,
-      },
-      observe: 'response',
-    });
+    return this.http
+      .put<T>(endpoint, body, {
+        headers: {
+          ...this.createAuthHeaders(),
+          ...headers,
+        },
+        observe: 'response',
+      })
+      .pipe(
+        tap((response) => {
+          if (response.status === 401) {
+            this.logout();
+          }
+        })
+      );
   }
 
   patch<T>({
@@ -75,25 +107,41 @@ export class HttpService implements HttpInterfaceService {
     headers,
     body,
   }: HttpPatchRequest): Observable<HttpResponse<T>> {
-    return this.http.patch<T>(endpoint, body, {
-      headers: {
-        ...this.createAuthHeaders(),
-        ...headers,
-      },
-      observe: 'response',
-    });
+    return this.http
+      .patch<T>(endpoint, body, {
+        headers: {
+          ...this.createAuthHeaders(),
+          ...headers,
+        },
+        observe: 'response',
+      })
+      .pipe(
+        tap((response) => {
+          if (response.status === 401) {
+            this.logout();
+          }
+        })
+      );
   }
 
   delete<T>({
     endpoint,
     headers,
   }: HttpDeleteRequest): Observable<HttpResponse<T>> {
-    return this.http.delete<T>(endpoint, {
-      headers: {
-        ...this.createAuthHeaders(),
-        ...headers,
-      },
-      observe: 'response',
-    });
+    return this.http
+      .delete<T>(endpoint, {
+        headers: {
+          ...this.createAuthHeaders(),
+          ...headers,
+        },
+        observe: 'response',
+      })
+      .pipe(
+        tap((response) => {
+          if (response.status === 401) {
+            this.logout();
+          }
+        })
+      );
   }
 }
