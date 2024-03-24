@@ -12,6 +12,9 @@ import { UserMockService } from './repository/User/user-mock.service';
 import { HttpModule } from './services/Http/http.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
+import { SessionInterfaceService } from './repository/Session/session-interface.service';
+import { SessionHttpService } from './repository/Session/session-http.service';
+import { SessionMockService } from './repository/Session/session-mock.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +31,10 @@ import { TranslocoRootModule } from './transloco-root.module';
     {
       provide: UserInterfaceService,
       useClass: !environment.mock ? UserHttpService : UserMockService,
+    },
+    {
+      provide: SessionInterfaceService,
+      useClass: !environment.mock ? SessionHttpService : SessionMockService,
     },
   ],
   bootstrap: [AppComponent],

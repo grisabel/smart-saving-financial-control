@@ -12,5 +12,8 @@ export const environment = {
       addIncome: '/financial-control/accounts/:accountNumber/income',
       addExpense: '/financial-control/accounts/:accountNumber/expense',
     },
+    SessionAPI: {
+      logout: '/session/logout',
+    },
   },
 };
