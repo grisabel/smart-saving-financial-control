@@ -1,4 +1,4 @@
-<app-back-link [href]="href" [labelLink]="labelLink" />
+<app-back-link [href]="href" [labelLink]="'btn-my-data' | transloco" />
 <div class="dataWP">
   <ng-container *ngIf="{ userInfo: userInfo$ | async } as data">
     <span class="title">{{'first-name' | transloco}}:  <span class="data">{{data?.userInfo?.firstName}}</span></span>
