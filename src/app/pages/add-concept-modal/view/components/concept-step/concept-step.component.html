@@ -1,13 +1,13 @@
 <div class="conceptStep">
   <app-input-number
     name="euro"
-    [label]="inputNumberLabel"
+    [label]="'input-amount-label' | transloco"
     placeholder="0,00"
     [value]="valueAmount"
     (onChange)="handleValueAmount($event)"
   />
   <app-input-text-date
-    [label]="inputDateLabel"
+    [label]="'input-date-label' | transloco"
     [value]="valueDate"
     (onChange)="handleValueDate($event)"
   />
@@ -19,7 +19,7 @@
   </p>
   <app-input-text-area
     id="comment"
-    [label]="inputCommentLabel"
+    [label]="'input-comment-label' | transloco"
     placeholder=""
     [value]="valueComment"
     (onChange)="handleValueComment($event)"
