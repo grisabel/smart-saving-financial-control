@@ -1,14 +1,14 @@
 <div class="summary">
   <app-dropdown
     id="dropdown"
-    [label]="labelAccount"
-    [placeholder]="placeholderAccount"
+    [label]="'input-category-label' | transloco"
+    [placeholder]="'input-account-placeholder' | transloco"
     [disabled]="true"
     [options]="[{ value: 'a', label: 'Cuenta Principal' }]"
   />
   <div class="dateCategory">
     <app-input-text-date
-      [label]="inputDateLabel"
+      [label]="'input-date-label' | transloco"
       [disabled]="disabled"
       [value]="valueDate"
     />
@@ -19,14 +19,14 @@
   </div>
   <app-input-number
     name="euro"
-    [label]="inputNumberLabel"
+    [label]="'input-amount-label' | transloco"
     placeholder="0,00"
     [disabled]="disabled"
     [value]="valueAmount"
   />
   <app-input-text-area
     id="comment"
-    [label]="inputCommentLabel"
+    [label]="'input-comment-label' | transloco"
     placeholder=""
     [disabled]="disabled"
     [value]="valueComment"
