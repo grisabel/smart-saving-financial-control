@@ -11,8 +11,7 @@ import {
 import { SessionUseCaseService } from '@app/domain/Session/session-use-case.service';
 import { TranslocoService } from '@ngneat/transloco';
 
-const SRC_USER =
-  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+const SRC_USER = '/assets/images/profile.png';
 
 @Component({
   selector: 'app-my-account',
@@ -31,11 +30,10 @@ export class MyAccountComponent {
   disabled = false;
   src = SRC_USER;
   userInfo$ = toObservable(this.commonStore.userInfo);
-  placeholder: string = '';
+  value: string = '';
 
   ngOnInit() {
-    let lang = window.localStorage.getItem('language');
-    this.placeholder = lang === 'es' ? 'spanish' : 'english';
+    this.value = window.localStorage.getItem('language') || 'es';
   }
 
   handleClickCategories() {
@@ -55,7 +53,7 @@ export class MyAccountComponent {
 
   handleChangeLanguage($event: any) {
     let language = $event.target?.value;
-    this.placeholder = language === 'es' ? 'spanish' : 'english';
+    this.value = language;
 
     window.localStorage.setItem('language', language);
     this.translocoService.setActiveLang(language);

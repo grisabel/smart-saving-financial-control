@@ -16,6 +16,7 @@ import { SessionInterfaceService } from './repository/Session/session-interface.
 import { SessionHttpService } from './repository/Session/session-http.service';
 import { SessionMockService } from './repository/Session/session-mock.service';
 import { SessionUseCaseService } from './domain/Session/session-use-case.service';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { SessionUseCaseService } from './domain/Session/session-use-case.service
     HttpModule,
     HttpClientModule,
     TranslocoRootModule,
+    TranslocoModule,
   ],
   providers: [
     {

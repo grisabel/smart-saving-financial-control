@@ -10,9 +10,7 @@ import { environment } from '../environments/environment';
       config: {
         availableLangs: ['en', 'es'],
         defaultLang: 'es',
-        // Remove this option if your application doesn't support changing language in runtime.
-        // reRenderOnLangChange: true,
-        // prodMode: environment.mock,
+        reRenderOnLangChange: true,
       },
       loader: TranslocoHttpLoader,
     }),

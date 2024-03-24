@@ -38,7 +38,8 @@
     <app-dropdown
     id="preferences"
     label="input-language-label"
-    [placeholder]="placeholder"
+    [value]="value"
+    placeholder="input-language-placeholder"
     [disabled]="false"
     [options]="[{ value: 'es', label: 'spanish' },{ value: 'en', label: 'english' }]"
     (onChange)="handleChangeLanguage($event)"

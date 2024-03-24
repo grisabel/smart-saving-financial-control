@@ -1,10 +1,13 @@
 import {
   ChangeDetectionStrategy,
+  OnInit,
   Component,
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   Output,
+  SimpleChanges,
   ViewChild,
   signal,
 } from '@angular/core';
@@ -26,7 +29,7 @@ interface InputOption {
   styleUrls: ['./dropdown.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DropdownComponent {
+export class DropdownComponent implements OnInit, OnChanges {
   @Input({ required: true }) id!: string;
   @Input() label?: string;
   @Input() placeholder?: string;
@@ -45,6 +48,12 @@ export class DropdownComponent {
   ngOnInit() {
     this.inputText.set(this._defaultOptionLabel(this.options, this.value));
     this.optionFocus.set(this._defaultOptionFocus(this.options, this.value));
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['value'] && changes['value'].currentValue) {
+      this.optionFocus.set(this._defaultOptionFocus(this.options, this.value));
+    }
   }
 
   _defaultOptionFocus(

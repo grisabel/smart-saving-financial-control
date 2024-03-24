@@ -26,6 +26,18 @@
   }
 
   .preferences {
+    width: 288px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+
     @include f--b1-regular;
+
+    @media (max-width: $bpSmMax) {
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

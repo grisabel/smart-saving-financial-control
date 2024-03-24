@@ -22,20 +22,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.sessionUseCase.loginUser();
 
-    let language = window.localStorage.getItem('language');
+    let language = window.localStorage.getItem('language') || 'es';
     if (language) {
       this.translocoService.setActiveLang(language);
     }
-
-    this.subscription = this.translocoService.langChanges$.subscribe((lang) => {
-      console.log('hola');
-
-      this.changeDetectorRef.detectChanges();
-    });
-
-    setTimeout(() => {
-      this.translocoService.setActiveLang('en');
-    }, 1000);
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
