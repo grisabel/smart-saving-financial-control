@@ -18,7 +18,7 @@ export class FinancialControlHttpService
         .post({
           endpoint:
             baseUrl +
-            FinancialControlAPI.addExpense.replace(':accountNumber', '0'),
+            FinancialControlAPI.addIncome.replace(':accountNumber', '0'),
           body: {
             conceptId: requestModel.conceptId,
             amount: parseFloat(
