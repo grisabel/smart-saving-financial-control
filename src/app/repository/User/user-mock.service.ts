@@ -21,7 +21,7 @@ export class UserMockService extends UserHttpService {
           firstName: 'Efrén',
           lastName: 'García Sanchez',
           dateBirth: '05/01/2016',
-          objective: 'Jubilación',
+          objective: 'objective-retirement',
         },
       });
     });

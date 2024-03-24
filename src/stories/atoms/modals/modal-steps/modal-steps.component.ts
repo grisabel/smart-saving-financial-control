@@ -18,11 +18,17 @@ import {
   DotProps,
   DotStepComponent,
 } from './components/dot-step/dot-step.component';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-modal-steps',
   standalone: true,
-  imports: [CommonModule, ModalBaseComponent, DotStepComponent],
+  imports: [
+    CommonModule,
+    ModalBaseComponent,
+    DotStepComponent,
+    TranslocoModule,
+  ],
   templateUrl: './modal-steps.component.html',
   styleUrls: ['./modal-steps.component.scss'],
 })

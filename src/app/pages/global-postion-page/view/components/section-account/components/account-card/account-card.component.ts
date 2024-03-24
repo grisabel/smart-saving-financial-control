@@ -8,13 +8,19 @@ import { DATE_FORMATS } from '@app/utils/Datetime/constants';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { GlobalPositionAccount } from '@app/pages/global-postion-page/view/store/models/GlobalPositionAccoount';
 import { merge } from 'rxjs';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-account-card',
   templateUrl: './account-card.component.html',
   styleUrls: ['./account-card.component.scss'],
   standalone: true,
-  imports: [CommonModule, CardBaseComponent, BalanceConceptComponent],
+  imports: [
+    CommonModule,
+    CardBaseComponent,
+    BalanceConceptComponent,
+    TranslocoModule,
+  ],
 })
 export class AccountCardComponent {
   @Output() onClick: EventEmitter<void> = new EventEmitter();

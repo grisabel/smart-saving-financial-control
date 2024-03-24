@@ -7,6 +7,8 @@ import { BackLinkComponent } from '@stories/atoms/links/back-link/back-link.comp
 import { UserInfoComponent } from '@stories/atoms/user-info/user-info.component';
 import { ActionBtnComponent } from '@stories/atoms/buttons/action-btn/action-btn.component';
 import { MyAccountDetailsComponent } from './page/my-account-details/my-account-details.component';
+import { TranslocoModule } from '@ngneat/transloco';
+import { DropdownComponent } from '@stories/atoms/inputs/dropdown/dropdown.component';
 
 @NgModule({
   declarations: [MyAccountComponent, MyAccountDetailsComponent],
@@ -16,6 +18,8 @@ import { MyAccountDetailsComponent } from './page/my-account-details/my-account-
     BackLinkComponent,
     UserInfoComponent,
     ActionBtnComponent,
+    TranslocoModule,
+    DropdownComponent,
   ],
 })
 export class MyAccountModule {}

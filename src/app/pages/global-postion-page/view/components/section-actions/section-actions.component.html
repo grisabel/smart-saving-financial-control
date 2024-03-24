@@ -1,19 +1,19 @@
 <section>
-  <p class="sectionTitle">Operaciones</p>
+  <p class="sectionTitle">{{'operations'| transloco}}</p>
   <div class="sectionActions">
     <app-card-btn
       icon="income"
-      title="Ingresos"
+      title="btn-income"
       (onClick)="openIncome.set(true)"
     />
     <app-card-btn
       icon="expense"
-      title="Gastos"
+      title="btn-expenses"
       (onClick)="openExpense.set(true)"
     />
     <app-card-btn
       icon="category"
-      title="Categorías"
+      title="btn-categories"
       (onClick)="handlerCategory()"
     />
   </div>

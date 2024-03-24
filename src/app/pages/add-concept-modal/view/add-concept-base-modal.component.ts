@@ -33,35 +33,35 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
 
   title: string = '';
   descriptions: string[] = [''];
+
   cancelBtns: ModalBaseBtn[] = [
     {
-      text: 'Cancelar',
+      text: 'btn-cancel',
     },
     {
-      text: 'Atrás',
+      text: 'btn-back',
     },
     {
-      text: 'Atrás',
+      text: 'btn-back',
     },
     {
-      text: 'Atrás',
+      text: 'btn-back',
     },
   ];
-
   confirmBtns: ModalBaseBtn[] = [
     {
-      text: 'Siguiente',
+      text: 'btn-next',
     },
     {
-      text: 'Siguiente',
+      text: 'btn-next',
       isDisable: true,
     },
     {
-      text: 'Siguiente',
+      text: 'btn-next',
       isDisable: true,
     },
     {
-      text: 'Añadir',
+      text: 'btn-add',
     },
   ];
 
@@ -115,22 +115,22 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
 
       this.title =
         this.titleOpen === 'openIncome'
-          ? 'Registra tus ingresos'
-          : 'Registra tus gastos';
+          ? 'register-income-title'
+          : 'register-expense-title';
 
       this.descriptions =
         this.titleOpen === 'openIncome'
           ? [
-              'Añade tus ingresos antes de que se te olvide',
-              'Añade tus ingresos antes de que se te olvide',
-              'Añade tus ingresos antes de que se te olvide',
-              'Añade tus ingresos antes de que se te olvide',
+              'register-income-subtitle',
+              'register-income-subtitle',
+              'register-income-subtitle',
+              'register-income-subtitle',
             ]
           : [
-              'Añade tus gastos antes de que se te olvide',
-              'Añade tus gastos antes de que se te olvide',
-              'Añade tus gastos antes de que se te olvide',
-              'Añade tus gastos antes de que se te olvide',
+              'register-expense-subtitle',
+              'register-expense-subtitle',
+              'register-expense-subtitle',
+              'register-expense-subtitle',
             ];
     }
   }

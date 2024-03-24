@@ -13,7 +13,7 @@
   >
     <div class="container">
       <div class="data">
-        <p class="title">{{ isYear() ? "Año" : "Mes" }}</p>
+        <p class="title">{{ (isYear() ? "year" : "month") | transloco }}</p>
         <p class="date">{{ displayDate() }}</p>
       </div>
       <div class="icon">

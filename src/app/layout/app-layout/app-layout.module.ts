@@ -8,6 +8,7 @@ import { MenuDesktopComponent } from '@stories/molecules/menu/menu-desktop/menu-
 import { DivisorComponent } from '@stories/atoms/divisor/divisor.component';
 import { LogoComponent } from '@stories/atoms/logo/logo.component';
 import { UserInfoComponent } from '@stories/atoms/user-info/user-info.component';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [AppLayoutComponent],
@@ -20,6 +21,7 @@ import { UserInfoComponent } from '@stories/atoms/user-info/user-info.component'
     DivisorComponent,
     LogoComponent,
     UserInfoComponent,
+    TranslocoModule,
   ],
   exports: [AppLayoutComponent],
 })

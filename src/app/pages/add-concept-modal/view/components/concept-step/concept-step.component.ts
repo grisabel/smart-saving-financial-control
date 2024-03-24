@@ -35,10 +35,6 @@ const getRuleDateSince = (sinceDatetime: DateTimeModel) => {
   styleUrls: ['./concept-step.component.scss'],
 })
 export class ConceptStepComponent {
-  inputNumberLabel = 'Importe';
-  inputDateLabel = 'Fecha';
-  inputCommentLabel = 'Comentario';
-
   untilDate: DateTimeModel = DateTimeService.currentDate();
   isValidUntilDate: boolean = true;
 

@@ -10,7 +10,7 @@
             [userName]="
               (userInfo?.firstName ?? '') + ' ' + (userInfo?.lastName ?? '')
             "
-            [objective]="userInfo?.objective ?? ''"
+            [objective]="(userInfo?.objective ?? '') | transloco "
           />
         </ng-container>
         <ng-template #loading>

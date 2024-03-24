@@ -1,11 +1,11 @@
-<app-back-link [href]="href" [labelLink]="labelLink" />
+<app-back-link [href]="href" [labelLink]="'btn-categories' | transloco" />
 
-<p class="text">Explora todas las categorías disponibles.</p>
+<p class="text">{{'all-categories' | transloco}}</p>
 
 <div class="tableWp">
   <div class="table">
     <app-tabs-table
-      [titleTabs]="['Gastos', 'Ingresos']"
+      [titleTabs]="['btn-expenses', 'btn-income']"
       [contentTabs]="[tab1, tab2]"
       [currentTab]="currentTab"
     />

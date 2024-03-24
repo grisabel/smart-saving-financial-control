@@ -4,7 +4,7 @@
       [active]="currentId() === item.id"
       [id]="item.id"
       [icon]="item.icon"
-      [title]="item.title"
+      [title]="item.title | transloco"
       (onClick)="handleMenuChange($event)"
     />
   </ng-container>

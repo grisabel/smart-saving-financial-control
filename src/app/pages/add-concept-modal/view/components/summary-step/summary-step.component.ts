@@ -8,11 +8,6 @@ import { CategoryService } from '@app/pages/category-page/repository/Category/ca
   styleUrls: ['./summary-step.component.scss'],
 })
 export class SummaryStepComponent implements OnInit {
-  inputNumberLabel = 'Importe';
-  inputDateLabel = 'Fecha';
-  inputCommentLabel = 'Comentario';
-  labelAccount = 'Cuenta';
-  placeholderAccount = 'Cuenta Principal';
   readOnly = true;
   disabled = true;
 

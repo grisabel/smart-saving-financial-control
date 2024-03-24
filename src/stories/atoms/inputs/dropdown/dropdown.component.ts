@@ -11,6 +11,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 import { IconComponent } from '@stories/atoms/icon/icon.component';
+import { TranslocoModule } from '@ngneat/transloco';
 
 interface InputOption {
   value: string;
@@ -20,7 +21,7 @@ interface InputOption {
 @Component({
   selector: 'app-dropdown',
   standalone: true,
-  imports: [CommonModule, IconComponent],
+  imports: [CommonModule, IconComponent, TranslocoModule],
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,8 +40,7 @@ export class DropdownComponent {
   openDropdown = signal(false);
   inputText = signal('');
   optionFocus = signal(-1);
-
-  constructor() {}
+  activeLanguage: string = '';
 
   ngOnInit() {
     this.inputText.set(this._defaultOptionLabel(this.options, this.value));

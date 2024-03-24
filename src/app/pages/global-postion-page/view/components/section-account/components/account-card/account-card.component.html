@@ -2,8 +2,8 @@
 <app-card-base (onClick)="handleClick()">
   <div class="head">
     <div class="info">
-      <p class="title">{{ accountName() }}</p>
-      <p class="subtitle">Último Movimiento: {{ lastMovement() }}</p>
+      <p class="title">{{ accountName() | transloco}}</p>
+      <p class="subtitle">{{'last-move' | transloco}}: {{ lastMovement() }}</p>
     </div>
     <div class="amountInfo">
       <p

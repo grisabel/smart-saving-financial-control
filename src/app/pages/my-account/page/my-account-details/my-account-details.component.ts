@@ -13,5 +13,4 @@ export class MyAccountDetailsComponent {
   userInfo$ = toObservable(this.commonStore.userInfo);
 
   href = GLOBAL_APP_ROUTES.myAccount;
-  labelLink = 'Mis Datos';
 }

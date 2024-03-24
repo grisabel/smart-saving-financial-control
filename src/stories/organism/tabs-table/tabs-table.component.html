@@ -6,7 +6,7 @@
         [ngClass]="{ title: true, 'title--active': currentTab() === i }"
         (click)="handleActiveTab(i)"
       >
-        {{ title }}
+        {{ title | transloco }}
       </div>
     </ng-container>
   </div>

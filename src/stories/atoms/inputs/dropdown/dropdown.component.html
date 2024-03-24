@@ -11,14 +11,14 @@
   #dropdownRef
 >
   <div class="inputWp">
-    <label class="label">{{ label }}</label>
+    <label class="label">{{ label | transloco}}</label>
     <div class="inputContainer">
       <input
         [id]="id"
         [name]="'list-' + id"
         list=""
-        [placeholder]="placeholder"
-        [value]="inputText()"
+        [placeholder]="placeholder | transloco"
+        [value]="inputText() | transloco"
         autoComplete="off"
         disabled
         role="combobox"
@@ -43,7 +43,7 @@
         (click)="onClickDropdownItem(option)"
         [ngClass]="{ option: true, 'option--active': optionFocus() === i }"
       >
-        {{ option.label }}
+        {{ option.label | transloco}}
       </option>
     </datalist>
   </ng-container>

@@ -1,9 +1,9 @@
 <div class="selectCategories">
   <div class="categorySelected">
     <app-input-text
-      [label]="'Categoría'"
-      [placeholder]="'Elija una categoría'"
-      [value]="categorySelected"
+      [label]="'input-category-label' | transloco"
+      [placeholder]="'input-category-placeholder' | transloco"
+      [value]="categorySelected | transloco"
       [disabled]="true"
     />
     <app-category-btn

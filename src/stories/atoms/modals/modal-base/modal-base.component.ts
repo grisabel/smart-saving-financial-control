@@ -14,11 +14,12 @@ import {
   ModalBaseInputs,
   ModalBaseOutputs,
 } from './modal-base.component.types';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-modal-base',
   standalone: true,
-  imports: [CommonModule, IconComponent, ButtonComponent],
+  imports: [CommonModule, IconComponent, ButtonComponent, TranslocoModule],
   templateUrl: './modal-base.component.html',
   styleUrls: ['./modal-base.component.scss'],
 })

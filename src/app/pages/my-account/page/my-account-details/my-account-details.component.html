@@ -1,11 +1,11 @@
-<app-back-link [href]="href" [labelLink]="labelLink" />
+<app-back-link [href]="href" [labelLink]="'btn-my-data' | transloco" />
 <div class="dataWP">
   <ng-container *ngIf="{ userInfo: userInfo$ | async } as data">
-    <span class="title">Nombre:  <span class="data">{{data?.userInfo?.firstName}}</span></span>
-    <span class="title">Apellidos:  <span class="data">{{data?.userInfo?.lastName}}</span></span>
-    <span class="title">Correo Electrónico: <span class="data">{{data?.userInfo?.email}}</span></span>
-    <span class="title">Fecha de Nacimiento:  <span class="data">{{data?.userInfo?.dateBirth}}</span></span>
-    <span class="title">Objetivo :  <span class="data">{{data?.userInfo?.objective}}</span></span>
+    <span class="title">{{'first-name' | transloco}}:  <span class="data">{{data?.userInfo?.firstName}}</span></span>
+    <span class="title">{{'last-name' | transloco}}:  <span class="data">{{data?.userInfo?.lastName}}</span></span>
+    <span class="title">{{'email' | transloco}}: <span class="data">{{data?.userInfo?.email}}</span></span>
+    <span class="title">{{'birth' | transloco}}:  <span class="data">{{data?.userInfo?.dateBirth}}</span></span>
+    <span class="title">{{'objective' | transloco}} :  <span class="data">{{(data?.userInfo?.objective) | transloco}}</span></span>
   </ng-container>
 </div>
 

@@ -1,8 +1,8 @@
 <div class="modalWp" *ngIf="open()">
   <div class="modal">
     <div class="header">
-      <p class="title">{{ title }}</p>
-      <p *ngIf="description" class="description">{{ description }}</p>
+      <p class="title">{{ title | transloco }}</p>
+      <p *ngIf="description" class="description">{{ description | transloco}}</p>
       <span *ngIf="!disableClose" class="header__icon">
         <app-icon name="cross-big" (onClick)="handleClose()" />
       </span>
@@ -14,7 +14,7 @@
       <div class="footer-btns">
         <app-button
           *ngIf="cancelBtn"
-          [label]="cancelBtn.text"
+          [label]="cancelBtn.text | transloco"
           color="secondary"
           [disabled]="cancelBtn.isDisable"
           [loading]="cancelBtn.isLoading"
@@ -22,7 +22,7 @@
         />
         <app-button
           *ngIf="confirmBtn"
-          [label]="confirmBtn.text"
+          [label]="confirmBtn.text | transloco"
           [disabled]="confirmBtn.isDisable"
           [loading]="confirmBtn.isLoading"
           (onClick)="onConfirm.emit()"

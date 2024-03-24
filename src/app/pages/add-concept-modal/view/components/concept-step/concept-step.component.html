@@ -1,25 +1,25 @@
 <div class="conceptStep">
   <app-input-number
     name="euro"
-    [label]="inputNumberLabel"
+    [label]="'input-amount-label' | transloco"
     placeholder="0,00"
     [value]="valueAmount"
     (onChange)="handleValueAmount($event)"
   />
   <app-input-text-date
-    [label]="inputDateLabel"
+    [label]="'input-date-label' | transloco"
     [value]="valueDate"
     (onChange)="handleValueDate($event)"
   />
   <p *ngIf="!isValidUntilDate" class="isInValidDate">
-    La fecha seleccionada debe ser anterior o igual a la fecha actual.
+    {{'input-date-error' | transloco}}
   </p>
   <p *ngIf="!isValidSinceDate" class="isInValidDate">
-    La fecha seleccionada debe ser posterior o igual {{ sinceDate.date }} .
+    {{'input-date-error2' | transloco}} {{ sinceDate.date }}.
   </p>
   <app-input-text-area
     id="comment"
-    [label]="inputCommentLabel"
+    [label]="'input-comment-label' | transloco"
     placeholder=""
     [value]="valueComment"
     (onChange)="handleValueComment($event)"
