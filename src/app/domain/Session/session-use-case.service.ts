@@ -30,6 +30,9 @@ export class SessionUseCaseService {
         this.commonStore.userInfo.set(userInfo);
       })
       .catch(() => {
+        if (environment.mock) {
+          return;
+        }
         this.logout();
       })
       .finally(() => {
