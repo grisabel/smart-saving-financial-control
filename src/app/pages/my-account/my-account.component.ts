@@ -8,6 +8,7 @@ import {
   GLOBAL_MY_ACCOUNT_ROUTES,
   MY_ACCOUNT_ROUTES,
 } from './my-account.routes';
+import { SessionUseCaseService } from '@app/domain/Session/session-use-case.service';
 
 const SRC_USER =
   'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
@@ -20,7 +21,8 @@ const SRC_USER =
 export class MyAccountComponent {
   constructor(
     private router: Router,
-    private commonStore: CommonStoreService
+    private commonStore: CommonStoreService,
+    private sessionUseCase: SessionUseCaseService
   ) {}
 
   href = GLOBAL_APP_ROUTES.globalPosition;
@@ -46,6 +48,7 @@ export class MyAccountComponent {
   //todo llamada servicio unsubscribe y redirigir a login
   handleClickUnsubscribe() {}
 
-  //todo llamada servicio logout y redirigir a login
-  handleClickLogout() {}
+  handleClickLogout() {
+    this.sessionUseCase.logout();
+  }
 }

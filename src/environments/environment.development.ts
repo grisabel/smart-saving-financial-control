@@ -1,4 +1,7 @@
 export const environment = {
+  data: {
+    logoutUrl: 'https://www.google.es/',
+  },
   mock: true,
   endpoints: {
     baseUrl: '',

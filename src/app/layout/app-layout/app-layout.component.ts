@@ -8,6 +8,7 @@ import {
 import { toObservable } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
+import { SessionUseCaseService } from '@app/domain/Session/session-use-case.service';
 import { UserInfoResponseModel } from '@app/repository/User/model/response/UserInfoResponseModel';
 import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
@@ -46,7 +47,8 @@ export class AppLayoutComponent {
 
   constructor(
     private router: Router,
-    private commonStore: CommonStoreService
+    private commonStore: CommonStoreService,
+    private sessionUseCase: SessionUseCaseService
   ) {}
 
   userInfo$ = toObservable(this.commonStore.userInfo);
@@ -92,6 +94,10 @@ export class AppLayoutComponent {
       default:
         break;
     }
+  }
+
+  handleLogout() {
+    this.sessionUseCase.logout();
   }
 
   private navigateMyAccount() {

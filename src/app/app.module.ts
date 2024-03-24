@@ -15,6 +15,7 @@ import { TranslocoRootModule } from './transloco-root.module';
 import { SessionInterfaceService } from './repository/Session/session-interface.service';
 import { SessionHttpService } from './repository/Session/session-http.service';
 import { SessionMockService } from './repository/Session/session-mock.service';
+import { SessionUseCaseService } from './domain/Session/session-use-case.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +37,7 @@ import { SessionMockService } from './repository/Session/session-mock.service';
       provide: SessionInterfaceService,
       useClass: !environment.mock ? SessionHttpService : SessionMockService,
     },
+    SessionUseCaseService,
   ],
   bootstrap: [AppComponent],
 })
