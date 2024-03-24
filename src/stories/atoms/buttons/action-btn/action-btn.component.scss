@@ -57,4 +57,15 @@
       }
     }
   }
+
+  &--disabled {
+    ::ng-deep {
+      app-card-base {
+        .actionBtnContent {
+          background-color: #cccccc;
+          color: #666666;
+        }
+      }
+    }
+  }
 }
