@@ -18,8 +18,6 @@ export class CategoryPageComponent {
     ? GLOBAL_APP_ROUTES.globalPosition
     : GLOBAL_APP_ROUTES.myAccount;
 
-  labelLink = 'Categorías';
-
   currentTab = signal(0);
 
   incomes = this.categoryService.getIcomeList().map((c) => c.icon);
