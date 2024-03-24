@@ -43,6 +43,8 @@ export class SessionUseCaseService {
       this.sessionService
         .logout({ refreshToken: this.getRefershToken() })
         .finally(() => {
+          window.localStorage.removeItem(LOCAL_STORAGE_KEYS.accessToken);
+          window.localStorage.removeItem(LOCAL_STORAGE_KEYS.refreshToken);
           resolve();
           document.location.href = environment.data.logoutUrl;
         });
