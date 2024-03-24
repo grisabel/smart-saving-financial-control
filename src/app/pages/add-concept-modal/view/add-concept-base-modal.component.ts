@@ -16,6 +16,8 @@ import {
 import { AddConceptStoreService } from './store/add-concept-store.service';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { combineLatest, forkJoin } from 'rxjs';
+import { FinancialControlInterfaceService } from '../data/repository/financial-control/financial-control-interface.service';
+import { LoadingService } from '@app/services/Loading/loading.service';
 
 @Component({
   selector: 'app-add-concept-base-modal',
@@ -63,7 +65,11 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
     },
   ];
 
-  constructor(private addConceptStoreService: AddConceptStoreService) {}
+  constructor(
+    private addConceptStoreService: AddConceptStoreService,
+    private financialControlService: FinancialControlInterfaceService,
+    public loadingService: LoadingService
+  ) {}
 
   conceptId$ = toObservable(this.addConceptStoreService.conceptId);
 
@@ -130,19 +136,37 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
   }
 
   onConfirmHandler() {
-    //todo
-    // this.addConceptStoreService.conceptType.set(null);
+    const conceptId = this.addConceptStoreService.conceptId();
+    const amount = this.addConceptStoreService.amount();
+    const date = this.addConceptStoreService.date();
+    const note = this.addConceptStoreService.note();
 
-    // this.addConceptStoreService.amount.set(null);
-    // this.addConceptStoreService.conceptId.set(null);
-    // this.addConceptStoreService.date.set(null);
-    // this.addConceptStoreService.note.set(null);
+    if (!amount || !conceptId || !date || !note) {
+      return;
+    }
+
+    const addConcept =
+      this.titleOpen === 'openIncome' ? 'addIncome' : 'addExpense';
 
     this.open.set(false);
-
-    this.cleanState();
-
-    this.onConfirm.emit();
+    this.loadingService.show();
+    this.financialControlService[addConcept]({
+      amount,
+      conceptId,
+      date,
+      note,
+    })
+      .then((resul) => {
+        console.log(resul);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        this.loadingService.hide();
+        this.onConfirm.emit();
+        this.cleanState();
+      });
   }
 
   onCancelHandler() {
