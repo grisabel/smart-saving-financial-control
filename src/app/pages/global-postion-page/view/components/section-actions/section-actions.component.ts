@@ -14,6 +14,8 @@ export class SectionActionsComponent {
   constructor(private router: Router) {}
 
   handlerCategory() {
-    this.router.navigate([GLOBAL_APP_ROUTES.categories]);
+    this.router.navigate([GLOBAL_APP_ROUTES.categories], {
+      state: { isGlobalPosition: true },
+    });
   }
 }

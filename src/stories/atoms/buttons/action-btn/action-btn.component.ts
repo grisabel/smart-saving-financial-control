@@ -14,6 +14,7 @@ export class ActionBtnComponent {
   @Input() colorBtn?: string = 'primary | secundary = primary';
   @Input() iconName?: string = '';
   @Input() label: string = '';
+  @Input() disabled?: boolean;
   @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
 
   handleClick(): void {

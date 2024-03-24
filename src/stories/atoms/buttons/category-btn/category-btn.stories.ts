@@ -52,7 +52,7 @@ export const Btn10: Story = {
   args: { iconName: 'internet' },
 };
 export const Btn11: Story = {
-  args: { iconName: 'leisure' },
+  args: { iconName: 'beers' },
 };
 export const Btn12: Story = {
   args: { iconName: 'mortgage' },

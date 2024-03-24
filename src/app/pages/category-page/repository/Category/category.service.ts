@@ -87,7 +87,7 @@ export class CategoryService {
       {
         id: 'EXPENSE-10',
         concept: 'Ocio',
-        icon: 'leisure',
+        icon: 'beers',
       },
       {
         id: 'EXPENSE-11',

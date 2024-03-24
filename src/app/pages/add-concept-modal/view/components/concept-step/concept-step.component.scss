@@ -1,8 +1,16 @@
+@import "variables/fonts.scss";
+
 .conceptStep {
   display: flex;
   flex-direction: column;
   gap: 16px;
   min-height: 375px;
+
+  .isInValidDate {
+    @include f--b1-light;
+
+    color: var(--red-main);
+  }
 
   ::ng-deep {
     svg {

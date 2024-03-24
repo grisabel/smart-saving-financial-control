@@ -11,6 +11,9 @@
     [value]="valueDate"
     (onChange)="handleValueDate($event)"
   />
+  <p *ngIf="!isValidDate" class="isInValidDate">
+    La fecha seleccionada debe ser anterior o igual a la fecha actual.
+  </p>
   <app-input-text-area
     id="comment"
     [label]="inputCommentLabel"

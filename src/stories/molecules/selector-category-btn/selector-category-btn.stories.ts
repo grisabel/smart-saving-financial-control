@@ -35,7 +35,7 @@ export const CategoriesExpensesExample: Story = {
       'internet',
       'water',
       'studies',
-      'leisure',
+      'beers',
       'tax',
       'studies',
       'health',

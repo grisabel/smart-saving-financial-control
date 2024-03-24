@@ -1,6 +1,7 @@
-import { Component, WritableSignal, signal } from '@angular/core';
+import { Component, Input, WritableSignal, signal } from '@angular/core';
 import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import { CategoryService } from './repository/Category/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-page',
@@ -8,13 +9,18 @@ import { CategoryService } from './repository/Category/category.service';
   styleUrls: ['./category-page.component.scss'],
 })
 export class CategoryPageComponent {
-  // openAddCategory: WritableSignal<boolean> = signal(false);
-  href = GLOBAL_APP_ROUTES.globalPosition;
+  constructor(
+    private categoryService: CategoryService,
+    private router: Router
+  ) {}
+
+  href = this.router.getCurrentNavigation()?.extras?.state?.['isGlobalPosition']
+    ? GLOBAL_APP_ROUTES.globalPosition
+    : GLOBAL_APP_ROUTES.myAccount;
+
   labelLink = 'Categorías';
 
   currentTab = signal(0);
-
-  constructor(private categoryService: CategoryService) {}
 
   incomes = this.categoryService.getIcomeList().map((c) => c.icon);
   expenses = this.categoryService.getExpenseList().map((c) => c.icon);

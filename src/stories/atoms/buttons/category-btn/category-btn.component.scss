@@ -24,13 +24,14 @@ button {
   .heating,
   .insurance,
   .internet,
-  .leisure,
+  .beers,
   .mortgage,
   .paylist,
   .pets,
   .scholarship,
   .studies,
-  .water {
+  .water,
+  .restaurant {
     ::ng-deep {
       svg {
         transform: scale(0.7);
