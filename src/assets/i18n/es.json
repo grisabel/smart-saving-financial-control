@@ -27,6 +27,8 @@
 
     "summary": "Resumen",
     "balance": "Balance",
+    "operations": "Operaciones",
+    "accounts": "Cuentas",
     "year": "Año",
     "month": "Mes",
     "main-account": "Cuenta Principal",

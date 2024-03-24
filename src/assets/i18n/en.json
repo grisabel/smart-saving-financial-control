@@ -26,6 +26,8 @@
 
     "summary": "Summary",
     "balance": "Balance",
+    "operations": "Operations",
+    "accounts": "Accounts",
     "year": "Year",
     "month": "Month",
     "main-account": "Main Account",
