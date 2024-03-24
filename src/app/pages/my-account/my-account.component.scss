@@ -1,4 +1,5 @@
 @import "variables/breakpoints.scss";
+@import "variables/fonts.scss";
 
 .myAccount {
   app-user-info {
@@ -22,5 +23,9 @@
       flex-wrap: wrap;
       max-width: 608px;
     }
+  }
+
+  .preferences {
+    @include f--b1-regular;
   }
 }

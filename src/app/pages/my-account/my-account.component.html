@@ -33,4 +33,15 @@
       (click)="handleClickLogout()"
     ></app-action-btn>
   </div>
+  <div class="preferences">
+    <p>{{'preferences' | transloco}}</p>
+    <app-dropdown
+    id="preferences"
+    label="input-language-label"
+    [placeholder]="placeholder"
+    [disabled]="false"
+    [options]="[{ value: 'es', label: 'spanish' },{ value: 'en', label: 'english' }]"
+    (onChange)="handleChangeLanguage($event)"
+  />
+  </div>
 </div>

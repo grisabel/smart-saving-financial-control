@@ -40,8 +40,7 @@ export class DropdownComponent {
   openDropdown = signal(false);
   inputText = signal('');
   optionFocus = signal(-1);
-
-  constructor() {}
+  activeLanguage: string = '';
 
   ngOnInit() {
     this.inputText.set(this._defaultOptionLabel(this.options, this.value));

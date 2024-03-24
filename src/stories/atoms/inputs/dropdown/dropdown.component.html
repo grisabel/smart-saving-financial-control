@@ -18,7 +18,7 @@
         [name]="'list-' + id"
         list=""
         [placeholder]="placeholder | transloco"
-        [value]="inputText()"
+        [value]="inputText() | transloco"
         autoComplete="off"
         disabled
         role="combobox"
@@ -43,7 +43,7 @@
         (click)="onClickDropdownItem(option)"
         [ngClass]="{ option: true, 'option--active': optionFocus() === i }"
       >
-        {{ option.label }}
+        {{ option.label | transloco}}
       </option>
     </datalist>
   </ng-container>
