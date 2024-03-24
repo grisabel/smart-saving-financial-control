@@ -28,9 +28,7 @@ const SRC_USER =
 export class AppLayoutComponent {
   isMobile = signal(true);
   src = SRC_USER;
-  //todo El nombre y objetivo vendrán de un servicio
-  userName = 'Pepe García Sánchez';
-  objective = 'Jubilación';
+
   @Input() content!: TemplateRef<any>;
 
   currentMenu = signal(FINANCIAL_ID);
