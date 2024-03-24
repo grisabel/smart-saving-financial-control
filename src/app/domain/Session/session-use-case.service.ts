@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SessionInterfaceService } from '@app/repository/Session/session-interface.service';
 import { UserInterfaceService } from '@app/repository/User/user-interface.service';
+import { HttpInterfaceService } from '@app/services/Http/http-interface.service';
 import { LoadingService } from '@app/services/Loading/loading.service';
 import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { environment } from 'src/environments/environment';
@@ -18,10 +19,18 @@ export class SessionUseCaseService {
     private commonStore: CommonStoreService,
     private userInterfaceService: UserInterfaceService,
     private sessionService: SessionInterfaceService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private httpService: HttpInterfaceService
   ) {}
 
   loginUser() {
+    const access_token = this.getAccessToken();
+    if (environment.mock && !access_token) {
+      this.logout();
+    }
+
+    this.httpService.setAccessToken(access_token);
+
     this.loadingService.show();
 
     this.userInterfaceService
@@ -29,11 +38,9 @@ export class SessionUseCaseService {
       .then((userInfo) => {
         this.commonStore.userInfo.set(userInfo);
       })
-      .catch(() => {
-        if (environment.mock) {
-          return;
-        }
-        this.logout();
+      .catch((error) => {
+        console.log({ error });
+        // this.logout();
       })
       .finally(() => {
         this.loadingService.hide();

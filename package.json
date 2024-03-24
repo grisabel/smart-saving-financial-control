@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng run smart-savings-financial-control:generate-icons && ng serve",
+    "start:prod": "npm run start -- -c=production",  
     "build": "ng run smart-savings-financial-control:generate-icons && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
