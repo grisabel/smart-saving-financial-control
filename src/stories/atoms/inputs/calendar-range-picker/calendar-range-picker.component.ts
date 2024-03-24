@@ -15,6 +15,7 @@ import { CircleBtnComponent } from '@stories/atoms/buttons/circle-btn/circle-btn
 import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 import { DATE_FORMATS } from '@app/utils/Datetime/constants';
+import { TranslocoModule } from '@ngneat/transloco';
 
 export interface CalendarRangePickerChangeEvent {
   dateStart: DateTimeModel;
@@ -25,7 +26,13 @@ export interface CalendarRangePickerChangeEvent {
 @Component({
   selector: 'app-calendar-range-picker',
   standalone: true,
-  imports: [CommonModule, CardBaseComponent, IconComponent, CircleBtnComponent],
+  imports: [
+    CommonModule,
+    CardBaseComponent,
+    IconComponent,
+    CircleBtnComponent,
+    TranslocoModule,
+  ],
   templateUrl: './calendar-range-picker.component.html',
   styleUrls: ['./calendar-range-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
