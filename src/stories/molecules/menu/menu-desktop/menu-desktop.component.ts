@@ -9,11 +9,12 @@ import {
 import { CommonModule } from '@angular/common';
 import { MenuItemDesktopComponent } from './menu-item-desktop/menu-item-desktop.component';
 import { MenuItem } from '../shared/menu-item.types';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-menu-desktop',
   standalone: true,
-  imports: [CommonModule, MenuItemDesktopComponent],
+  imports: [CommonModule, MenuItemDesktopComponent, TranslocoModule],
   templateUrl: './menu-desktop.component.html',
   styleUrls: ['./menu-desktop.component.scss'],
 })

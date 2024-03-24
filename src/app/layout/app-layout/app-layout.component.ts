@@ -33,10 +33,10 @@ export class AppLayoutComponent {
 
   currentMenu = signal(FINANCIAL_ID);
   items: MenuItem[] = [
-    { id: FINANCIAL_ID, icon: 'financial', title: 'Finanzas' },
-    { id: 'herramientas', icon: 'tools', title: 'Herramienta' },
-    { id: 'contenido', icon: 'book', title: 'Contenido' },
-    { id: MY_ACCOUNT_ID, icon: 'account', title: 'Mi cuenta' },
+    { id: FINANCIAL_ID, icon: 'financial', title: 'btn-finances' },
+    { id: 'herramientas', icon: 'tools', title: 'btn-tool' },
+    { id: 'contenido', icon: 'book', title: 'btn-content' },
+    { id: MY_ACCOUNT_ID, icon: 'account', title: 'btn-my-account' },
   ];
   logout: MenuItem[] = [
     { id: 'logout', icon: 'logout', title: 'Cerrar Sesión' },
