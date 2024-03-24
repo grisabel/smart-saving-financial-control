@@ -17,7 +17,7 @@ export class CategoryStepComponent implements OnInit {
   categorySelected: string = '';
   categorySelectedId!: string | null;
 
-  category: string = 'Categoría';
+  category: string = 'input-category-label';
   colorCategory: string = '#E0E0E0';
 
   @Input() titleOpen: string = '';
