@@ -33,11 +33,12 @@ export class HttpService implements HttpInterfaceService {
   };
 
   get<T>({ endpoint, headers }: HttpGetRequest): Observable<HttpResponse<T>> {
-    return this.http.get<HttpResponse<T>>(endpoint, {
+    return this.http.get<T>(endpoint, {
       headers: {
         ...this.createAuthHeaders(),
         ...headers,
       },
+      observe: 'response',
     });
   }
 
@@ -46,11 +47,12 @@ export class HttpService implements HttpInterfaceService {
     body,
     headers,
   }: HttpPostRequest): Observable<HttpResponse<T>> {
-    return this.http.post<HttpResponse<T>>(endpoint, body, {
+    return this.http.post<T>(endpoint, body, {
       headers: {
         ...this.createAuthHeaders(),
         ...headers,
       },
+      observe: 'response',
     });
   }
 
@@ -59,11 +61,12 @@ export class HttpService implements HttpInterfaceService {
     body,
     headers,
   }: HttpPutRequest): Observable<HttpResponse<T>> {
-    return this.http.put<HttpResponse<T>>(endpoint, body, {
+    return this.http.put<T>(endpoint, body, {
       headers: {
         ...this.createAuthHeaders(),
         ...headers,
       },
+      observe: 'response',
     });
   }
 
@@ -72,11 +75,12 @@ export class HttpService implements HttpInterfaceService {
     headers,
     body,
   }: HttpPatchRequest): Observable<HttpResponse<T>> {
-    return this.http.patch<HttpResponse<T>>(endpoint, body, {
+    return this.http.patch<T>(endpoint, body, {
       headers: {
         ...this.createAuthHeaders(),
         ...headers,
       },
+      observe: 'response',
     });
   }
 
@@ -84,11 +88,12 @@ export class HttpService implements HttpInterfaceService {
     endpoint,
     headers,
   }: HttpDeleteRequest): Observable<HttpResponse<T>> {
-    return this.http.delete<HttpResponse<T>>(endpoint, {
+    return this.http.delete<T>(endpoint, {
       headers: {
         ...this.createAuthHeaders(),
         ...headers,
       },
+      observe: 'response',
     });
   }
 }

@@ -11,12 +11,12 @@ import { TranslocoService } from '@ngneat/transloco';
 })
 export class AppComponent implements OnInit {
   subscription: Subscription = new Subscription();
+  userLoaded: boolean = false;
 
   constructor(
     private sessionUseCase: SessionUseCaseService,
     public loadingService: LoadingService,
-    private translocoService: TranslocoService,
-    private changeDetectorRef: ChangeDetectorRef
+    private translocoService: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -29,5 +29,13 @@ export class AppComponent implements OnInit {
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.sessionUseCase
+      .loginUser()
+      .then(() => {
+        this.userLoaded = true;
+      })
+      .catch((e) => {
+        this.userLoaded = false;
+      });
   }
 }

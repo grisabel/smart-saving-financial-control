@@ -21,30 +21,42 @@ export class SessionUseCaseService {
     private sessionService: SessionInterfaceService,
     private loadingService: LoadingService,
     private httpService: HttpInterfaceService
-  ) {}
+  ) {
+    const queryParams = new URLSearchParams(window.location.search);
+    const accessToken = queryParams.get('accessToken');
+    const refreshToken = queryParams.get('refreshToken');
 
-  loginUser() {
-    const access_token = this.getAccessToken();
-    if (environment.mock && !access_token) {
-      this.logout();
+    if (accessToken && refreshToken) {
+      window.localStorage.setItem(
+        LOCAL_STORAGE_KEYS.refreshToken,
+        refreshToken
+      );
+      window.localStorage.setItem(LOCAL_STORAGE_KEYS.accessToken, accessToken);
     }
+  }
 
-    this.httpService.setAccessToken(access_token);
+  loginUser(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const access_token = this.getAccessToken();
 
-    this.loadingService.show();
+      this.httpService.setAccessToken(access_token);
 
-    this.userInterfaceService
-      .info()
-      .then((userInfo) => {
-        this.commonStore.userInfo.set(userInfo);
-      })
-      .catch((error) => {
-        console.log({ error });
-        // this.logout();
-      })
-      .finally(() => {
-        this.loadingService.hide();
-      });
+      this.loadingService.show();
+
+      this.userInterfaceService
+        .info()
+        .then((userInfo) => {
+          this.commonStore.userInfo.set(userInfo);
+          resolve();
+        })
+        .catch((error) => {
+          this.logout();
+          reject(error);
+        })
+        .finally(() => {
+          this.loadingService.hide();
+        });
+    });
   }
 
   logout(): Promise<void> {
@@ -53,10 +65,10 @@ export class SessionUseCaseService {
       this.sessionService
         .logout({ refreshToken: this.getRefershToken() })
         .finally(() => {
-          window.localStorage.removeItem(LOCAL_STORAGE_KEYS.accessToken);
-          window.localStorage.removeItem(LOCAL_STORAGE_KEYS.refreshToken);
+          // window.localStorage.removeItem(LOCAL_STORAGE_KEYS.accessToken);
+          // window.localStorage.removeItem(LOCAL_STORAGE_KEYS.refreshToken);
           resolve();
-          document.location.href = environment.data.logoutUrl;
+          // document.location.href = environment.data.logoutUrl;
         });
     });
   }

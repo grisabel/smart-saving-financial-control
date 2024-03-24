@@ -11,7 +11,6 @@ import { CalendarRangePickerComponent } from '@stories/atoms/inputs/calendar-ran
 import { GlobalPostionPageRoutingModule } from './view/global-postion-page-routing.module';
 import { GlobalPostionPageComponent } from './view/global-postion-page.component';
 
-import { HttpModule } from '@app/services/Http/http.module';
 import { GlobalPositionInterfaceService } from './data/repository/global-position-interface.service';
 import { GlobalPositionHttpService } from './data/repository/global-position-http.service';
 import { GlobalPositionMockService } from './data/repository/global-position-mock.service';
@@ -36,8 +35,6 @@ import { TranslocoModule } from '@ngneat/transloco';
   imports: [
     CommonModule,
     GlobalPostionPageRoutingModule,
-    // HttpModule
-    HttpModule,
     // UI Modules
     ButtonComponent,
     IconComponent,

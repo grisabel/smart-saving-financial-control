@@ -21,7 +21,6 @@ import { AccountStepComponent } from './view/components/account-step/account-ste
 import { CategoryStepComponent } from './view/components/category-step/category-step.component';
 import { ConceptStepComponent } from './view/components/concept-step/concept-step.component';
 import { SummaryStepComponent } from './view/components/summary-step/summary-step.component';
-import { HttpModule } from '@app/services/Http/http.module';
 import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
@@ -42,7 +41,6 @@ import { TranslocoModule } from '@ngneat/transloco';
     InputTextDateComponent,
     InputTextAreaComponent,
     CategoryBtnComponent,
-    HttpModule,
     TranslocoModule,
   ],
   exports: [AddConceptBaseModalComponent],
