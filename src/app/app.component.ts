@@ -20,7 +20,14 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sessionUseCase.loginUser();
+    this.sessionUseCase
+      .loginUser()
+      .then(() => {
+        this.userLoaded = true;
+      })
+      .catch(() => {
+        this.userLoaded = false;
+      });
 
     let language = window.localStorage.getItem('language') || 'es';
     if (language) {
