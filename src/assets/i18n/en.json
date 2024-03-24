@@ -25,6 +25,8 @@
     "input-comment-label": "Comment",
     "input-amount-label": "Amount",
     "input-amount-placeholder": "0.00",
+    "input-language-label": "Language",
+    "input-language-placeholder": "Select a language",
 
     "summary": "Summary",
     "balance": "Balance",
@@ -64,6 +66,9 @@
     "email": "Email",
     "birth": "Date of Birth",
     "objective": "Objective",
+    "preferences": "Preferences",
+    "spanish": "Spanish",
+    "english": "English",
 
     "objective-education-savings": "Education Savings",
     "objective-emergency": "Emergency Fund",

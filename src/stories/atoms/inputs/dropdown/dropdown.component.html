@@ -11,13 +11,13 @@
   #dropdownRef
 >
   <div class="inputWp">
-    <label class="label">{{ label }}</label>
+    <label class="label">{{ label | transloco}}</label>
     <div class="inputContainer">
       <input
         [id]="id"
         [name]="'list-' + id"
         list=""
-        [placeholder]="placeholder"
+        [placeholder]="placeholder | transloco"
         [value]="inputText()"
         autoComplete="off"
         disabled
