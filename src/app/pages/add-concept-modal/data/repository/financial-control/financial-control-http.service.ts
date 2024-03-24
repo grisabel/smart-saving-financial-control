@@ -21,7 +21,12 @@ export class FinancialControlHttpService
             FinancialControlAPI.addExpense.replace(':accountNumber', '0'),
           body: {
             conceptId: requestModel.conceptId,
-            amount: requestModel.amount,
+            amount: parseFloat(
+              requestModel.amount
+                .toString()
+                .replaceAll(' ', '')
+                .replace(',', '.')
+            ),
             date: requestModel.date,
             note: requestModel.note,
           },
@@ -63,7 +68,12 @@ export class FinancialControlHttpService
             FinancialControlAPI.addExpense.replace(':accountNumber', '0'),
           body: {
             conceptId: requestModel.conceptId,
-            amount: requestModel.amount,
+            amount: parseFloat(
+              requestModel.amount
+                .toString()
+                .replaceAll(' ', '')
+                .replace(',', '.')
+            ),
             date: requestModel.date,
             note: requestModel.note,
           },

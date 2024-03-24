@@ -23,6 +23,7 @@ export class InputNumberComponent {
 
   readonly optionsMask: MaskitoOptions = maskitoNumberOptionsGenerator({
     precision: 2,
+    decimalSeparator: ',',
   });
 
   handleChange($event: any) {
