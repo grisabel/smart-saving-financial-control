@@ -21,6 +21,7 @@ import { AccountStepComponent } from './view/components/account-step/account-ste
 import { CategoryStepComponent } from './view/components/category-step/category-step.component';
 import { ConceptStepComponent } from './view/components/concept-step/concept-step.component';
 import { SummaryStepComponent } from './view/components/summary-step/summary-step.component';
+import { HttpModule } from '@app/services/Http/http.module';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SummaryStepComponent } from './view/components/summary-step/summary-ste
     InputTextDateComponent,
     InputTextAreaComponent,
     CategoryBtnComponent,
+    HttpModule,
   ],
   exports: [AddConceptBaseModalComponent],
   providers: [
