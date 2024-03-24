@@ -6,7 +6,15 @@
       <p class="subtitle">Último Movimiento: {{ lastMovement() }}</p>
     </div>
     <div class="amountInfo">
-      <p class="amount">{{ total().toFixed(2) }}</p>
+      <p
+        [ngClass]="{
+          amount: true,
+          'amount--positive': total() > 0,
+          'amount--negative': total() < 0
+        }"
+      >
+        {{ total().toFixed(2) }} €
+      </p>
     </div>
   </div>
   <div class="content">
