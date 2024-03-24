@@ -38,9 +38,7 @@ export class AppLayoutComponent {
     { id: 'contenido', icon: 'book', title: 'btn-content' },
     { id: MY_ACCOUNT_ID, icon: 'account', title: 'btn-my-account' },
   ];
-  logout: MenuItem[] = [
-    { id: 'logout', icon: 'logout', title: 'Cerrar Sesión' },
-  ];
+  logout: MenuItem[] = [{ id: 'logout', icon: 'logout', title: 'btn-logout' }];
 
   private routerSubscription!: Subscription;
 
