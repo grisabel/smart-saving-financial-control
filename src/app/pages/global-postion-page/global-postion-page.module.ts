@@ -23,6 +23,7 @@ import { AccountCardComponent } from './view/components/section-account/componen
 import { GloabalPositionUseCaseService } from './domain/gloabal-position-use-case.service';
 import { GlobalPositionStoreService } from './view/store/global-position-store.service';
 import { AddConceptModalModule } from '../add-concept-modal/add-concept-modal.module';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AddConceptModalModule } from '../add-concept-modal/add-concept-modal.mo
     BalanceContentComponent,
     CalendarRangePickerComponent,
     AccountCardComponent,
+    TranslocoModule,
     // Feature Modules
     AddConceptModalModule,
   ],
