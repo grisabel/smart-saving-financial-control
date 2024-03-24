@@ -54,5 +54,11 @@
     "health": "Salud",
     "insurance": "Seguros",
     "car":"Coche",
-    "restaurant": "Restaurantes"
+    "restaurant": "Restaurantes",
+
+    "objective-education-savings": "Ahorro Educativo",
+    "objective-emergency": "Fondo de Emergencia",
+    "objective-retirement": "Jubilación",
+    "objective-smart-investment": "Inversión Inteligente"
+
 }
