@@ -121,19 +121,20 @@ const sort = (
 
 const VALIDATE_SET: DateTimeCompareSet = {
   UNTIL: (dateTime: TimestampMs, compareDateTime: TimestampMs): boolean =>
-    dateTime <= compareDateTime,
+    parseInt(dateTime, 10) <= parseInt(compareDateTime, 10),
   UNTIL_EXCLUSIVE: (
     dateTime: TimestampMs,
     compareDateTime: TimestampMs
   ): boolean => dateTime < compareDateTime,
   SINCE: (dateTime: TimestampMs, compareDateTime: TimestampMs): boolean =>
-    dateTime >= compareDateTime,
+    parseInt(dateTime, 10) >= parseInt(compareDateTime, 10),
   SINCE_EXCLUSIVE: (
     dateTime: TimestampMs,
     compareDateTime: TimestampMs
-  ): boolean => dateTime > compareDateTime,
+  ): boolean => parseInt(dateTime, 10) > parseInt(compareDateTime, 10),
+
   EQUAL: (dateTime: TimestampMs, compareDateTime: TimestampMs): boolean =>
-    dateTime == compareDateTime,
+    parseInt(dateTime, 10) == parseInt(compareDateTime, 10),
 };
 
 const calculatePastDate = (

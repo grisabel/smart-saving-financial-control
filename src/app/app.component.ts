@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionUseCaseService } from './domain/Session/session-use-case.service';
 import { LoadingService } from './services/Loading/loading.service';
-import { CommonStoreService } from './store/Common/common-store.service';
-import { UserInterfaceService } from './repository/User/user-interface.service';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +9,11 @@ import { UserInterfaceService } from './repository/User/user-interface.service';
 })
 export class AppComponent implements OnInit {
   constructor(
-    public loadingService: LoadingService,
-    private commonStore: CommonStoreService,
-    private userInterfaceService: UserInterfaceService
+    private sessionUseCase: SessionUseCaseService,
+    public loadingService: LoadingService
   ) {}
 
   ngOnInit(): void {
-    this.loadingService.show();
-
-    this.userInterfaceService
-      .info()
-      .then((userInfo) => {
-        this.commonStore.userInfo.set(userInfo);
-      })
-      .finally(() => {
-        this.loadingService.hide();
-      });
+    this.sessionUseCase.loginUser();
   }
 }

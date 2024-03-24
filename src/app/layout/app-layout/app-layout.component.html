@@ -18,7 +18,7 @@
         </ng-template>
       </div>
       <app-divisor class="divisor" />
-      <app-menu-desktop [items]="logout" />
+      <app-menu-desktop [items]="logout" (onChange)="handleLogout()" />
       <app-divisor class="divisor" />
       <app-menu-desktop
         [items]="items"

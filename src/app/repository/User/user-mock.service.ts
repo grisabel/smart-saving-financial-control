@@ -6,9 +6,7 @@ import { HttpInterfaceService } from '@app/services/Http/http-interface.service'
 
 const { baseUrl, UserAPI } = environment.endpoints;
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UserMockService extends UserHttpService {
   httpMock = inject(HttpInterfaceService) as HttpMockAdapterService;
 

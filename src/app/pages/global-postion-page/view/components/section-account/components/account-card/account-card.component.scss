@@ -5,10 +5,12 @@
   justify-content: space-between;
   padding: 0 16px;
   padding-top: 16px;
+  flex-wrap: wrap;
 
   .info {
     display: flex;
     flex-direction: column;
+    margin-right: 8px;
     .title {
       @include f--b1-regular;
     }
@@ -22,6 +24,14 @@
     align-items: center;
     .amount {
       @include f--b1-regular;
+
+      &--positive {
+        color: var(--success-main);
+      }
+
+      &--negative {
+        color: var(--red-main);
+      }
     }
   }
 }

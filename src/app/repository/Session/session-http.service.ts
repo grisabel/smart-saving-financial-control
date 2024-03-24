@@ -1,28 +1,31 @@
 import { Injectable, inject } from '@angular/core';
-import { UserInterfaceService } from './user-interface.service';
-import { UserInfoResponseModel } from './model/response/UserInfoResponseModel';
+import { SessionInterfaceService } from './session-interface.service';
+import { LogoutRequestModel } from './model/request/LogoutRequestModel';
 import { HttpInterfaceService } from '@app/services/Http/http-interface.service';
 import { environment } from 'src/environments/environment';
 
-const { baseUrl, UserAPI } = environment.endpoints;
+const { baseUrl, SessionAPI } = environment.endpoints;
 
 @Injectable()
-export class UserHttpService implements UserInterfaceService {
+export class SessionHttpService implements SessionInterfaceService {
   http = inject(HttpInterfaceService);
 
-  info(): Promise<UserInfoResponseModel> {
+  logout(requestModel: LogoutRequestModel): Promise<void> {
     {
       return new Promise((resolve, reject) => {
         return this.http
-          .get<UserInfoResponseModel>({
-            endpoint: baseUrl + UserAPI.info,
+          .post<void>({
+            endpoint: baseUrl + SessionAPI.logout,
+            body: {
+              refreshToken: requestModel.refreshToken,
+            },
           })
           .subscribe({
             next: (response) => {
               try {
                 switch (response.status) {
-                  case 200:
-                    resolve(response.body as UserInfoResponseModel);
+                  case 201:
+                    resolve();
                     break;
 
                   default:

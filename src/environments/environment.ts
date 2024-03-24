@@ -1,4 +1,7 @@
 export const environment = {
+  data: {
+    logoutUrl: 'https://www.google.es/',
+  },
   mock: false,
   endpoints: {
     baseUrl: 'http://localhost:3000',
@@ -11,6 +14,9 @@ export const environment = {
     FinancialControlAPI: {
       addIncome: '/financial-control/accounts/:accountNumber/income',
       addExpense: '/financial-control/accounts/:accountNumber/expense',
+    },
+    SessionAPI: {
+      logout: '/session/logout',
     },
   },
 };
