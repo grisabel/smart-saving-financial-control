@@ -58,6 +58,11 @@
     "insurance": "Seguros",
     "car":"Coche",
     "restaurant": "Restaurantes",
+    "first-name": "Nombre",
+    "last-name": "Apellidos",
+    "email": "Correo Electrónico",
+    "birth": "Fecha de Nacimiento",
+    "objective": "Objetivo",
 
     "objective-education-savings": "Ahorro Educativo",
     "objective-emergency": "Fondo de Emergencia",

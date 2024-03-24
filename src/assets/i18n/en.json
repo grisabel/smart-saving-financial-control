@@ -57,6 +57,11 @@
     "insurance": "Insurance",
     "car": "Car",
     "restaurant": "Restaurants",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "email": "Email",
+    "birth": "Date of Birth",
+    "objective": "Objective",
 
     "objective-education-savings": "Education Savings",
     "objective-emergency": "Emergency Fund",
