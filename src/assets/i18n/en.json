@@ -18,6 +18,8 @@
     "input-account-placeholder": "Main Account",
     "input-date-label": "Date",
     "input-date-placeholder": "dd/mm/yyyy",
+    "input-date-error": "The selected date must be on or before the current date.",
+    "input-date-error2": "The selected date must be the same or after",
     "input-category-label": "Category",
     "input-category-placeholder": "Choose a category",
     "input-comment-label": "Comment",

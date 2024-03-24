@@ -12,10 +12,10 @@
     (onChange)="handleValueDate($event)"
   />
   <p *ngIf="!isValidUntilDate" class="isInValidDate">
-    La fecha seleccionada debe ser anterior o igual a la fecha actual.
+    {{'input-date-error' | transloco}}
   </p>
   <p *ngIf="!isValidSinceDate" class="isInValidDate">
-    La fecha seleccionada debe ser posterior o igual {{ sinceDate.date }} .
+    {{'input-date-error2' | transloco}} {{ sinceDate.date }}.
   </p>
   <app-input-text-area
     id="comment"

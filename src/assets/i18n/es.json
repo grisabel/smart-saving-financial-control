@@ -19,11 +19,14 @@
     "input-account-placeholder": "Cuenta Principal",
     "input-date-label": "Fecha",
     "input-date-placeholder": "dd/mm/yyyy",
+    "input-date-error": "La fecha seleccionada debe ser anterior o igual a la fecha actual.",
+    "input-date-error2": "La fecha seleccionada debe ser posterior o igual ",
     "input-category-label": "Categoría",
     "input-category-placeholder": "Elija una de las categorías",
     "input-comment-label": "Comentario",
     "input-amount-label": "Importe",
     "input-amount-placeholder": "0,00",
+    
 
     "summary": "Resumen",
     "balance": "Balance",
