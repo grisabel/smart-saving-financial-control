@@ -5,18 +5,10 @@ import DateTimeService from '@app/utils/Datetime/DatetimeService';
 
 const getRuleDateUntilToday = (() => {
   return {
-    validate: (_inputValue: string): boolean => {
-      const dateTime: DateTimeModel = {
-        date: _inputValue,
-        format: 'dd/MM/yyyy',
-      };
-      if (!DateTimeService.isValid(dateTime)) {
-        return true;
-      }
-
+    validate: (datetime: DateTimeModel): boolean => {
       const currentDate = DateTimeService.currentDate();
       const isValid = DateTimeService.validate(
-        dateTime,
+        datetime,
         currentDate,
         DateTimeService.VALIDATE_SET.UNTIL
       );
@@ -40,8 +32,19 @@ export class ConceptStepComponent {
 
   valueDate = this.addConceptStoreService.date() ?? '';
   handleValueDate(value: string) {
-    this.addConceptStoreService.date.set(value);
-    this.isValidDate = getRuleDateUntilToday.validate(value);
+    const dateTime: DateTimeModel = {
+      date: value,
+      format: 'dd/MM/yyyy',
+    };
+    if (!DateTimeService.isValid(dateTime)) {
+      this.isValidDate = true;
+      return;
+    }
+
+    this.isValidDate = getRuleDateUntilToday.validate(dateTime);
+    if (this.isValidDate) {
+      this.addConceptStoreService.date.set(value);
+    }
   }
 
   valueComment = this.addConceptStoreService.note() ?? '';
