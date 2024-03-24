@@ -24,7 +24,7 @@ export class GlobalPositionStoreService {
 
   account = signal<GlobalPositionAccount>({
     accountId: '0',
-    accountName: 'Cuenta Principal',
+    accountName: 'main-account',
     data: {},
   });
 }
