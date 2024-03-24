@@ -26,16 +26,9 @@ export class MyAccountComponent {
   ) {}
 
   href = GLOBAL_APP_ROUTES.globalPosition;
-  labelLink = 'Mi Cuenta';
 
   src = SRC_USER;
   userInfo$ = toObservable(this.commonStore.userInfo);
-
-  //todo traducciones
-  categories = 'Categorías';
-  unsubscribe = 'Darse de baja';
-  logout = 'Cerrar Sesión';
-  accountInfoDetails = 'Mis Datos';
 
   handleClickCategories() {
     this.router.navigate([GLOBAL_APP_ROUTES.categories]);

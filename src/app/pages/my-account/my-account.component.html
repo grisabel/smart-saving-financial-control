@@ -1,5 +1,5 @@
 <div class="myAccount">
-  <app-back-link [href]="href" [labelLink]="labelLink" />
+  <app-back-link [href]="href" [labelLink]="'btn-my-account' | transloco" />
   <ng-container *ngIf="{ userInfo: userInfo$ | async } as data">
     <app-user-info
       [src]="src"
@@ -12,23 +12,23 @@
   </ng-container>
   <div class="buttons">
     <app-action-btn
-      [label]="accountInfoDetails"
+      [label]="'btn-my-data' | transloco"
       iconName="chevron-right"
       (click)="handleNavigateInfo()"
     ></app-action-btn>
     <app-action-btn
-      [label]="categories"
+      [label]="'btn-categories' | transloco"
       iconName="chevron-right"
       (click)="handleClickCategories()"
     ></app-action-btn>
     <app-action-btn
-      [label]="unsubscribe"
+      [label]="'btn-unsubscribe' | transloco"
       iconName="chevron-right"
       (click)="handleClickUnsubscribe()"
       [disabled]="true"
     ></app-action-btn>
     <app-action-btn
-      [label]="logout"
+      [label]="'btn-logout' | transloco"
       colorBtn="secondary"
       (click)="handleClickLogout()"
     ></app-action-btn>
