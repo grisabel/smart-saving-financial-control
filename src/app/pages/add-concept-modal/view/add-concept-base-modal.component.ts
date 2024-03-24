@@ -33,35 +33,35 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
 
   title: string = '';
   descriptions: string[] = [''];
+
   cancelBtns: ModalBaseBtn[] = [
     {
-      text: 'Cancelar',
+      text: 'btn-cancel',
     },
     {
-      text: 'Atrás',
+      text: 'btn-back',
     },
     {
-      text: 'Atrás',
+      text: 'btn-back',
     },
     {
-      text: 'Atrás',
+      text: 'btn-back',
     },
   ];
-
   confirmBtns: ModalBaseBtn[] = [
     {
-      text: 'Siguiente',
+      text: 'btn-next',
     },
     {
-      text: 'Siguiente',
+      text: 'btn-next',
       isDisable: true,
     },
     {
-      text: 'Siguiente',
+      text: 'btn-next',
       isDisable: true,
     },
     {
-      text: 'Añadir',
+      text: 'btn-add',
     },
   ];
 

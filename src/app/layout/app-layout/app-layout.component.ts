@@ -11,6 +11,7 @@ import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import { SessionUseCaseService } from '@app/domain/Session/session-use-case.service';
 import { UserInfoResponseModel } from '@app/repository/User/model/response/UserInfoResponseModel';
 import { CommonStoreService } from '@app/store/Common/common-store.service';
+import { TranslocoService } from '@ngneat/transloco';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
 import { Subscription, filter } from 'rxjs';
 
@@ -48,14 +49,15 @@ export class AppLayoutComponent {
   constructor(
     private router: Router,
     private commonStore: CommonStoreService,
-    private sessionUseCase: SessionUseCaseService
+    private sessionUseCase: SessionUseCaseService,
+    private translocoService: TranslocoService
   ) {}
 
   userInfo$ = toObservable(this.commonStore.userInfo);
 
   ngOnInit() {
     this.checkMediaQuery();
-
+    this.translocoService.setActiveLang('en');
     this.routerSubscription = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((_event) => {
