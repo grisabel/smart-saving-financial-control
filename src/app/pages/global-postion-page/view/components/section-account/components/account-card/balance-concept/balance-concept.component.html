@@ -8,6 +8,6 @@
   >
     {{ amount }} €
   </p>
-  <p class="concept" *ngIf="concept === 'income'">Ingresos</p>
-  <p class="concept" *ngIf="concept === 'expense'">Gastos</p>
+  <p class="concept" *ngIf="concept === 'income'">{{'btn-income' | transloco}}</p>
+  <p class="concept" *ngIf="concept === 'expense'">{{'btn-expenses' | transloco}}</p>
 </div>

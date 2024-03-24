@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslocoModule } from '@ngneat/transloco';
 
 export enum BalanceConceptEnum {
   income = 'income',
@@ -13,7 +14,7 @@ type EnumToType<T> = {
 @Component({
   selector: 'app-balance-concept',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './balance-concept.component.html',
   styleUrls: ['./balance-concept.component.scss'],
 })
