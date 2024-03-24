@@ -3,10 +3,9 @@ import { AddConceptStoreService } from '../../store/add-concept-store.service';
 import { DateTimeModel } from '@app/utils/Datetime/DatetimeInterfaceService';
 import DateTimeService from '@app/utils/Datetime/DatetimeService';
 
-const getRuleDateUntilToday = (() => {
+const getRuleDateUntilToday = (currentDate: DateTimeModel) => {
   return {
     validate: (datetime: DateTimeModel): boolean => {
-      const currentDate = DateTimeService.currentDate();
       const isValid = DateTimeService.validate(
         datetime,
         currentDate,
@@ -15,7 +14,20 @@ const getRuleDateUntilToday = (() => {
       return isValid;
     },
   };
-})();
+};
+
+const getRuleDateSince = (sinceDatetime: DateTimeModel) => {
+  return {
+    validate: (datetime: DateTimeModel): boolean => {
+      const isValid = DateTimeService.validate(
+        datetime,
+        sinceDatetime,
+        DateTimeService.VALIDATE_SET.SINCE
+      );
+      return isValid;
+    },
+  };
+};
 
 @Component({
   selector: 'app-concept-step',
@@ -26,7 +38,15 @@ export class ConceptStepComponent {
   inputNumberLabel = 'Importe';
   inputDateLabel = 'Fecha';
   inputCommentLabel = 'Comentario';
-  isValidDate: boolean = true;
+
+  untilDate: DateTimeModel = DateTimeService.currentDate();
+  isValidUntilDate: boolean = true;
+
+  sinceDate: DateTimeModel = {
+    date: '01/01/2023',
+    format: 'dd/MM/yyyy',
+  };
+  isValidSinceDate: boolean = true;
 
   constructor(private addConceptStoreService: AddConceptStoreService) {}
 
@@ -36,13 +56,18 @@ export class ConceptStepComponent {
       date: value,
       format: 'dd/MM/yyyy',
     };
+
     if (!DateTimeService.isValid(dateTime)) {
-      this.isValidDate = true;
+      this.isValidUntilDate = true;
       return;
     }
 
-    this.isValidDate = getRuleDateUntilToday.validate(dateTime);
-    if (this.isValidDate) {
+    this.isValidUntilDate = getRuleDateUntilToday(this.untilDate).validate(
+      dateTime
+    );
+    this.isValidSinceDate = getRuleDateSince(this.sinceDate).validate(dateTime);
+
+    if (this.isValidUntilDate && this.isValidSinceDate) {
       this.addConceptStoreService.date.set(value);
     }
   }
