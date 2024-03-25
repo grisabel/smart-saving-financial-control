@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng run smart-savings-financial-control:generate-icons && ng serve",
-    "start:prod": "npm run start -- -c=production",  
+    "start:prod": "npm run start -- -c=production",
     "build": "ng run smart-savings-financial-control:generate-icons && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -32,6 +32,7 @@
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
+    "@angular-architects/module-federation": "^16.0.4",
     "@angular-devkit/build-angular": "^16.2.12",
     "@angular-extensions/svg-icons-builder": "^11.0.0",
     "@angular/cli": "^16.2.0",
