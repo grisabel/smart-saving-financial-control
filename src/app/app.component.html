@@ -1,7 +1,6 @@
 <app-layout [content]="content" />
-
 <ng-template #content>
-  <router-outlet></router-outlet>
+  <router-outlet *ngIf="userLoaded"></router-outlet>
 </ng-template>
 
 <app-spinner [open]="loadingService.open" />

@@ -97,7 +97,7 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
         if (i === 2) {
           return {
             ...confirmBtn,
-            isDisable: !amount || !date,
+            isDisable: !amount || !date || !note,
           };
         }
         return confirmBtn;

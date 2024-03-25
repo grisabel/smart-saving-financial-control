@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export abstract class HttpInterfaceService implements HttpInterface {
+  abstract setAccessToken(value: string | null): void;
   abstract get<T>({
     endpoint,
     headers,
