@@ -51,6 +51,8 @@ export class HttpService implements HttpInterfaceService {
       })
       .pipe(
         tap((response) => {
+          debugger;
+          console.log({ response });
           if (response.status === 401) {
             this.logout();
           }
@@ -72,10 +74,12 @@ export class HttpService implements HttpInterfaceService {
         observe: 'response',
       })
       .pipe(
-        tap((response) => {
-          if (response.status === 401) {
-            this.logout();
-          }
+        tap({
+          error: (response) => {
+            if (response.status === 401) {
+              this.logout();
+            }
+          },
         })
       );
   }
@@ -94,10 +98,12 @@ export class HttpService implements HttpInterfaceService {
         observe: 'response',
       })
       .pipe(
-        tap((response) => {
-          if (response.status === 401) {
-            this.logout();
-          }
+        tap({
+          error: (response) => {
+            if (response.status === 401) {
+              this.logout();
+            }
+          },
         })
       );
   }
@@ -116,10 +122,12 @@ export class HttpService implements HttpInterfaceService {
         observe: 'response',
       })
       .pipe(
-        tap((response) => {
-          if (response.status === 401) {
-            this.logout();
-          }
+        tap({
+          error: (response) => {
+            if (response.status === 401) {
+              this.logout();
+            }
+          },
         })
       );
   }
@@ -137,10 +145,12 @@ export class HttpService implements HttpInterfaceService {
         observe: 'response',
       })
       .pipe(
-        tap((response) => {
-          if (response.status === 401) {
-            this.logout();
-          }
+        tap({
+          error: (response) => {
+            if (response.status === 401) {
+              this.logout();
+            }
+          },
         })
       );
   }
