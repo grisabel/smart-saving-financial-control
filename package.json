@@ -4,12 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng run smart-savings-financial-control:generate-icons && ng serve",
-    "start:prod": "npm run start -- -c=production",  
+    "start:prod": "npm run start -- -c=production",
     "build": "ng run smart-savings-financial-control:generate-icons && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run smart-savings-financial-control:generate-icons && ng run smart-savings-financial-control:storybook",
-    "build-storybook": "ng run smart-savings-financial-control:generate-icons && ng run smart-savings-financial-control:build-storybook"
+    "build-storybook": "ng run smart-savings-financial-control:generate-icons && ng run smart-savings-financial-control:build-storybook",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,7 @@
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
+    "@angular-architects/module-federation": "^16.0.4",
     "@angular-devkit/build-angular": "^16.2.12",
     "@angular-extensions/svg-icons-builder": "^11.0.0",
     "@angular/cli": "^16.2.0",
@@ -51,6 +53,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ngx-build-plus": "^16.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.17",

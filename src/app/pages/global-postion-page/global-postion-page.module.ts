@@ -23,6 +23,7 @@ import { GloabalPositionUseCaseService } from './domain/gloabal-position-use-cas
 import { GlobalPositionStoreService } from './view/store/global-position-store.service';
 import { AddConceptModalModule } from '../add-concept-modal/add-concept-modal.module';
 import { TranslocoModule } from '@ngneat/transloco';
+import { WebcomponentMfeComponent } from '@app/components/webcomponent-mfe/webcomponent-mfe.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     TranslocoModule,
     // Feature Modules
     AddConceptModalModule,
+    WebcomponentMfeComponent,
   ],
   providers: [
     {
