@@ -27,20 +27,9 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
         library: { type: "module" },
-
-        // For remotes (please adjust)
-        // name: "smartSavingsFinancialControl",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './/src/app/app.component.ts',
-        // },        
-        
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfe1": "http://localhost:3000/remoteEntry.js",
-
-        // },
-
+        remotes: {
+            remote_habits: "http://localhost:5173/assets/remoteHabitsMfe.js",
+        },
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
