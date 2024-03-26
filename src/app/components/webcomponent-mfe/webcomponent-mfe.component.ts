@@ -27,14 +27,10 @@ export class WebcomponentMfeComponent {
     try {
       await loadRemoteModule(this.options);
 
-      console.log({ options: this.options });
-
       this.element = document.createElement(this.options.elementName);
-      console.log({ element: this.element });
 
       this.vc.nativeElement.appendChild(this.element);
     } catch (error) {
-      debugger;
       console.error(error);
     }
   }
