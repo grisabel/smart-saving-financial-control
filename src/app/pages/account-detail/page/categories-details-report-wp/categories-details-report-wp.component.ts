@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { GLOBAL_APP_ROUTES } from '@app/app-routes';
 import { GLOBAL_ACCOUNT_DETAILS_ROUTES } from '../../account-detail.routes';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-categories-report-wp',
-  templateUrl: './categories-report-wp.component.html',
-  styleUrls: ['./categories-report-wp.component.scss'],
+  selector: 'app-categories-details-report-wp',
+  templateUrl: './categories-details-report-wp.component.html',
+  styleUrls: ['./categories-details-report-wp.component.scss'],
 })
-export class CategoriesReportWpComponent {
+export class CategoriesDetailsReportWpComponent {
   constructor(private router: Router) {}
 
   options = {
     type: 'module' as 'module',
     remoteEntry: 'http://localhost:4202/assets/remoteReportsMfe.js',
-    exposedModule: './CategoriesReport',
-    elementName: 'categories-report-mfe',
+    exposedModule: './CategoriesDetailsReport',
+    elementName: 'categories-details-report-mfe',
   };
 
   props = this.router.getCurrentNavigation()?.extras?.state?.['filter'] ?? {
@@ -26,34 +25,25 @@ export class CategoriesReportWpComponent {
 
   ngOnInit(): void {
     window.addEventListener(
-      'reports:navigateToDetails',
+      'reports:navigateToSummary',
       this.callback.bind(this)
     );
-
-    window.addEventListener('reports:exit', this.onExit.bind(this));
   }
 
   ngOnDestroy(): void {
     window.removeEventListener(
-      'reports:navigateToDetails',
+      'reports:navigateToSummary',
       this.callback.bind(this)
     );
-
-    window.removeEventListener('reports:exit', this.onExit.bind(this));
-  }
-
-  private onExit(): void {
-    this.router.navigate([GLOBAL_APP_ROUTES.globalPosition]);
   }
 
   private callback = (event: any) => {
     const { filter } = event.detail;
-    this.router.navigate([GLOBAL_ACCOUNT_DETAILS_ROUTES.detail], {
+    this.router.navigate([GLOBAL_ACCOUNT_DETAILS_ROUTES.summary], {
       state: {
         filter: {
           dateStart: filter.dateStart,
           dateEnd: filter.dateEnd,
-          categoryType: filter.categoryType,
           format: filter.format,
         },
       },
