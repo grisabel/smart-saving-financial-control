@@ -6,22 +6,25 @@ import {
   WebComponentWrapper,
   WebComponentWrapperOptions,
 } from '@angular-architects/module-federation-tools';
+import { CategoriesReportWpComponent } from './page/categories-report-wp/categories-report-wp.component';
+import { ACCOUNT_DETAIL_ROUTES } from './account-detail.routes';
 
 const routes: Routes = [
-  { path: '', component: AccountDetailComponent },
+  { path: '', redirectTo: ACCOUNT_DETAIL_ROUTES.summary, pathMatch: 'full' },
   {
-    path: '1',
-    component: WebComponentWrapper,
-    data: {
-      type: 'module',
-      remoteEntry: 'http://localhost:4202/assets/remoteReportsMfe.js',
-      exposedModule: './CategoriesReport',
+    path: ACCOUNT_DETAIL_ROUTES.summary,
+    component: CategoriesReportWpComponent,
+    // component: WebComponentWrapper,
+    // data: {
+    //   type: 'module',
+    //   remoteEntry: 'http://localhost:4202/assets/remoteReportsMfe.js',
+    //   exposedModule: './CategoriesReport',
 
-      elementName: 'categories-report-mfe',
-    } as WebComponentWrapperOptions,
+    //   elementName: 'categories-report-mfe',
+    // } as WebComponentWrapperOptions,
   },
   {
-    path: '2',
+    path: ACCOUNT_DETAIL_ROUTES.detail,
     component: WebComponentWrapper,
     data: {
       type: 'module',
