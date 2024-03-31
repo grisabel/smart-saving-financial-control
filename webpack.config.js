@@ -29,6 +29,7 @@ module.exports = {
         library: { type: "module" },
         remotes: {
             remote_habits: "http://localhost:5173/assets/remoteHabitsMfe.js",
+            remote_reports: "http://localhost:4202/assets/remoteReportsMfe.js"
         },
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
