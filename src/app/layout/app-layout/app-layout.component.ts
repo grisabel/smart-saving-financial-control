@@ -13,9 +13,11 @@ import { UserInfoResponseModel } from '@app/repository/User/model/response/UserI
 import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
 import { Subscription, filter } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 const MY_ACCOUNT_ID = 'mi-cuenta';
 const FINANCIAL_ID = 'finanzas';
+const TOOLS_ID = 'herramientas';
 const SRC_USER = '/assets/images/profile.png';
 
 @Component({
@@ -32,7 +34,7 @@ export class AppLayoutComponent {
   currentMenu = signal(FINANCIAL_ID);
   items: MenuItem[] = [
     { id: FINANCIAL_ID, icon: 'financial', title: 'btn-finances' },
-    { id: 'herramientas', icon: 'tools', title: 'btn-tool' },
+    { id: TOOLS_ID, icon: 'tools', title: 'btn-tool' },
     { id: 'contenido', icon: 'book', title: 'btn-content' },
     { id: MY_ACCOUNT_ID, icon: 'account', title: 'btn-my-account' },
   ];
@@ -85,6 +87,9 @@ export class AppLayoutComponent {
       case MY_ACCOUNT_ID:
         this.navigateMyAccount();
         break;
+      case TOOLS_ID:
+        this.navigateTools();
+        break;
 
       default:
         break;
@@ -97,6 +102,10 @@ export class AppLayoutComponent {
 
   private navigateMyAccount() {
     this.router.navigate([GLOBAL_APP_ROUTES.myAccount]);
+  }
+
+  private navigateTools() {
+    document.location.href = environment.data.toolsUrl;
   }
 
   private navigateFinancial() {

@@ -17,6 +17,10 @@
     padding: 0 8px;
 
     ::ng-deep {
+      input {
+        text-overflow: ellipsis;
+      }
+
       app-input-base {
         .inputWp {
           border: none;

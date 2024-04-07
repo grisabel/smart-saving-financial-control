@@ -1,6 +1,8 @@
 export const environment = {
   data: {
     logoutUrl: 'https://www.google.es/',
+    toolsUrl:
+      'http://localhost:4201/financial-tools/compound-interest-calculator',
   },
   mock: true,
   endpoints: {
