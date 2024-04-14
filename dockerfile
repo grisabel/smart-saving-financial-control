@@ -8,7 +8,6 @@ COPY . .
 RUN npm run build
 
 ## APP ##
-# FROM nginx:stable-alpine as production-stage
-# COPY --builder /app/dist /usr/share/nginx/html
-# EXPOSE 80
-# CMD ["nginx", "-g", "daemon off;"]
+FROM nginx:1.25.4-alpine3.18
+COPY --from=builder /app/dist/smart-savings-financial-control /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
