@@ -13,7 +13,7 @@ export class CategoriesReportWpComponent {
 
   options = {
     type: 'module' as 'module',
-    remoteEntry: 'https://reports.smartsavings.dev/assets/remoteReportsMfe.js',
+    remoteEntry: 'https://reports-mfe.smartsavings.dev/assets/remoteReportsMfe.js',
     exposedModule: './CategoriesReport',
     elementName: 'categories-report-mfe',
   };
