@@ -19,6 +19,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { HttpInterfaceService } from './services/Http/http-interface.service';
 import { HttpService } from './services/Http/http.service';
 import { HttpMockAdapterService } from './services/Http/http-mock-adapter.service';
+import {APP_BASE_HREF} from '@angular/common'; 
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { HttpMockAdapterService } from './services/Http/http-mock-adapter.servic
     TranslocoModule,
   ],
   providers: [
+    {provide: APP_BASE_HREF, useValue: '/app/'} ,
     {
       provide: HttpInterfaceService,
       useClass: !environment.mock ? HttpService : HttpMockAdapterService,

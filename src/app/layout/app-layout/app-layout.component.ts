@@ -4,6 +4,7 @@ import {
   Input,
   TemplateRef,
   signal,
+  Inject,
 } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -14,6 +15,7 @@ import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
 import { Subscription, filter } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { APP_BASE_HREF } from '@angular/common';
 
 const MY_ACCOUNT_ID = 'mi-cuenta';
 const FINANCIAL_ID = 'finanzas';
@@ -27,7 +29,7 @@ const SRC_USER = '/assets/images/profile.png';
 })
 export class AppLayoutComponent {
   isMobile = signal(true);
-  src = SRC_USER;
+  src = this.baseHref+SRC_USER;
 
   @Input() content!: TemplateRef<any>;
 
@@ -45,7 +47,8 @@ export class AppLayoutComponent {
   constructor(
     private router: Router,
     private commonStore: CommonStoreService,
-    private sessionUseCase: SessionUseCaseService
+    private sessionUseCase: SessionUseCaseService,
+    @Inject(APP_BASE_HREF) public baseHref:string
   ) {}
 
   userInfo$ = toObservable(this.commonStore.userInfo);
