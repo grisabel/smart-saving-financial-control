@@ -20,6 +20,7 @@ import { APP_BASE_HREF } from '@angular/common';
 const MY_ACCOUNT_ID = 'mi-cuenta';
 const FINANCIAL_ID = 'finanzas';
 const TOOLS_ID = 'herramientas';
+const BLOG_ID = 'blog';
 const SRC_USER = '/assets/images/profile.png';
 
 @Component({
@@ -37,7 +38,7 @@ export class AppLayoutComponent {
   items: MenuItem[] = [
     { id: FINANCIAL_ID, icon: 'financial', title: 'btn-finances' },
     { id: TOOLS_ID, icon: 'tools', title: 'btn-tool' },
-    { id: 'contenido', icon: 'book', title: 'btn-content' },
+    { id: BLOG_ID, icon: 'book', title: 'btn-content' },
     { id: MY_ACCOUNT_ID, icon: 'account', title: 'btn-my-account' },
   ];
   logout: MenuItem[] = [{ id: 'logout', icon: 'logout', title: 'btn-logout' }];
@@ -93,6 +94,9 @@ export class AppLayoutComponent {
       case TOOLS_ID:
         this.navigateTools();
         break;
+      case BLOG_ID:
+        this.navigateBlog();
+        break;
 
       default:
         break;
@@ -109,6 +113,10 @@ export class AppLayoutComponent {
 
   private navigateTools() {
     document.location.href = environment.data.toolsUrl;
+  }
+  
+  private navigateBlog() {
+    document.location.href = environment.data.blogUrl;
   }
 
   private navigateFinancial() {

@@ -3,6 +3,7 @@ export const environment = {
     logoutUrl: 'https://smartsavings.dev/login',
     toolsUrl:
       'https://smartsavings.dev/login/financial-tools/compound-interest-calculator',
+    blogUrl: 'https://blog.smartsavings.dev',
   },
   mock: false,
   endpoints: {
