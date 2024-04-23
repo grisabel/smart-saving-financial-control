@@ -1,12 +1,12 @@
 export const environment = {
   data: {
-    logoutUrl: 'https://onboarding.smartsavings.dev/',
+    logoutUrl: 'https://smartsavings.dev/login',
     toolsUrl:
-      'https://onboarding.smartsavings.dev/financial-tools/compound-interest-calculator',
+      'https://smartsavings.dev/login/financial-tools/compound-interest-calculator',
   },
-  mock: true,
+  mock: false,
   endpoints: {
-    baseUrl: '',
+    baseUrl: 'https://smartsavings.dev/api',
     GlobalPositionAPI: {
       summary: '/financial-control/accounts/:accountNumber/summary/:year',
     },
