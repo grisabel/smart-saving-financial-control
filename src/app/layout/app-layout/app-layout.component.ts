@@ -30,7 +30,7 @@ const SRC_USER = '/assets/images/profile.png';
 })
 export class AppLayoutComponent {
   isMobile = signal(true);
-  src = this.baseHref+SRC_USER;
+  src = this.baseHref + SRC_USER;
 
   @Input() content!: TemplateRef<any>;
 
@@ -49,7 +49,7 @@ export class AppLayoutComponent {
     private router: Router,
     private commonStore: CommonStoreService,
     private sessionUseCase: SessionUseCaseService,
-    @Inject(APP_BASE_HREF) public baseHref:string
+    @Inject(APP_BASE_HREF) public baseHref: string
   ) {}
 
   userInfo$ = toObservable(this.commonStore.userInfo);
@@ -112,9 +112,11 @@ export class AppLayoutComponent {
   }
 
   private navigateTools() {
-    document.location.href = environment.data.toolsUrl;
+    const language = window.localStorage.getItem('language');
+    const urlRedirect = environment.data.toolsUrl + '/' + language;
+    document.location.href = urlRedirect;
   }
-  
+
   private navigateBlog() {
     document.location.href = environment.data.blogUrl;
   }
