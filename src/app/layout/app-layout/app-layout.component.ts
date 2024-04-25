@@ -113,7 +113,10 @@ export class AppLayoutComponent {
 
   private navigateTools() {
     const language = window.localStorage.getItem('language');
-    const urlRedirect = environment.data.toolsUrl + '/' + language;
+    const urlRedirect = environment.data.toolsUrl.replace(
+      ':language',
+      language ?? 'es'
+    );
     document.location.href = urlRedirect;
   }
 

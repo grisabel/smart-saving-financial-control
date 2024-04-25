@@ -2,7 +2,7 @@ export const environment = {
   data: {
     logoutUrl: 'https://smartsavings.dev/login',
     toolsUrl:
-      'https://smartsavings.dev/login/financial-tools/compound-interest-calculator',
+      'https://smartsavings.dev/login/:language/financial-tools/compound-interest-calculator',
     blogUrl: 'https://blog.smartsavings.dev',
   },
   mock: false,
@@ -22,4 +22,4 @@ export const environment = {
       logout: '/session/logout',
     },
   },
-}
+};
