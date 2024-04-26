@@ -36,15 +36,14 @@
     </div>
   </div>
   <ng-container *ngIf="options.length > 0">
-    <datalist [id]="'list-' + id" class="dropdown" role="listbox">
-      <option
+    <div [id]="'list-' + id" class="dropdown" role="listbox">
+      <div
         *ngFor="let option of options; let i = index"
-        [value]="option.value"
         (click)="onClickDropdownItem(option)"
         [ngClass]="{ option: true, 'option--active': optionFocus() === i }"
       >
         {{ option.label | transloco}}
-      </option>
-    </datalist>
+      </div>
+    </div>
   </ng-container>
 </div>

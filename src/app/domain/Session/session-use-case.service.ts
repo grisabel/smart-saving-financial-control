@@ -39,6 +39,11 @@ export class SessionUseCaseService {
     return new Promise((resolve, reject) => {
       const access_token = this.getAccessToken();
 
+      if(!access_token){
+        document.location.href = environment.data.logoutUrl;
+        return;
+      }
+
       this.httpService.setAccessToken(access_token);
 
       this.loadingService.show();
