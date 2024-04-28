@@ -80,11 +80,6 @@ export class CategoryService {
         icon: 'water',
       },
       {
-        id: 'EXPENSE-9',
-        concept: 'Estudios',
-        icon: 'studies',
-      },
-      {
         id: 'EXPENSE-10',
         concept: 'Ocio',
         icon: 'beers',
