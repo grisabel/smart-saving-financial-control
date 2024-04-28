@@ -30,6 +30,15 @@ export class CategoryStepComponent implements OnInit {
 
   ngOnInit(): void {
     this.categorySelectedId = this.addConceptStoreService.conceptId();
+
+    if (this.titleOpen === 'openIncome') {
+      this.categories = this.categoryService.getIcomeList();
+      this.icons = this.categories.map((c) => c.icon);
+    } else {
+      this.categories = this.categoryService.getExpenseList();
+      this.icons = this.categories.map((c) => c.icon);
+    }
+
     this.categorySelected = this.categories.reduce((acc, c) => {
       if (c.id === this.categorySelectedId) {
         return c.icon;
