@@ -1,3 +1,8 @@
-<button type="button" (click)="handleClick()" [disabled]="disabled">
+<button
+  type="button"
+  (click)="handleClick()"
+  [disabled]="disabled"
+  aria-label="arrow-change"
+>
   <app-icon [name]="iconName" class="icon" [ngClass]="iconName"></app-icon>
 </button>
