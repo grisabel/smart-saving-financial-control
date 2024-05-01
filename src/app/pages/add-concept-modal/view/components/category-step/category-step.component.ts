@@ -51,9 +51,11 @@ export class CategoryStepComponent implements OnInit {
     if (this.titleOpen === 'openIncome') {
       this.categories = this.categoryService.getIcomeList();
       this.icons = this.categories.map((c) => c.icon);
+      this.addConceptStoreService.conceptType.set('income');
     } else {
       this.categories = this.categoryService.getExpenseList();
       this.icons = this.categories.map((c) => c.icon);
+      this.addConceptStoreService.conceptType.set('expense');
     }
   }
 
