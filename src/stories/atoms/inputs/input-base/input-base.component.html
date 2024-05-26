@@ -1,0 +1,20 @@
+<div class="inputWp">
+  <label for="{{ id }}" class="label">{{ label }}</label>
+  <div class="inputContainer">
+    <input
+      [id]="id ?? ''"
+      class="input"
+      [placeholder]="placeholder"
+      [type]="type"
+      [value]="value"
+      (input)="handleChange($event)"
+      autoComplete="off"
+      [maskito]="optionsMask ?? null"
+      [disabled]="disabled"
+      [attr.maxlength]="maxlength"
+    />
+    <span class="icon">
+      <ng-content select="[icon]"></ng-content>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+.DotStepWp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .dot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 5px;
+      width: 5px;
+      padding: 5px;
+      border-radius: 100%;
+
+      background-color: #e0e0e0;
+
+      margin-left: 8px;
+      svg {
+        color: var(--blue-main);
+      }
+    }
+    &:first-child {
+      .dot {
+        margin-left: 0;
+      }
+    }
+
+    &--error {
+      .dot {
+        background-color: var(--red-main);
+        border-color: var(--red-main);
+        svg {
+          color: var(--red-main);
+        }
+      }
+    }
+    &--complete {
+      .dot {
+        background-color: var(--blue-main);
+        border-color: var(--blue-main);
+        svg {
+          color: var(--blue-main);
+        }
+      }
+    }
+  }
+}

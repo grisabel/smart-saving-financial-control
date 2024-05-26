@@ -1,0 +1,8 @@
+<button
+  type="button"
+  (click)="handleClick()"
+  [style.background]="backgroundColor"
+  [ngClass]="{ readOnly: readOnly }"
+>
+  <app-icon [name]="iconName" class="icon" [ngClass]="iconName"></app-icon>
+</button>

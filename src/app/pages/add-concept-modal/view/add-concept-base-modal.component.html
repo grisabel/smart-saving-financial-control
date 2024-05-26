@@ -1,0 +1,27 @@
+<app-modal-steps
+  [open]="open"
+  [title]="title"
+  (onClose)="onCloseHandler()"
+  [descriptions]="descriptions"
+  [steps]="[step1, step2, step3, step4]"
+  [confirmBtns]="confirmBtns"
+  (onConfirm)="onConfirmHandler()"
+  [cancelBtns]="cancelBtns"
+  (onCancel)="onCancelHandler()"
+>
+  <ng-template #step1>
+    <app-account-step />
+  </ng-template>
+
+  <ng-template #step2>
+    <app-category-step [titleOpen]="titleOpen" />
+  </ng-template>
+
+  <ng-template #step3>
+    <app-concept-step />
+  </ng-template>
+
+  <ng-template #step4>
+    <app-summary-step />
+  </ng-template>
+</app-modal-steps>

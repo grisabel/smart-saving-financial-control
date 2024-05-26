@@ -1,0 +1,13 @@
+<div class="BalanceConceptWp">
+  <p
+    [ngClass]="{
+      amount: true,
+      'amount--income': concept === 'income',
+      'amount--expense': concept === 'expense'
+    }"
+  >
+    {{ amount }} €
+  </p>
+  <p class="concept" *ngIf="concept === 'income'">{{'btn-income' | transloco}}</p>
+  <p class="concept" *ngIf="concept === 'expense'">{{'btn-expenses' | transloco}}</p>
+</div>

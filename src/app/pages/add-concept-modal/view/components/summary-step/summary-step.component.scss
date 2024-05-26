@@ -1,0 +1,23 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 375px;
+
+  .dateCategory {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    app-input-text-date {
+      flex-grow: 1;
+    }
+  }
+
+  ::ng-deep {
+    .inputWp,
+    .inputTextArea {
+      background-color: var(--blue-container);
+    }
+  }
+}

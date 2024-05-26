@@ -1,0 +1,30 @@
+<div class="CalendarRangePickerWP">
+  <app-circle-btn
+    *ngIf="!onlyRead"
+    iconName="chevron-left"
+    class="decrement"
+    [disabled]="disableDecrement()"
+    (onClick)="handleDecrement()"
+  />
+  <app-card-base
+    (onClick)="handleClick()"
+    [disabled]="onlyRead || disableFormatChange"
+  >
+    <div class="container">
+      <div class="data">
+        <p class="title">{{ (isYear() ? "year" : "month") | transloco }}</p>
+        <p class="date">{{ displayDate() }}</p>
+      </div>
+      <div class="icon">
+        <app-icon [name]="isYear() ? 'calendar-year' : 'calendar-month'" />
+      </div>
+    </div>
+  </app-card-base>
+  <app-circle-btn
+    *ngIf="!onlyRead"
+    iconName="chevron-right"
+    class="increment"
+    [disabled]="disableIncrement()"
+    (onClick)="handleIncrement()"
+  />
+</div>

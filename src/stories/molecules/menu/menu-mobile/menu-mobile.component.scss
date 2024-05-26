@@ -1,0 +1,13 @@
+@import "variables/zIndex.scss";
+
+.MenuMobile {
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+  background-color: #ffffff;
+  app-menu-item-mobile {
+    flex-grow: 1;
+  }
+
+  z-index: z-index(modal-backdrop);
+}

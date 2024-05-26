@@ -1,0 +1,27 @@
+<!-- todo translate -->
+<app-card-base (onClick)="handleClick()">
+  <div class="head">
+    <div class="info">
+      <p class="title">{{ accountName() | transloco}}</p>
+      <p class="subtitle">{{'last-move' | transloco}}: {{ lastMovement() }}</p>
+    </div>
+    <div class="amountInfo">
+      <p
+        [ngClass]="{
+          amount: true,
+          'amount--positive': total() > 0,
+          'amount--negative': total() < 0
+        }"
+      >
+        {{ total().toFixed(2) }} €
+      </p>
+    </div>
+  </div>
+  <div class="content">
+    <app-balance-concept [concept]="'income'" [amount]="income().toFixed(2)" />
+    <app-balance-concept
+      [concept]="'expense'"
+      [amount]="expense().toFixed(2)"
+    />
+  </div>
+</app-card-base>

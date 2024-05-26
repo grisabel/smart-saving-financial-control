@@ -1,0 +1,34 @@
+<div class="summary">
+  <app-dropdown
+    id="dropdown"
+    [label]="'input-category-label' | transloco"
+    [placeholder]="'input-account-placeholder' | transloco"
+    [disabled]="true"
+    [options]="[{ value: 'a', label: 'Cuenta Principal' }]"
+  />
+  <div class="dateCategory">
+    <app-input-text-date
+      [label]="'input-date-label' | transloco"
+      [disabled]="disabled"
+      [value]="valueDate"
+    />
+    <app-category-btn
+      [iconName]="categorySelected"
+      [readOnly]="readOnly"
+    ></app-category-btn>
+  </div>
+  <app-input-number
+    name="euro"
+    [label]="'input-amount-label' | transloco"
+    placeholder="0,00"
+    [disabled]="disabled"
+    [value]="valueAmount"
+  />
+  <app-input-text-area
+    id="comment"
+    [label]="'input-comment-label' | transloco"
+    placeholder=""
+    [disabled]="disabled"
+    [value]="valueComment"
+  />
+</div>

@@ -1,0 +1,46 @@
+@import "variables/fonts.scss";
+
+.MenuItemDesktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+
+  .title {
+    @include f--b2-light;
+    color: var(--color-carbon);
+    cursor: pointer;
+    padding-left: 16px;
+  }
+
+  ::ng-deep {
+    svg {
+      transform: scale(1.5);
+      cursor: pointer;
+    }
+  }
+
+  &--active {
+    .title {
+      color: var(--blue-main);
+    }
+
+    ::ng-deep {
+      svg {
+        color: var(--blue-main);
+      }
+    }
+  }
+  &:hover {
+    .title {
+      color: var(--blue-main);
+    }
+
+    ::ng-deep {
+      svg {
+        color: var(--blue-main);
+      }
+    }
+  }
+}

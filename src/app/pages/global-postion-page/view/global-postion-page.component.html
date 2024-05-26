@@ -1,0 +1,20 @@
+<div>
+  <app-section-summary />
+
+  <app-section-actions [openIncome]="openIncome" [openExpense]="openExpense" />
+
+  <app-section-account />
+
+  <app-section-habits />
+
+  <app-add-concept-base-modal
+    [open]="openIncome"
+    titleOpen="openIncome"
+    (onConfirm)="handleAddedConcept()"
+  />
+  <app-add-concept-base-modal
+    [open]="openExpense"
+    titleOpen="openExpense"
+    (onConfirm)="handleAddedConcept()"
+  />
+</div>

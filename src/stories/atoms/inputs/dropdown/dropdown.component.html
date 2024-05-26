@@ -1,0 +1,49 @@
+<div
+  class="DropdownWp"
+  [ngClass]="{
+    'DropdownWp--open': openDropdown(),
+    'DropdownWp--disabled': disabled
+  }"
+  (blur)="openDropdown.set(false)"
+  (focus)="openDropdownHandler()"
+  (keydown)="handleKeyDropdown($event)"
+  tabindex="0"
+  #dropdownRef
+>
+  <div class="inputWp">
+    <label class="label">{{ label | transloco}}</label>
+    <div class="inputContainer">
+      <input
+        [id]="id"
+        [name]="'list-' + id"
+        list=""
+        [placeholder]="placeholder | transloco"
+        [value]="inputText() | transloco"
+        autoComplete="off"
+        disabled
+        role="combobox"
+        class="input"
+      />
+      <div class="icons">
+        <app-icon
+          *ngIf="inputText() && openDropdown()"
+          name="close-square"
+          (onClick)="onResetDropdown($event)"
+        >
+        </app-icon>
+        <app-icon name="chevron-down"></app-icon>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="options.length > 0">
+    <div [id]="'list-' + id" class="dropdown" role="listbox">
+      <div
+        *ngFor="let option of options; let i = index"
+        (click)="onClickDropdownItem(option)"
+        [ngClass]="{ option: true, 'option--active': optionFocus() === i }"
+      >
+        {{ option.label | transloco}}
+      </div>
+    </div>
+  </ng-container>
+</div>

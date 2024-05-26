@@ -1,0 +1,12 @@
+<div *ngIf="steps" class="DotStepWp">
+  <div
+    *ngFor="let step of steps; let i = index"
+    [ngClass]="{
+      step: true,
+      'step--error': step.hasError,
+      'step--complete': step.isTransited
+    }"
+  >
+    <div class="dot"></div>
+  </div>
+</div>

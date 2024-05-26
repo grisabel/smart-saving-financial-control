@@ -1,0 +1,15 @@
+@import "variables/fonts.scss";
+.dataWP {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+
+  .title {
+    @include f--b1-bold;
+  }
+
+  .data {
+    @include f--b1-regular;
+  }
+}

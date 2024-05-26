@@ -1,0 +1,17 @@
+@import "variables/fonts.scss";
+
+.text {
+  @include f--b1-regular;
+  margin-top: 16px;
+}
+
+.tableWp {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  width: 100%;
+  .table {
+    width: 100%;
+    max-width: 500px;
+  }
+}

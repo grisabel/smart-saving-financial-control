@@ -1,0 +1,17 @@
+<button
+  type="button"
+  [ngClass]="{
+    colorBtn: true,
+    actionBtnWp: true,
+    'actionBtnWp--disabled': disabled
+  }"
+  (click)="handleClick()"
+>
+  <app-card-base [disabled]="disabled">
+    <div class="actionBtnContent">
+      <app-icon name="add" class="icon"></app-icon>
+      <span class="label"> {{ label }} </span>
+      <app-icon *ngIf="iconName" [name]="iconName" class="icon"></app-icon>
+    </div>
+  </app-card-base>
+</button>

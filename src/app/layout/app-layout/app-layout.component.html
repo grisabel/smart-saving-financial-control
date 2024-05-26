@@ -1,0 +1,46 @@
+<div class="layout">
+  <app-desktop-layout class="layout-desktop" *ngIf="!isMobile()">
+    <div class="menu" slot="menu">
+      <div class="user">
+        <app-logo />
+
+        <ng-container *ngIf="userInfo$ | async as userInfo; else loading">
+          <app-user-info
+            [src]="src"
+            [userName]="
+              (userInfo?.firstName ?? '') + ' ' + (userInfo?.lastName ?? '')
+            "
+            [objective]="(userInfo?.objective ?? '') | transloco "
+          />
+        </ng-container>
+        <ng-template #loading>
+          <app-user-info [src]="src" userName="" objective="" />
+        </ng-template>
+      </div>
+      <app-divisor class="divisor" />
+      <app-menu-desktop [items]="logout" (onChange)="handleLogout()" />
+      <app-divisor class="divisor" />
+      <app-menu-desktop
+        [items]="items"
+        [initialActive]="currentMenu()"
+        (onChange)="handleMenuChange($event)"
+      />
+    </div>
+    <div class="content" slot="content">
+      <ng-container *ngTemplateOutlet="content" />
+    </div>
+  </app-desktop-layout>
+
+  <app-mobile-layout class="layout-mobile" *ngIf="isMobile()">
+    <ng-container slot="menu"
+      ><app-menu-mobile
+        class="menu"
+        [items]="items"
+        [initialActive]="currentMenu()"
+        (onChange)="handleMenuChange($event)"
+    /></ng-container>
+    <div class="content" slot="content">
+      <ng-container *ngTemplateOutlet="content" />
+    </div>
+  </app-mobile-layout>
+</div>

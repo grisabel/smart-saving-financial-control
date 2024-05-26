@@ -1,0 +1,11 @@
+<div class="MenuDesktop">
+  <ng-container *ngFor="let item of items">
+    <app-menu-item-desktop
+      [active]="currentId() === item.id"
+      [id]="item.id"
+      [icon]="item.icon"
+      [title]="item.title | transloco"
+      (onClick)="handleMenuChange($event)"
+    />
+  </ng-container>
+</div>

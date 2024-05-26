@@ -1,0 +1,27 @@
+<div class="conceptStep">
+  <app-input-number
+    name="euro"
+    [label]="'input-amount-label' | transloco"
+    placeholder="0,00"
+    [value]="valueAmount"
+    (onChange)="handleValueAmount($event)"
+  />
+  <app-input-text-date
+    [label]="'input-date-label' | transloco"
+    [value]="valueDate"
+    (onChange)="handleValueDate($event)"
+  />
+  <p *ngIf="!isValidUntilDate" class="isInValidDate">
+    {{'input-date-error' | transloco}}
+  </p>
+  <p *ngIf="!isValidSinceDate" class="isInValidDate">
+    {{'input-date-error2' | transloco}} {{ sinceDate.date }}.
+  </p>
+  <app-input-text-area
+    id="comment"
+    [label]="'input-comment-label' | transloco"
+    placeholder=""
+    [value]="valueComment"
+    (onChange)="handleValueComment($event)"
+  />
+</div>
