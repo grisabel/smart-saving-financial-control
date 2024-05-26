@@ -4,6 +4,7 @@ import {
   Input,
   TemplateRef,
   signal,
+  Inject,
 } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -14,10 +15,12 @@ import { CommonStoreService } from '@app/store/Common/common-store.service';
 import { MenuItem } from '@stories/molecules/menu/shared/menu-item.types';
 import { Subscription, filter } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { APP_BASE_HREF } from '@angular/common';
 
 const MY_ACCOUNT_ID = 'mi-cuenta';
 const FINANCIAL_ID = 'finanzas';
 const TOOLS_ID = 'herramientas';
+const BLOG_ID = 'blog';
 const SRC_USER = '/assets/images/profile.png';
 
 @Component({
@@ -27,7 +30,7 @@ const SRC_USER = '/assets/images/profile.png';
 })
 export class AppLayoutComponent {
   isMobile = signal(true);
-  src = SRC_USER;
+  src = this.baseHref + SRC_USER;
 
   @Input() content!: TemplateRef<any>;
 
@@ -35,7 +38,7 @@ export class AppLayoutComponent {
   items: MenuItem[] = [
     { id: FINANCIAL_ID, icon: 'financial', title: 'btn-finances' },
     { id: TOOLS_ID, icon: 'tools', title: 'btn-tool' },
-    { id: 'contenido', icon: 'book', title: 'btn-content' },
+    { id: BLOG_ID, icon: 'book', title: 'btn-content' },
     { id: MY_ACCOUNT_ID, icon: 'account', title: 'btn-my-account' },
   ];
   logout: MenuItem[] = [{ id: 'logout', icon: 'logout', title: 'btn-logout' }];
@@ -45,7 +48,8 @@ export class AppLayoutComponent {
   constructor(
     private router: Router,
     private commonStore: CommonStoreService,
-    private sessionUseCase: SessionUseCaseService
+    private sessionUseCase: SessionUseCaseService,
+    @Inject(APP_BASE_HREF) public baseHref: string
   ) {}
 
   userInfo$ = toObservable(this.commonStore.userInfo);
@@ -90,6 +94,9 @@ export class AppLayoutComponent {
       case TOOLS_ID:
         this.navigateTools();
         break;
+      case BLOG_ID:
+        this.navigateBlog();
+        break;
 
       default:
         break;
@@ -105,7 +112,16 @@ export class AppLayoutComponent {
   }
 
   private navigateTools() {
-    document.location.href = environment.data.toolsUrl;
+    const language = window.localStorage.getItem('language');
+    const urlRedirect = environment.data.toolsUrl.replace(
+      ':language',
+      language ?? 'es'
+    );
+    document.location.href = urlRedirect;
+  }
+
+  private navigateBlog() {
+    document.location.href = environment.data.blogUrl;
   }
 
   private navigateFinancial() {

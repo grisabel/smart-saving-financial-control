@@ -3,6 +3,7 @@ export const environment = {
     logoutUrl: 'https://www.google.es/',
     toolsUrl:
       'http://localhost:4201/financial-tools/compound-interest-calculator',
+    blogUrl: 'http://localhost:8080',
   },
   mock: true,
   endpoints: {

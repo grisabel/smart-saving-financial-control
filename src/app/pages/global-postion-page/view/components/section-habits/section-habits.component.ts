@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class SectionHabitsComponent {
   options = {
     type: 'module' as 'module',
-    remoteEntry: 'http://localhost:5173/assets/remoteHabitsMfe.js',
+    remoteEntry: 'https://habits-mfe.smartsavings.dev/assets/remoteHabitsMfe.js',
     exposedModule: './HabitsMfe',
     elementName: 'habits-mfe',
   };

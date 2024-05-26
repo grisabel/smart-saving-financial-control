@@ -106,8 +106,9 @@ export class AddConceptBaseModalComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['titleOpen']) {
-      if (this.titleOpen === 'openIncome') {
+    if (changes['titleOpen'] && changes['titleOpen'].currentValue) {
+      let _titleOpen = changes['titleOpen'].currentValue;
+      if (_titleOpen === 'openIncome') {
         this.addConceptStoreService.conceptType.set('income');
       } else {
         this.addConceptStoreService.conceptType.set('expense');
